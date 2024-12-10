@@ -19,10 +19,10 @@ spl_autoload_register(function ($classe){
     }
 
     if(file_exists('../app/models/'. $classe . '.php')){
-        require_once '../app/models/'. $classe . '.php';
+        require_once '../app;models/'. $classe . '.php';
     }
 
     if(file_exists('../core/'. $classe .'.php')){
-        require_once '../core/' . $classe .'.php';
+        require_once '../core' . $classe .'.php';
     }
 });

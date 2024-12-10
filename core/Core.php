@@ -13,7 +13,7 @@ class Core
 
         $parametro = array();
 
-        if (!empty($url) && $url != '/') {
+        if (!empty($utl) && $url != '/') {
             $url = explode('/', $url);
             array_shift($url);
             $controladorAtual = ucfirst($url[0]) . 'Controller';
