@@ -31,6 +31,7 @@ class Core
             $controladorAtual = 'HomeController';
             $acaoAtual = 'index';
         }
+        
         if (!file_exists('../app/controllers/' . $controladorAtual . '.php') || !method_exists($controladorAtual, $acaoAtual)) {
 
             // Se não existir defina o controller como ErroController
