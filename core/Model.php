@@ -1,4 +1,5 @@
 <?php
+
 class Model
 {
     protected $db;
@@ -11,8 +12,9 @@ class Model
             $this->db = new PDO('mysql:dbname=' . DB_NAME . ';host=' . DB_HOST, DB_USER, DB_PASS);
 
             $this->db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
         } catch (PDOException $e) {
-            echo "Falha de conecão:" . $e->getMessage();
+            echo "Falha de conexão:" . $e->getMessage();
             //throw $th;
         }
     }
