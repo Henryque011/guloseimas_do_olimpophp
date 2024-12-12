@@ -1,5 +1,11 @@
 <?php 
-define("BASE_URL","http://localhost/guloseimas_do_olimpophp/public");
+
+if(session_status() == PHP_SESSION_NONE){
+    session_start();
+}
+
+// define("BASE_URL","http://localhost/guloseimas_do_olimpophp/public");
+// define("BASE_URL","http://localhost/guloseimas_do_olimpophp/guloseimas_do_olimpophp/public/");
 
 // define("DB_HOST", "smpsistema.com.br");
 // define("DB_NAME", "u283879542_henryque");
