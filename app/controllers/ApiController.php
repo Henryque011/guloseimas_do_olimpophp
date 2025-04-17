@@ -84,4 +84,73 @@ class ApiController extends Controller
             exit;
         }
     }
+
+    public function salvarCliente()
+    {
+        try {
+            // Recebe os dados do corpo da requisição
+            $input = json_decode(file_get_contents("php://input"), true);
+
+            // Validação básica (pode expandir se quiser)
+            $camposObrigatorios = ['nome', 'email', 'cpf', 'data_nasc', 'telefone', 'endereco', 'bairro', 'cidade', 'estado', 'cep', 'senha'];
+            foreach ($camposObrigatorios as $campo) {
+                if (empty($input[$campo])) {
+                    http_response_code(400);
+                    echo json_encode(['erro' => "O campo '$campo' é obrigatório."]);
+                    return;
+                }
+            }
+
+            // Pega os dados
+            $nome = $input['nome'];
+            $email = $input['email'];
+            $cpf = $input['cpf'];
+            $data_nasc = $input['data_nasc'];
+            $telefone = $input['telefone'];
+            $endereco = $input['endereco'];
+            $bairro = $input['bairro'];
+            $cidade = $input['cidade'];
+            $estado = $input['estado']; // sigla
+            $cep = $input['cep'];
+            $senha = password_hash($input['senha'], PASSWORD_DEFAULT);
+
+            // Tenta salvar o cliente
+            $sucesso = $this->clienteModel->salvarCliente($nome, $email, $cpf, $data_nasc, $telefone, $endereco, $bairro, $cidade, $estado, $cep, $senha);
+
+            if (!$sucesso) {
+                http_response_code(500);
+                echo json_encode(['erro' => 'Erro ao salvar cliente.']);
+                return;
+            }
+
+            // Buscar o cliente para pegar o ID
+            $cliente = $this->clienteModel->buscarCliente($email);
+            if (!$cliente) {
+                http_response_code(500);
+                echo json_encode(['erro' => 'Erro ao recuperar cliente salvo.']);
+                return;
+            }
+
+            // Gerar o token
+            require_once 'core/TokenHelper.php';
+            $TokenHelper = new TokenHelper();
+            $token = $TokenHelper::gerar([
+                'id' => $cliente['id_cliente'],
+                'email' => $cliente['email_cliente']
+            ]);
+
+            echo json_encode([
+                'mensagem' => 'Cliente cadastrado com sucesso.',
+                'token' => $token,
+                'cliente' => [
+                    'id' => $cliente['id_cliente'],
+                    'nome' => $cliente['nome_cliente'],
+                    'email' => $cliente['email_cliente']
+                ]
+            ]);
+        } catch (Exception $e) {
+            http_response_code(500);
+            echo json_encode(['erro' => 'Erro interno: ' . $e->getMessage()]);
+        }
+    }
 }
