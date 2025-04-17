@@ -36,15 +36,16 @@ class CriarcontaController extends Controller
             $bairro = strip_tags(trim(filter_input(INPUT_POST, 'bairro')));
             $cidade = strip_tags(trim(filter_input(INPUT_POST, 'cidade')));
             $estado = strtoupper(strip_tags(trim(filter_input(INPUT_POST, 'estado'))));
+            $cep = strip_tags(trim(filter_input(INPUT_POST, 'cep')));
             $senha = strip_tags(trim(filter_input(INPUT_POST, 'senha')));
             $confirmar_senha = strip_tags(trim(filter_input(INPUT_POST, 'confirmar_senha')));
 
             // Validação dos dados
-            if ($nome && $email && $cpf && $data_nasc && $telefone && $endereco && $bairro && $cidade && $estado && $senha) {
+            if ($nome && $email && $cpf && $data_nasc && $telefone && $endereco && $bairro && $cidade && $estado && $cep && $senha) {
                 if ($senha === $confirmar_senha) {
                     // Inserir no banco de dados
                     $clienteModel = new Cliente();
-                    $resultado = $clienteModel->salvarCliente($nome, $email, $cpf, $data_nasc, $telefone, $endereco, $bairro, $cidade, $estado, $senha);
+                    $resultado = $clienteModel->salvarCliente($nome, $email, $cpf, $data_nasc, $telefone, $endereco, $bairro, $cidade, $estado, $cep, $senha);
 
                     if ($resultado) {
                         $_SESSION['sucesso'] = "Conta criada com sucesso!";
