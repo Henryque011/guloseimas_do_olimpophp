@@ -2,7 +2,8 @@
 
 class CriarcontaController extends Controller
 {
-    public function index(){
+    public function index()
+    {
         $dados = array();
 
         // Obter os estados do banco de dados
@@ -17,7 +18,8 @@ class CriarcontaController extends Controller
         $this->carregarViews('criarconta', $dados);
     }
 
-    public function salvar(){
+    public function salvar()
+    {
         // Inicia a sessão, caso ainda não esteja iniciada
         if (session_status() === PHP_SESSION_NONE) {
             session_start();
@@ -48,8 +50,7 @@ class CriarcontaController extends Controller
                         $_SESSION['sucesso'] = "Conta criada com sucesso!";
                         header('Location: ' . BASE_URL . 'criarconta'); // Agora volta para a página de criação
                         exit;
-                    }
-                     else {
+                    } else {
                         $_SESSION['erro'] = "Erro ao criar conta. Verifique os dados.";
                     }
                 } else {
