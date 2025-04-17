@@ -51,11 +51,6 @@ class ClienteController extends Controller
         $this->carregarViews('painel_cliente/painel_cliente', $dados);
     }
 
-
-
-
-
-
     public  function editar_cliente()
     {
         // Verifica se o usuário está logado
