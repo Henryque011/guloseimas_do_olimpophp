@@ -1,20 +1,10 @@
 <?php
 
-
-
 class Cliente extends Model
 {
 
-
-
-
-
     public function buscarCliente($email)
     {
-
-
-
-
 
         $sql = "SELECT * FROM tbl_cliente WHERE email_cliente = :email AND status_cliente = 'Ativo'";
         $stmt = $this->db->prepare($sql);
@@ -23,8 +13,7 @@ class Cliente extends Model
         return $stmt->fetch(PDO::FETCH_ASSOC);
     }
 
-
-    public function salvarCliente($nome, $email, $cpf, $data_nasc, $telefone, $endereco, $bairro, $cidade, $sigla_estado, $senha)
+    public function salvarCliente($nome, $email, $cpf, $data_nasc, $telefone, $endereco, $bairro, $cidade, $sigla_estado, $cep, $senha)
     {
         // Buscar o ID do estado com base na sigla fornecida
         $sqlEstado = "SELECT id_uf FROM tbl_estado WHERE sigla_uf= :sigla_estado LIMIT 1";
@@ -40,8 +29,8 @@ class Cliente extends Model
 
         // Inserir os dados do cliente, incluindo status_cliente como 'Ativo'
         $sql = "INSERT INTO tbl_cliente 
-            (nome_cliente, cpf_cliente, data_nasc_cliente, email_cliente, senha_cliente, telefone_cliente, endereco_cliente, bairro_cliente, cidade_cliente, id_uf, status_cliente) 
-            VALUES (:nome, :cpf, :data_nasc, :email, :senha, :telefone, :endereco, :bairro, :cidade, :id_uf, 'Ativo')";
+            (nome_cliente, cpf_cliente, data_nasc_cliente, email_cliente, senha_cliente, telefone_cliente, endereco_cliente, bairro_cliente, cidade_cliente, cep_cliente, id_uf, status_cliente) 
+            VALUES (:nome, :cpf, :data_nasc, :email, :senha, :telefone, :endereco, :bairro, :cidade, :cep, :id_uf, 'Ativo')";
 
         $stmt = $this->db->prepare($sql);
         $stmt->bindValue(':nome', $nome);
@@ -52,13 +41,12 @@ class Cliente extends Model
         $stmt->bindValue(':endereco', $endereco);
         $stmt->bindValue(':bairro', $bairro);
         $stmt->bindValue(':cidade', $cidade);
+        $stmt->bindValue(':cep', $cep);
         $stmt->bindValue(':id_uf', $idEstado);
         $stmt->bindValue(':senha', $senha);
 
         return $stmt->execute();
     }
-
-
 
     public function buscarPorEmail($email): ?array
     {
@@ -69,13 +57,11 @@ class Cliente extends Model
         return $usuario ?: null; // Retorna null se não encontrar o e-mail
     }
 
-
     public function atualizarSenha($email, $novaSenha): bool
     {
         $stmt = $this->db->prepare("UPDATE tbl_cliente SET senha_cliente = ? WHERE email_cliente = ?");
         return $stmt->execute([$novaSenha, $email]); // Passa os parâmetros corretamente
     }
-
 
     public function atualizarCliente($email, $nome, $cpf, $telefone, $data_nascimento)
     {
@@ -97,10 +83,7 @@ class Cliente extends Model
         $stmt = $this->db->prepare($sql);
         $stmt->bindParam(':senha', $nova_senha);
         $stmt->bindParam(':email', $email);
-    
+
         return $stmt->execute();
     }
-
-
-    
 }
