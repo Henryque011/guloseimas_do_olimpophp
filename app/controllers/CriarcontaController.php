@@ -40,6 +40,12 @@ class CriarcontaController extends Controller
             $senha = strip_tags(trim(filter_input(INPUT_POST, 'senha')));
             $confirmar_senha = strip_tags(trim(filter_input(INPUT_POST, 'confirmar_senha')));
 
+            if (!preg_match('/^\d{8}$/', preg_replace('/\D/', '', $cep))) {
+                $_SESSION['erro'] = "CEP inválido! Ele deve conter exatamente 8 dígitos.";
+                header('Location: ' . BASE_URL . 'criarconta');
+                exit;
+            }
+
             // Validação dos dados
             if ($nome && $email && $cpf && $data_nasc && $telefone && $endereco && $bairro && $cidade && $estado && $cep && $senha) {
                 if ($senha === $confirmar_senha) {
