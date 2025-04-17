@@ -67,6 +67,11 @@
                                 </div>
 
                                 <div class="email_entrar">
+                                    <label for="cep"></label>
+                                    <input type="text" id="cep" name="cep" required placeholder="CEP ">
+                                </div>
+
+                                <div class="email_entrar">
                                     <label for="cpf"></label>
                                     <input type="text" id="cpf" name="cpf" required placeholder="CPF ">
                                 </div>
@@ -261,6 +266,29 @@
             });
         });
     </script>
+    <!-- api correios -->
+    <script>
+        document.getElementById('cep').addEventListener('blur', function() {
+            let cep = this.value.replace(/\D/g, '');
+
+            if (cep.length !== 8) return;
+
+            fetch(`https://viacep.com.br/ws/${cep}/json/`)
+                .then(response => response.json())
+                .then(data => {
+                    if (!data.erro) {
+                        document.getElementById('endereco').value = data.logradouro;
+                        document.getElementById('bairro').value = data.bairro;
+                        document.getElementById('cidade').value = data.localidade;
+                        document.getElementById('estado').value = data.uf;
+                    } else {
+                        alert("CEP não encontrado.");
+                    }
+                })
+                .catch(() => alert("Erro ao buscar o CEP."));
+        });
+    </script>
+
 </body>
 
 
