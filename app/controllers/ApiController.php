@@ -153,4 +153,72 @@ class ApiController extends Controller
             echo json_encode(['erro' => 'Erro interno: ' . $e->getMessage()]);
         }
     }
+
+        public function cliente()
+    {
+        try {
+            $clienteToken = $this->autenticarToken();
+            $input = json_decode(file_get_contents("php://input"), true);
+
+            if (empty($input['email'])) {
+                http_response_code(400);
+                echo json_encode(['erro' => 'Email não fornecido']);
+                return;
+            }
+
+            $email = $input['email'];
+
+            if ($clienteToken['email_cliente'] != $email) {
+                http_response_code(403);
+                echo json_encode(['erro' => 'Acesso negado.']);
+                return;
+            }
+
+            $dados = $this->clienteModel->buscarCliente($email);
+
+            if (!$dados) {
+                http_response_code(404);
+                echo json_encode(['erro' => 'Cliente não encontrado']);
+                return;
+            }
+
+            echo json_encode($dados, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE);
+        } catch (Exception $e) {
+            http_response_code(500);
+            echo json_encode(['erro' => 'Erro interno: ' . $e->getMessage()]);
+        }
+    }
+
+
+    // public function cliente($email)
+    // {
+    //     var_dump($email);
+    //     try {
+    //         $cliente = $this->autenticarToken();
+
+    //         // Verifica se o token está válido e pertence ao cliente requisitado
+    //         if (!$cliente || !isset($cliente['email_cliente']) || $cliente['email_cliente'] != $email) {
+    //             http_response_code(403);
+    //             echo json_encode(['erro' => 'Acesso negado.']);
+    //             return;
+    //         }
+
+    //         // Busca os dados completos do cliente no banco
+    //         $dados = $this->clienteModel->buscarCliente($email);
+
+    //         if (!$dados) {
+    //             http_response_code(404);
+    //             echo json_encode(['erro' => 'Cliente não encontrado']);
+    //             return;
+    //         }
+
+    //         echo json_encode($dados, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE);
+    //     } catch (Exception $e) {
+    //         http_response_code(500);
+    //         echo json_encode([
+    //             'erro' => 'Erro interno no servidor',
+    //             'detalhe' => $e->getMessage()
+    //         ], JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE);
+    //     }
+    // }
 }
