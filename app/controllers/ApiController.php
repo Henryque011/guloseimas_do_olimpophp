@@ -154,37 +154,76 @@ class ApiController extends Controller
         }
     }
 
+    public function login()
+    {
+        $email = $_GET['email_cliente'] ?? null;
+        $senha = $_GET['senha_cliente'] ?? null;
+
+        if (!$email || !$senha) {
+            http_response_code(400);
+            echo json_encode(['erro' => 'E-mail ou senha são obrigatórios'], JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE);
+            return;
+        }
+
+        $cliente = $this->clienteModel->buscarCliente($email);
+
+        if (!$cliente || $senha !== $cliente['senha_cliente']) {
+            http_response_code(401);
+            echo json_encode(['erro' => 'E-mail ou senha inválidos'], JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE);
+            return;
+        }
+
+        $dadosToken = [
+            'id'    => $cliente['id_cliente'],
+            'email' => $cliente['email_cliente'],
+            'exp'   => time() + 3600 // 1 hora de validade
+        ];
+
+        $token = TokenHelper::gerar($dadosToken);
+        //var_dump($token);
+        //var_dump(TokenHelper::validar($token));
+
+        if (!class_exists('TokenHelper')) {
+            die('TokenHelper não foi carregado!');
+        }
+
+        echo json_encode([
+            'mensagem' => 'Login realizado com sucesso',
+            'token'    => $token
+        ], JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE);
+    }
+
     public function cliente()
     {
         try {
             $clienteToken = $this->autenticarToken();
             $input = json_decode(file_get_contents("php://input"), true);
-    
+
             // Verifica se o e-mail foi enviado
             if (empty($input['email'])) {
                 http_response_code(400);
                 echo json_encode(['erro' => 'Email não fornecido']);
                 return;
             }
-    
+
             $email = $input['email'];
-    
+
             // Verifica se o token pertence ao mesmo e-mail requisitado
             if ($clienteToken['email_cliente'] !== $email) {
                 http_response_code(403);
                 echo json_encode(['erro' => 'Acesso negado.']);
                 return;
             }
-    
+
             // Busca exclusivamente por e-mail
             $cliente = $this->clienteModel->buscarPorEmail($email);
-    
+
             if (!$cliente) {
                 http_response_code(404);
                 echo json_encode(['erro' => 'Cliente não encontrado']);
                 return;
             }
-    
+
             // Retorna os dados do cliente
             echo json_encode($cliente, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE);
         } catch (Exception $e) {
@@ -192,38 +231,4 @@ class ApiController extends Controller
             echo json_encode(['erro' => 'Erro interno: ' . $e->getMessage()]);
         }
     }
-    
-
-
-    // public function cliente($email)
-    // {
-    //     var_dump($email);
-    //     try {
-    //         $cliente = $this->autenticarToken();
-
-    //         // Verifica se o token está válido e pertence ao cliente requisitado
-    //         if (!$cliente || !isset($cliente['email_cliente']) || $cliente['email_cliente'] != $email) {
-    //             http_response_code(403);
-    //             echo json_encode(['erro' => 'Acesso negado.']);
-    //             return;
-    //         }
-
-    //         // Busca os dados completos do cliente no banco
-    //         $dados = $this->clienteModel->buscarCliente($email);
-
-    //         if (!$dados) {
-    //             http_response_code(404);
-    //             echo json_encode(['erro' => 'Cliente não encontrado']);
-    //             return;
-    //         }
-
-    //         echo json_encode($dados, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE);
-    //     } catch (Exception $e) {
-    //         http_response_code(500);
-    //         echo json_encode([
-    //             'erro' => 'Erro interno no servidor',
-    //             'detalhe' => $e->getMessage()
-    //         ], JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE);
-    //     }
-    // }
 }
