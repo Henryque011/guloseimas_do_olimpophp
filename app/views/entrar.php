@@ -69,7 +69,7 @@ unset($_SESSION['login-erro']); // Limpa a sessão para não mostrar sempre
             <article class="site">
                 <div class="lado_a_lado">
                     <div class="forms_contato">
-                        <form method="POST" action="http://localhost/guloseimas_do_olimpophp/public/entrar/entrar">
+                        <form method="POST" action="<?php echo BASE_URL; ?>entrar/entrar">
                             <div class="nome_entrar">
                                 <div class="email_entrar">
                                     <div class="entrar_email">
@@ -89,7 +89,7 @@ unset($_SESSION['login-erro']); // Limpa a sessão para não mostrar sempre
                                 </div>
 
                                 <div class="lembrar">
-                                    <a href="http://localhost/guloseimas_do_olimpophp/public/Recuperarsenha/">Esqueceu a senha?</a>
+                                    <a href="<?php echo BASE_URL; ?>Recuperarsenha/">Esqueceu a senha?</a>
                                     <div class="checkbox">
                                         <input type="checkbox" id="lembrar" name="lembrar">
                                         <label for="lembrar">
