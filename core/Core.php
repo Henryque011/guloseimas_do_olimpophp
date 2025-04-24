@@ -42,7 +42,7 @@ class Core
             $acaoAtual = 'index';
         }
     
-        if (!file_exists(__DIR__ . '../app/controllers/' . $controladorAtual . '.php') || !method_exists($controladorAtual, $acaoAtual)) {
+        if (!file_exists('../app/controllers/' . $controladorAtual . '.php') || !method_exists($controladorAtual, $acaoAtual)) {
             $controladorAtual = 'ErroController';
             $acaoAtual = 'index';
         }
@@ -55,7 +55,7 @@ class Core
         $providedParams = count($parametro);
 
 
-        if (!file_exists(__DIR__ . '../app/controllers/' . $controladorAtual . '.php') || !method_exists($controladorAtual, $acaoAtual)) {
+        if (!file_exists('../app/controllers/' . $controladorAtual . '.php') || !method_exists($controladorAtual, $acaoAtual)) {
             header("Location: /guloseimas_do_olimpophp/public");
             exit;
         }
