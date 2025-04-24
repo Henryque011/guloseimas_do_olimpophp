@@ -42,7 +42,7 @@ class Core
             $acaoAtual = 'index';
         }
     
-        if (!file_exists('../app/controllers/' . $controladorAtual . '.php') || !method_exists($controladorAtual, $acaoAtual)) {
+        if (!file_exists('/../app/controllers/' . $controladorAtual . '.php') || !method_exists($controladorAtual, $acaoAtual)) {
             $controladorAtual = 'ErroController';
             $acaoAtual = 'index';
         }
