@@ -56,10 +56,10 @@
 
 
                     <div class="forms_contato">
-                        <form method="POST" action="http://localhost/guloseimas_do_olimpophp/public/login/login">
+                        <form method="POST" action="<?php echo BASE_URL; ?>login/login">
                             <div style="display: flex; align-items: center; justify-content: center;" class="email">
                                 <label for="email">
-                                    <img class="email_svg" src="http://localhost/guloseimas_do_olimpophp/public/assets/img/email_forms.svg"
+                                    <img class="email_svg" src="<?php echo BASE_URL; ?>assets/img/email_forms.svg"
                                         alt="telefone"></label>
                                 <input type="email" name="email" id="email" placeholder="Endereço de email" required>
                             </div>
