@@ -76,8 +76,8 @@ if (isset($_SESSION['mensagem'])) {
 <div class="site">
     <div class="logo_header">
         <h1>
-            <a href="http://localhost/guloseimas_do_olimpophp/public/home">
-                <img src="http://localhost/guloseimas_do_olimpophp/public/assets/img/logo_header.svg"
+            <a href="<?php echo BASE_URL; ?>home">
+                <img src="<?php echo BASE_URL; ?>assets/img/logo_header.svg"
                     alt="Logo da Empresa - Guloseimas do Olimpo">
             </a>
         </h1>
@@ -96,7 +96,7 @@ if (isset($_SESSION['mensagem'])) {
                     <div class="cliente_logado">
                         <!-- Foto do cliente -->
 
-                        <a href="http://localhost/guloseimas_do_olimpophp/public/cliente">
+                        <a href="<?php echo BASE_URL; ?>cliente">
                             <div class="lado_cliente">
                                 <i class="fa-regular fa-user"></i>
                                 <img src="<?php echo BASE_URL . 'uploads/' . $_SESSION['userFoto']; ?>" alt="Foto de <?php echo $_SESSION['userNome']; ?>" class="foto_cliente">
@@ -119,12 +119,12 @@ if (isset($_SESSION['mensagem'])) {
 
             </div>
 
-            <li><a href="http://localhost/guloseimas_do_olimpophp/public/home" class="nav-link">HOME</a></li>
-            <li><a href="http://localhost/guloseimas_do_olimpophp/public/sobre" class="nav-link">SOBRE</a></li>
-            <li><a href="http://localhost/guloseimas_do_olimpophp/public/produtos" class="nav-link">PRODUTOS</a></li>
-            <li><a href="http://localhost/guloseimas_do_olimpophp/public/compras" class="nav-link">RESERVA</a></li>
-            <li><a href="http://localhost/guloseimas_do_olimpophp/public/galeria" class="nav-link">GALERIA</a></li>
-            <li><a href="http://localhost/guloseimas_do_olimpophp/public/contato" class="nav-link">CONTATO</a></li>
+            <li><a href="<?php echo BASE_URL; ?>home" class="nav-link">HOME</a></li>
+            <li><a href="<?php echo BASE_URL; ?>sobre" class="nav-link">SOBRE</a></li>
+            <li><a href="<?php echo BASE_URL; ?>produtos" class="nav-link">PRODUTOS</a></li>
+            <li><a href="<?php echo BASE_URL; ?>compras" class="nav-link">RESERVA</a></li>
+            <li><a href="<?php echo BASE_URL; ?>galeria" class="nav-link">GALERIA</a></li>
+            <li><a href="<?php echo BASE_URL; ?>contato" class="nav-link">CONTATO</a></li>
             <li class="close-btn"><a href="#"><img class="x_mobile" src="http://localhost/guloseimas_do_olimpophp/public/assets/img/fechar.svg" alt="fechar"></a></li>
 
         </ul>
