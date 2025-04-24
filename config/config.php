@@ -66,18 +66,18 @@ define('PASS_EMAIL', 'fgip hdva gvep mdso');
 // Sistema de autoload  das class 
 spl_autoload_register(function ($classe) {
     // Caminho para Controllers
-    if (file_exists('../app/controllers/' . $classe . '.php')) {
-        require_once '../app/controllers/' . $classe . '.php';
+    if (file_exists('/../app/controllers/' . $classe . '.php')) {
+        require_once '/../app/controllers/' . $classe . '.php';
     }
 
     // Caminho para Models
-    if (file_exists('../app/models/' . $classe . '.php')) {
-        require_once '../app/models/' . $classe . '.php';
+    if (file_exists('/../app/models/' . $classe . '.php')) {
+        require_once '/../app/models/' . $classe . '.php';
     }
 
     // Caminho para Core
-    if (file_exists('../core/' . $classe . '.php')) {
-        require_once '../Core/' . $classe . '.php';
+    if (file_exists('/../core/' . $classe . '.php')) {
+        require_once '/../Core/' . $classe . '.php';
     }
     
 });
