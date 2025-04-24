@@ -11,7 +11,7 @@ if(session_status() == PHP_SESSION_NONE) {
 // define("BASE_URL" ,"http://localhost/guloseimas_do_olimpophp/public/");
 
 if ($_SERVER['HTTP_HOST'] === 'localhost') {
-    // define("BASE_URL", "http://localhost/guloseimas_do_olimpophp/public/");
+    define("BASE_URL", "http://localhost/guloseimas_do_olimpophp/public/");
 } else {
     define("BASE_URL", "https://agenciatipi02.smpsistema.com.br/aluno/henryque/guloseimas_do_olimpophp/public/");
 }
