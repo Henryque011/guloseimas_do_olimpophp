@@ -156,8 +156,10 @@ class ApiController extends Controller
 
     public function login()
     {
-        $email = $_GET['email_cliente'] ?? null;
-        $senha = $_GET['senha_cliente'] ?? null;
+        $input = json_decode(file_get_contents("php://input"), true);
+
+        $email = $input['email_cliente'] ?? null;
+        $senha = $input['senha_cliente'] ?? null;
 
         if (!$email || !$senha) {
             http_response_code(400);
@@ -179,6 +181,8 @@ class ApiController extends Controller
             'exp'   => time() + 3600 // 1 hora de validade
         ];
 
+        require_once(__DIR__ . '/../../core/TokenHelper.php');
+        $TokenHelper = new TokenHelper();
         $token = TokenHelper::gerar($dadosToken);
         //var_dump($token);
         //var_dump(TokenHelper::validar($token));
