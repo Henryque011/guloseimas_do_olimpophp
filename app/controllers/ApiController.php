@@ -132,7 +132,7 @@ class ApiController extends Controller
             }
 
             // Gerar o token
-            require_once 'core/TokenHelper.php';
+            require_once(__DIR__ . '/../../core/TokenHelper.php');
             $TokenHelper = new TokenHelper();
             $token = $TokenHelper::gerar([
                 'id' => $cliente['id_cliente'],
