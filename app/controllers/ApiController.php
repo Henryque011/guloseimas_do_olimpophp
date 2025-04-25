@@ -58,7 +58,7 @@ class ApiController extends Controller
                 exit;
             }
 
-            require_once(__DIR__ .'/../core/TokenHelper.php');
+            require_once(__DIR__ . '/../../core/TokenHelper.php');
             $TokenHelper = new TokenHelper();
 
             $dados = $TokenHelper::validar($token);
