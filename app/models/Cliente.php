@@ -85,4 +85,19 @@ class Cliente extends Model
 
         return $stmt->execute();
     }
+
+    public function getClienteById($id)
+    {
+        $sql = "SELECT * FROM 
+                tbl_cliente
+                WHERE
+                id_cliente = :id 
+                AND
+                status_cliente = 'Ativo';";
+
+        $stmt = $this->db->prepare($sql);
+        $stmt->bindValue(':id', $id, PDO::PARAM_INT);
+        $stmt->execute();
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
 }
