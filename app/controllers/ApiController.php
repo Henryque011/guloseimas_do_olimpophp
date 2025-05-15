@@ -262,6 +262,80 @@ class ApiController extends Controller
         }
     }
 
+    
+    public function recuperarSenha()
+    {
+        if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
+            http_response_code(405);
+            echo json_encode(['erro' => 'MÃ©todo nÃ£o permitido'], JSON_UNESCAPED_UNICODE);
+            return;
+        }
+
+        $email = filter_input(INPUT_POST, 'email_cliente', FILTER_SANITIZE_EMAIL);
+
+        if (!$email) {
+            http_response_code(400);
+            echo json_encode(['erro' => 'E-mail Ã© obrigatÃ³rio'], JSON_UNESCAPED_UNICODE);
+            return;
+        }
+
+        $cliente = $this->clienteModel->buscarCliente($email);
+
+        if (!$cliente) {
+            http_response_code(404);
+            echo json_encode(['erro' => 'E-mail nÃ£o encontrado'], JSON_UNESCAPED_UNICODE);
+            return;
+        }
+
+        $token = bin2hex(random_bytes(32));
+        $expira = date('Y-m-d H:i:s', strtotime('+1 hour'));
+
+        $this->clienteModel->salvarTokenRecuperacao($cliente['id_cliente'], $token, $expira);
+
+        // ENVIO DE E-MAIL
+        require_once("vendors/phpmailer/PHPMailer.php");
+        require_once("vendors/phpmailer/SMTP.php");
+        require_once("vendors/phpmailer/Exception.php");
+
+        $mail = new PHPMailer\PHPMailer\PHPMailer();
+
+        try {
+            $mail->isSMTP();
+            $mail->Host       = EMAIL_HOST;
+            $mail->Port       = EMAIL_PORT;
+            $mail->SMTPAuth   = true;
+            $mail->SMTPSecure = 'ssl';
+            $mail->Username   = EMAIL_USER;
+            $mail->Password   = EMAIL_PASS;
+
+            $mail->CharSet = 'UTF-8';
+            $mail->Encoding = 'base64';
+
+            $mail->setFrom(EMAIL_USER, 'Ki Oficina');
+            $mail->addAddress($cliente['email_cliente'], $cliente['nome_cliente']);
+            $mail->isHTML(true);
+            $mail->Subject = 'RecuperaÃ§Ã£o de Senha';
+
+            $link = "https://360criativo.com.br/api/redefinirSenha?token=$token";
+
+            $mail->msgHTML("
+            OlÃ¡ {$cliente['nome_cliente']},<br><br>
+            Recebemos uma solicitaÃ§Ã£o para redefinir sua senha.<br>
+            Clique no link abaixo para criar uma nova senha:<br><br>
+            <a href='$link'>$link</a><br><br>
+            Se vocÃª nÃ£o fez essa solicitaÃ§Ã£o, ignore este e-mail.
+        ");
+            $mail->AltBody = "OlÃ¡ {$cliente['nome_cliente']}, acesse $link para redefinir sua senha.";
+
+            $mail->send();
+            
+            echo json_encode(['mensagem' => 'Um link de redefiniÃ§Ã£o foi enviado para seu e-mail'], JSON_UNESCAPED_UNICODE);
+        } catch (Exception $e) {
+            http_response_code(500);
+            echo json_encode(['erro' => 'Erro ao enviar e-mail', 'detalhes' => $mail->ErrorInfo], JSON_UNESCAPED_UNICODE);
+        }
+    }
+
     /** View para redefinir senha */
     public function redefinirSenha()
     {
