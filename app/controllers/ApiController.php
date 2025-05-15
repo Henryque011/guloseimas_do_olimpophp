@@ -109,7 +109,7 @@ class ApiController extends Controller
             $cidade    = $input['cidade'];
             $estado    = $input['estado']; // sigla
             $cep       = $input['cep'];
-            $senha     = $input['senha']; 
+            $senha     = $input['senha'];
 
             $sucesso = $this->clienteModel->salvarCliente($nome, $email, $cpf, $data_nasc, $telefone, $endereco, $bairro, $cidade, $estado, $cep, $senha);
 
@@ -259,6 +259,53 @@ class ApiController extends Controller
                 'erro' => 'Erro interno no servidor',
                 'detalhe' => $e->getMessage()
             ], JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE);
+        }
+    }
+
+    /** View para redefinir senha */
+    public function redefinirSenha()
+    {
+        $dados = array();
+        $dados['titulo'] = 'RecuperaÃ§Ã£o de senha - Ki Oficina';
+        $this->carregarViews('recuperar-senha', $dados);
+    }
+
+    /** O usuÃ¡rio acessa o link com o token, define uma nova senha e salva. */
+    public function resetarSenha()
+    {
+        if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
+            http_response_code(405);
+            echo json_encode(['erro' => 'MÃ©todo nÃ£o permitido'], JSON_UNESCAPED_UNICODE);
+            return;
+        }
+
+        $token = $_POST['token'] ?? null;
+        $novaSenha = $_POST['nova_senha'] ?? null;
+
+        if (!$token || !$novaSenha) {
+            http_response_code(400);
+            echo json_encode(['erro' => 'Token e nova senha sÃ£o obrigatÃ³rios'], JSON_UNESCAPED_UNICODE);
+            return;
+        }
+
+        $cliente = $this->clienteModel->getClientePorToken($token);
+
+        if (!$cliente || strtotime($cliente['token_expira']) < time()) {
+            http_response_code(403);
+            echo json_encode(['erro' => 'Token invÃ¡lido ou expirado'], JSON_UNESCAPED_UNICODE);
+            return;
+        }
+
+        $atualizado = $this->clienteModel->atualizarSenha($cliente['id_cliente'], $novaSenha);
+
+        if ($atualizado) {
+            $this->clienteModel->limparTokenRecuperacao($cliente['id_cliente']);
+            $dados['mensagem'] = 'Senha redefinida com sucesso';
+            $this->carregarViews('home', $dados);
+        } else {
+            http_response_code(500);
+            $dados['erro'] = 'Erro ao atualizar a senha';
+            $this->carregarViews('home', $dados);
         }
     }
 }
