@@ -100,4 +100,33 @@ class Cliente extends Model
         $stmt->execute();
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
+
+    public function getClientePorToken($token)
+    {
+        $sql = "SELECT id_cliente, token_recuperacao, token_expira 
+            FROM clientes 
+            WHERE token_recuperacao = :token 
+            LIMIT 1";
+
+        $stmt = $this->db->prepare($sql);
+        $stmt->bindValue(':token', $token, PDO::PARAM_STR);
+        $stmt->execute();
+
+        if ($stmt->rowCount() > 0) {
+            return $stmt->fetch(PDO::FETCH_ASSOC);
+        }
+
+        return false;
+    }
+
+    public function limparTokenRecuperacao($idCliente)
+    {
+        $sql = "UPDATE clientes 
+            SET token_recuperacao = NULL, token_expira = NULL 
+            WHERE id_cliente = :id";
+
+        $stmt = $this->db->prepare($sql);
+        $stmt->bindValue(':id', $idCliente, PDO::PARAM_INT);
+        return $stmt->execute();
+    }
 }
