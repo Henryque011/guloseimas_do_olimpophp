@@ -103,7 +103,7 @@ class Cliente extends Model
 
     public function salvarTokenRecuperacao($idCliente, $token, $expira)
     {
-        $sql = "UPDATE clientes 
+        $sql = "UPDATE tbl_cliente 
             SET token_recuperacao = :token, token_expira = :expira 
             WHERE id_cliente = :id";
 
@@ -118,7 +118,7 @@ class Cliente extends Model
     public function getClientePorToken($token)
     {
         $sql = "SELECT id_cliente, token_recuperacao, token_expira 
-            FROM clientes 
+            FROM tbl_cliente 
             WHERE token_recuperacao = :token 
             LIMIT 1";
 
@@ -135,7 +135,7 @@ class Cliente extends Model
 
     public function limparTokenRecuperacao($idCliente)
     {
-        $sql = "UPDATE clientes 
+        $sql = "UPDATE tbl_cliente 
             SET token_recuperacao = NULL, token_expira = NULL 
             WHERE id_cliente = :id";
 
