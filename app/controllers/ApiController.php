@@ -308,6 +308,8 @@ class ApiController extends Controller
             $mail->Username   = EMAIL_USER;
             $mail->Password   = EMAIL_PASS;
 
+            $mail->SMTPDebug = 2;
+
             $mail->CharSet = 'UTF-8';
             $mail->Encoding = 'base64';
 
@@ -315,7 +317,7 @@ class ApiController extends Controller
             $mail->addAddress($cliente['email_cliente'], $cliente['nome_cliente']);
             $mail->isHTML(true);
             $mail->Subject = 'RecuperaÃ§Ã£o de Senha';
-            
+
             $link = "https://agenciatipi02.smpsistema.com.br/aluno/henryque/guloseimas_do_olimpophp/public/api/redefinirSenha?token=$token";
 
             // https://agenciatipi02.smpsistema.com.br/aluno/henryque/guloseimas_do_olimpophp/public/api/
