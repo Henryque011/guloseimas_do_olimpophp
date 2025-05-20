@@ -22,7 +22,7 @@ define("DB_USER", "u283879542_olimpo");
 define("DB_PASS", "Senac@olimpo01");
 
 // Recuperar Senha 
-define("EMAIL_HOST", "smpsistema.com.br");
+define("EMAIL_HOST", "smtp.gmail.com");
 define("EMAIL_PORT", "465");
 define("EMAIL_USER", "abxqtzseven@gmail.com");
 define("EMAIL_PASS","mvll lewe mtxj ugeb");
