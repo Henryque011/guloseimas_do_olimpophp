@@ -311,12 +311,15 @@ class ApiController extends Controller
             $mail->CharSet = 'UTF-8';
             $mail->Encoding = 'base64';
 
-            $mail->setFrom(EMAIL_USER, 'Ki Oficina');
+            $mail->setFrom(EMAIL_USER, 'Guloseimas do Olimpo');
             $mail->addAddress($cliente['email_cliente'], $cliente['nome_cliente']);
             $mail->isHTML(true);
             $mail->Subject = 'RecuperaÃ§Ã£o de Senha';
+            
+            $link = "https://agenciatipi02.smpsistema.com.br/aluno/henryque/guloseimas_do_olimpophp/public/api/redefinirSenha?token=$token";
 
-            $link = "https://360criativo.com.br/api/redefinirSenha?token=$token";
+            // https://agenciatipi02.smpsistema.com.br/aluno/henryque/guloseimas_do_olimpophp/public/api/
+            // $link = "https://360criativo.com.br/api/redefinirSenha?token=$token";
 
             $mail->msgHTML("
             OlÃ¡ {$cliente['nome_cliente']},<br><br>
