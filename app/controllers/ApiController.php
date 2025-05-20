@@ -308,7 +308,7 @@ class ApiController extends Controller
             $mail->Username   = EMAIL_USER;
             $mail->Password   = EMAIL_PASS;
 
-            $mail->SMTPDebug = 2;
+            // $mail->SMTPDebug = 2;
 
             $mail->CharSet = 'UTF-8';
             $mail->Encoding = 'base64';
