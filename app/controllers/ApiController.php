@@ -292,56 +292,89 @@ class ApiController extends Controller
 
         $this->clienteModel->salvarTokenRecuperacao($cliente['id_cliente'], $token, $expira);
 
-        // ENVIO DE E-MAIL
+            
         require_once("vendors/phpmailer/PHPMailer.php");
         require_once("vendors/phpmailer/SMTP.php");
         require_once("vendors/phpmailer/Exception.php");
 
-        $mail = new PHPMailer\PHPMailer\PHPMailer();
+        use PHPMailer\PHPMailer\PHPMailer;
+        use PHPMailer\PHPMailer\Exception;
+
+        $mail = new PHPMailer(true);
 
         try {
+            $mail->SMTPDebug = 2; // Modo debug
             $mail->isSMTP();
-            $mail->Host       = EMAIL_HOST;
-            $mail->Port       = EMAIL_PORT;
+            $mail->Host       = 'smtp.gmail.com';
             $mail->SMTPAuth   = true;
+            $mail->Username   = 'abxqtzseven@gmail.com';
+            $mail->Password   = 'mvll lewe mtxj ugeb';
             $mail->SMTPSecure = 'tls';
-            $mail->Username   = EMAIL_USER;
-            $mail->Password   = EMAIL_PASS;
+            $mail->Port       = 587;
 
-            $mail->SMTPDebug = 2;
-            $mail->Debugoutput = 'html'; 
-            
+            $mail->setFrom('abxqtzseven@gmail.com', 'Teste');
+            $mail->addAddress('nonaatoo7@gmail.com', 'Você');
 
-            $mail->CharSet = 'UTF-8';
-            $mail->Encoding = 'base64';
-
-            $mail->setFrom(EMAIL_USER, 'Guloseimas do Olimpo');
-            $mail->addAddress($cliente['email_cliente'], $cliente['nome_cliente']);
             $mail->isHTML(true);
-            $mail->Subject = 'Recuperação de Senha';
-
-            $link = "https://agenciatipi02.smpsistema.com.br/aluno/henryque/guloseimas_do_olimpophp/public/api/redefinirSenha?token=$token";
-
-            // https://agenciatipi02.smpsistema.com.br/aluno/henryque/guloseimas_do_olimpophp/public/api/
-            // $link = "https://360criativo.com.br/api/redefinirSenha?token=$token";
-
-            $mail->msgHTML("
-            OlÃ¡ {$cliente['nome_cliente']},<br><br>
-            Recebemos uma solicitação para redefinir sua senha.<br>
-            Clique no link abaixo para criar uma nova senha:<br><br>
-            <a href='$link'>$link</a><br><br>
-            Se vocÃª nÃ£o fez essa solicitação, ignore este e-mail.
-        ");
-            $mail->AltBody = "OlÃ¡ {$cliente['nome_cliente']}, acesse $link para redefinir sua senha.";
+            $mail->Subject = 'Teste rápido';
+            $mail->Body    = 'Se você recebeu isso, seu servidor está OK.';
 
             $mail->send();
-            
-            echo json_encode(['mensagem' => 'Um link de redefinição foi enviado para seu e-mail'], JSON_UNESCAPED_UNICODE);
+            echo 'Mensagem enviada com sucesso!';
         } catch (Exception $e) {
-            http_response_code(500);
-            // echo json_encode(['erro' => 'Erro ao enviar e-mail', 'detalhes' => $mail->ErrorInfo], JSON_UNESCAPED_UNICODE);
-            die("Erro ao enviar e-mail: " . $mail->ErrorInfo);
+            echo "Erro ao enviar e-mail: {$mail->ErrorInfo}";
         }
+
+        // ENVIO DE E-MAIL
+        // require_once("vendors/phpmailer/PHPMailer.php");
+        // require_once("vendors/phpmailer/SMTP.php");
+        // require_once("vendors/phpmailer/Exception.php");
+
+        // $mail = new PHPMailer\PHPMailer\PHPMailer();
+
+        // try {
+        //     $mail->isSMTP();
+        //     $mail->Host       = EMAIL_HOST;
+        //     $mail->Port       = EMAIL_PORT;
+        //     $mail->SMTPAuth   = true;
+        //     $mail->SMTPSecure = 'tls';
+        //     $mail->Username   = EMAIL_USER;
+        //     $mail->Password   = EMAIL_PASS;
+
+        //     $mail->SMTPDebug = 2;
+        //     $mail->Debugoutput = 'html'; 
+            
+
+        //     $mail->CharSet = 'UTF-8';
+        //     $mail->Encoding = 'base64';
+
+        //     $mail->setFrom(EMAIL_USER, 'Guloseimas do Olimpo');
+        //     $mail->addAddress($cliente['email_cliente'], $cliente['nome_cliente']);
+        //     $mail->isHTML(true);
+        //     $mail->Subject = 'Recuperação de Senha';
+
+        //     $link = "https://agenciatipi02.smpsistema.com.br/aluno/henryque/guloseimas_do_olimpophp/public/api/redefinirSenha?token=$token";
+
+        //     // https://agenciatipi02.smpsistema.com.br/aluno/henryque/guloseimas_do_olimpophp/public/api/
+        //     // $link = "https://360criativo.com.br/api/redefinirSenha?token=$token";
+
+        //     $mail->msgHTML("
+        //     OlÃ¡ {$cliente['nome_cliente']},<br><br>
+        //     Recebemos uma solicitação para redefinir sua senha.<br>
+        //     Clique no link abaixo para criar uma nova senha:<br><br>
+        //     <a href='$link'>$link</a><br><br>
+        //     Se vocÃª nÃ£o fez essa solicitação, ignore este e-mail.
+        // ");
+        //     $mail->AltBody = "OlÃ¡ {$cliente['nome_cliente']}, acesse $link para redefinir sua senha.";
+
+        //     $mail->send();
+            
+        //     echo json_encode(['mensagem' => 'Um link de redefinição foi enviado para seu e-mail'], JSON_UNESCAPED_UNICODE);
+        // } catch (Exception $e) {
+        //     http_response_code(500);
+        //     // echo json_encode(['erro' => 'Erro ao enviar e-mail', 'detalhes' => $mail->ErrorInfo], JSON_UNESCAPED_UNICODE);
+        //     die("Erro ao enviar e-mail: " . $mail->ErrorInfo);
+        // }
     }
 
     /** View para redefinir senha */
