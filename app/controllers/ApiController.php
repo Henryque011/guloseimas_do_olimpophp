@@ -308,7 +308,9 @@ class ApiController extends Controller
             $mail->Username   = EMAIL_USER;
             $mail->Password   = EMAIL_PASS;
 
-            // $mail->SMTPDebug = 2;
+            $mail->SMTPDebug = 2;
+            $mail->Debugoutput = 'html'; 
+            
 
             $mail->CharSet = 'UTF-8';
             $mail->Encoding = 'base64';
@@ -338,6 +340,7 @@ class ApiController extends Controller
         } catch (Exception $e) {
             http_response_code(500);
             echo json_encode(['erro' => 'Erro ao enviar e-mail', 'detalhes' => $mail->ErrorInfo], JSON_UNESCAPED_UNICODE);
+            die("Erro ao enviar e-mail: " . $mail->ErrorInfo);
         }
     }
 
