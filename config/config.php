@@ -25,7 +25,7 @@ define("DB_PASS", "Senac@olimpo01");
 define("EMAIL_HOST", "smtp.gmail.com");
 define("EMAIL_PORT", "587");
 define("EMAIL_USER", "abxqtzseven@gmail.com");
-define("EMAIL_PASS","mvll lewe mtxj ugeb");
+define("EMAIL_PASS", "mvll lewe mtxj ugeb");
 
 // //  Configuração do Data Base para desenvolvimento local
 //  define("DB_HOST", "193.203.175.197"); // Ou 127.0.0.1
