@@ -82,4 +82,12 @@ class LoginController extends Controller
         header('Location: ' . BASE_URL);
         exit;
     }
+
+    public function redefinirSenha()
+    {
+        $dados = array();
+        $dados['titulo'] = 'Redefinir Senha - Guloseimas do Olimpo';
+
+        $this->carregarViews('redefinir_senha', $dados);
+    }
 }
