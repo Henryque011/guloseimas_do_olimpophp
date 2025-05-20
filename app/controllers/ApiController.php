@@ -339,7 +339,7 @@ class ApiController extends Controller
             echo json_encode(['mensagem' => 'Um link de redefinição foi enviado para seu e-mail'], JSON_UNESCAPED_UNICODE);
         } catch (Exception $e) {
             http_response_code(500);
-            echo json_encode(['erro' => 'Erro ao enviar e-mail', 'detalhes' => $mail->ErrorInfo], JSON_UNESCAPED_UNICODE);
+            // echo json_encode(['erro' => 'Erro ao enviar e-mail', 'detalhes' => $mail->ErrorInfo], JSON_UNESCAPED_UNICODE);
             die("Erro ao enviar e-mail: " . $mail->ErrorInfo);
         }
     }
