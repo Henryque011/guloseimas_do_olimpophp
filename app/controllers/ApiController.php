@@ -304,7 +304,7 @@ class ApiController extends Controller
             $mail->Host       = EMAIL_HOST;
             $mail->Port       = EMAIL_PORT;
             $mail->SMTPAuth   = true;
-            $mail->SMTPSecure = 'ssl';
+            $mail->SMTPSecure = 'tls';
             $mail->Username   = EMAIL_USER;
             $mail->Password   = EMAIL_PASS;
 
