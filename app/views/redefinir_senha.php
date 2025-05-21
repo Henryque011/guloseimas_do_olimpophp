@@ -24,9 +24,12 @@ require_once('template/head.php')
     h2 {
         font-family: 'Poly';
         font-size: 16pt;
-        text-transform: uppercase;
+        text-transform: capitalize;
         color: #985C41;
+        text-align: center;
     }
+
+    h3 {}
 </style>
 
 <body>
@@ -44,15 +47,16 @@ require_once('template/head.php')
                     </div>
                     <?php unset($_SESSION['flash']); ?>
                 <?php endif; ?>
+                
+                <form action="/api/resetarSenha" method="POST">
+                    <input type="hidden" name="token" value="<?= htmlspecialchars($_GET['token'] ?? '') ?>">
 
-                <h3>Informe um email para recuperação</h3>
-                <!-- <form action="<?php echo BASE_URL; ?>index.php?url=login/enviarRecuperacao" method="POST">
-                    <input type="email" name="email" id="email" placeholder="email" required>
-                    <hr>
-                    <input type="submit" value="Enviar Link" class="btn-link">
-                </form> -->
+                    <label for="nova_senha">Nova Senha:</label>
+                    <input type="password" name="nova_senha" id="nova_senha" required>
+
+                    <input type="submit" value="Salvar Nova Senha">
+                </form>
             </div>
-
         </article>
         <div class="button_voltar">
             <a href="<?php echo BASE_URL; ?>index.php?url=initial"><i class="fa-solid fa-backward"></i>Voltar</a>
