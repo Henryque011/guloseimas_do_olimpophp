@@ -22,7 +22,7 @@ require_once('template/head.php')
     }
 
     h2 {
-        font-family: 'Poly';
+        font-family: "Poly";
         font-size: 16pt;
         text-transform: uppercase;
         color: #985C41;
@@ -88,7 +88,7 @@ require_once('template/head.php')
             height: 40px;
             margin-top: 10px;
             border-radius: 20px;
-            font-family: 'Poly';
+            font-family: "Poly";
             font-weight: 599;
             font-size: 12pt;
             border-color: #985C41;
