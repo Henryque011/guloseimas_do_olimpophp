@@ -73,6 +73,10 @@ require_once('template/head.php')
             background-color: transparent;
         }
 
+        .box {
+            
+        }
+
         hr {
             background: black;
             width: 100%;
@@ -113,8 +117,10 @@ require_once('template/head.php')
                     <input type="hidden" name="token" value="<?= htmlspecialchars($_GET['token'] ?? '') ?>">
 
                     <label for="nova_senha">Nova Senha:</label>
-                    <input type="password" name="nova_senha" id="nova_senha" required>
-                    <button type="button" id="toggleSenha"></i></button>
+                    <div class="box">
+                        <input type="password" name="nova_senha" id="nova_senha" required>
+                        <button type="button" id="toggleSenha"></i></button>
+                    </div>
                     <hr>
                     <input type="submit" value="Enviar Link" class="btn-link">
                 </form>
