@@ -74,7 +74,7 @@ require_once('template/head.php')
         }
 
         .box {
-            
+            display: flex;
         }
 
         hr {
@@ -119,7 +119,7 @@ require_once('template/head.php')
                     <label for="nova_senha">Nova Senha:</label>
                     <div class="box">
                         <input type="password" name="nova_senha" id="nova_senha" required>
-                        <button type="button" id="toggleSenha"></i></button>
+                        <button type="button" id="toggleSenha"><i></i></button>
                     </div>
                     <hr>
                     <input type="submit" value="Enviar Link" class="btn-link">
