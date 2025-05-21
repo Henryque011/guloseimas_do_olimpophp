@@ -101,7 +101,7 @@ require_once('template/head.php')
             font-size: large;
 
             i {
-                color: #985C4;
+                color: #985C41;
             }
         }
     }
