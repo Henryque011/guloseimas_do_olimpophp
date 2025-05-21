@@ -54,8 +54,9 @@ require_once('template/head.php')
         label {
             font-family: "Jacques Francois";
             text-transform: capitalize;
-            color:#0B3222;
+            color: #0B3222;
             font-weight: 500;
+            font-size: 16pt;
             margin: 5px 0 5px 0;
         }
 
@@ -64,6 +65,7 @@ require_once('template/head.php')
             height: auto;
             margin: 10px 0 0px 0;
             border: none;
+            font-size: large;
         }
 
         input:focus {
@@ -112,6 +114,7 @@ require_once('template/head.php')
 
                     <label for="nova_senha">Nova Senha:</label>
                     <input type="password" name="nova_senha" id="nova_senha" required>
+                    <button type="button" id="toggleSenha"></i></button>
                     <hr>
                     <input type="submit" value="Enviar Link" class="btn-link">
                 </form>
@@ -121,7 +124,28 @@ require_once('template/head.php')
             <a href="<?php echo BASE_URL; ?>index.php?url=initial"><i class="fa-solid fa-backward"></i>Voltar</a>
         </div>
     </section>
+    
+    <script>
+        document.getElementById('toggleSenha').addEventListener('click', function() {
+            let senhaInputs = [
+                document.getElementById('senha'),
+                document.getElementById('confirmar_senha')
+            ];
+            let icon = this.querySelector('i');
 
+            senhaInputs.forEach(input => {
+                if (input.type === 'password') {
+                    input.type = 'text';
+                    icon.classList.remove('fa-eye-slash');
+                    icon.classList.add('fa-eye');
+                } else {
+                    input.type = 'password';
+                    icon.classList.remove('fa-eye');
+                    icon.classList.add('fa-eye-slash');
+                }
+            });
+        });
+    </script>
 </body>
 
 </html>
