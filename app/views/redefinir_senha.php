@@ -3,6 +3,31 @@
 <?php
 require_once('template/head.php')
 ?>
+<style>
+    body {
+        background-color: #FEFBF3;
+    }
+
+    header {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 20px;
+    }
+
+    site {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    h2 {
+        font-family: 'Poly';
+        font-size: 16pt;
+        text-transform: uppercase;
+        color: #985C41;
+    }
+</style>
 
 <body>
     <header>
