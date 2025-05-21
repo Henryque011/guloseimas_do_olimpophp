@@ -5,14 +5,14 @@ require_once('template/head.php')
 ?>
 
 <body>
-    <?php
-    require_once('template/header.php')
-    ?>
+    <header>
+        <a href="<?php echo BASE_URL; ?>index.php?url=initial"><img src="<?php echo BASE_URL; ?>assets/img/logo_header.svg" alt="Logo Guloseimas do olimpo"></a>
+    </header>
     <section class="esqueci_senha">
         <article class="site">
             <h2>Recuperar senha</h2>
             <div class="container">
-                
+
                 <?php if (!empty($_SESSION['flash']) && is_array($_SESSION['flash'])): ?>
                     <div class="alert <?= $_SESSION['flash']['tipo'] ?>">
                         <?= $_SESSION['flash']['mensagem'] ?>
