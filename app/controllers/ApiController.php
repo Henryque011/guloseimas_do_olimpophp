@@ -347,8 +347,8 @@ class ApiController extends Controller
     public function redefinirSenha()
     {
         $dados = array();
-        $dados['titulo'] = 'RecuperaÃ§Ã£o de senha - Ki Oficina';
-        $this->carregarViews('recuperar-senha', $dados);
+        $dados['titulo'] = 'Recuperação de senha - Guloseimas do Olimpo';
+        $this->carregarViews('redefinir_senha', $dados);
     }
 
     /** O usuÃ¡rio acessa o link com o token, define uma nova senha e salva. */
