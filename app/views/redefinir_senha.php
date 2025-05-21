@@ -44,6 +44,46 @@ require_once('template/head.php')
         border: var(--red_back);
         box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
     }
+
+    form {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+
+        label {
+            font-family: "Jacques Francois";
+        }
+
+        input#nova_senha {
+            width: 300px;
+            height: 20px;
+            margin: 10px 0 0px 0;
+            border: none;
+        }
+
+        input:focus {
+            outline: none;
+            background-color: transparent;
+        }
+
+        hr {
+            background: black;
+            width: 100%;
+        }
+
+        input.btn-link {
+            width: 150px;
+            height: 40px;
+            margin-top: 10px;
+            border-radius: 20px;
+            font-family: var(--font_links);
+            font-weight: 599;
+            font-size: 12pt;
+            border-color: #985C41;
+            box-shadow: rgba(136, 165, 191, 0.48) 6px 2px 16px 0px, rgba(255, 255, 255, 0.8) -6px -2px 16px 0px;
+        }
+    }
 </style>
 
 <body>
@@ -67,8 +107,8 @@ require_once('template/head.php')
 
                     <label for="nova_senha">Nova Senha:</label>
                     <input type="password" name="nova_senha" id="nova_senha" required>
-
-                    <input type="submit" value="Salvar Nova Senha">
+                    <hr>
+                    <input type="submit" value="Enviar Link" class="btn-link">
                 </form>
             </div>
         </article>
