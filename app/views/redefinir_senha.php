@@ -124,12 +124,11 @@ require_once('template/head.php')
             <a href="<?php echo BASE_URL; ?>index.php?url=initial"><i class="fa-solid fa-backward"></i>Voltar</a>
         </div>
     </section>
-    
+
     <script>
         document.getElementById('toggleSenha').addEventListener('click', function() {
             let senhaInputs = [
-                document.getElementById('senha'),
-                document.getElementById('confirmar_senha')
+                document.getElementById('nova_senha')
             ];
             let icon = this.querySelector('i');
 
