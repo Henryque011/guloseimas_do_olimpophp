@@ -94,6 +94,16 @@ require_once('template/head.php')
             border-color: #985C41;
             box-shadow: rgba(136, 165, 191, 0.48) 6px 2px 16px 0px, rgba(255, 255, 255, 0.8) -6px -2px 16px 0px;
         }
+
+        button {
+            border: none;
+            background-color: transparent;
+            font-size: large;
+
+            i {
+                color: #985C4;
+            }
+        }
     }
 </style>
 
