@@ -53,11 +53,15 @@ require_once('template/head.php')
 
         label {
             font-family: "Jacques Francois";
+            text-transform: capitalize;
+            color:#0B3222;
+            font-weight: 500;
+            margin: 5px 0 5px 0;
         }
 
         input#nova_senha {
-            width: 300px;
-            height: 20px;
+            width: 100%;
+            height: auto;
             margin: 10px 0 0px 0;
             border: none;
         }
@@ -70,6 +74,7 @@ require_once('template/head.php')
         hr {
             background: black;
             width: 100%;
+            margin: 1px 0 0 0;
         }
 
         input.btn-link {
@@ -77,7 +82,7 @@ require_once('template/head.php')
             height: 40px;
             margin-top: 10px;
             border-radius: 20px;
-            font-family: var(--font_links);
+            font-family: 'Poly';
             font-weight: 599;
             font-size: 12pt;
             border-color: #985C41;
