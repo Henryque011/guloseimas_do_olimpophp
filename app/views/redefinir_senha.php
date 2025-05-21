@@ -24,12 +24,26 @@ require_once('template/head.php')
     h2 {
         font-family: 'Poly';
         font-size: 16pt;
-        text-transform: capitalize;
+        text-transform: uppercase;
         color: #985C41;
         text-align: center;
+        font-weight: 300;
     }
 
-    h3 {}
+    .container {
+        height: 190px;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        align-self: flex-start;
+        background-color: #ffffff;
+        border-radius: 20px;
+        margin: 20px 0 20px;
+        border: var(--red_back);
+        box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    }
 </style>
 
 <body>
@@ -47,7 +61,7 @@ require_once('template/head.php')
                     </div>
                     <?php unset($_SESSION['flash']); ?>
                 <?php endif; ?>
-                
+
                 <form action="/api/resetarSenha" method="POST">
                     <input type="hidden" name="token" value="<?= htmlspecialchars($_GET['token'] ?? '') ?>">
 
