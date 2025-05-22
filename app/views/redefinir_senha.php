@@ -160,7 +160,7 @@ require_once('template/head.php')
                     <?php unset($_SESSION['flash']); ?>
                 <?php endif; ?>
 
-                <form action="/api/resetarSenha" method="POST">
+                <form action="<?= BASE_URL ?>index.php?url=resetarSenha" method="POST">
                     <input type="hidden" name="token" value="<?= htmlspecialchars($_GET['token'] ?? '') ?>">
 
                     <label for="nova_senha">Nova Senha:</label>
