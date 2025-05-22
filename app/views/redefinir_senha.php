@@ -107,28 +107,28 @@ require_once('template/head.php')
                 }
             }
         }
+    }
 
-        .button_voltar {
-            width: 250px;
-            height: 50px;
-            background-color: #c4001af5;
-            border-radius: 5px;
-            align-items: center;
-            text-align: center;
-            display: flex;
-            justify-content: center;
+    .button_voltar {
+        width: 250px;
+        height: 50px;
+        background-color: #c4001af5;
+        border-radius: 5px;
+        align-items: center;
+        text-align: center;
+        display: flex;
+        justify-content: center;
 
-            a {
-                font-weight: bolder;
-                letter-spacing: 2px;
-                border: none;
-                color: red;
-                text-transform: uppercase;
-                font-family: Poly;
+        a {
+            font-weight: bolder;
+            letter-spacing: 2px;
+            border: none;
+            color: red;
+            text-transform: uppercase;
+            font-family: Poly;
 
-                i {
-                    margin: 0 5px 0 0;
-                }
+            i {
+                margin: 0 5px 0 0;
             }
         }
     }
