@@ -46,65 +46,65 @@ require_once('template/head.php')
         margin: 20px 0 20px;
         border: var(--red_back);
         box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-    }
 
-    form {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-
-        label {
-            font-family: "Jacques Francois";
-            text-transform: capitalize;
-            color: #0B3222;
-            font-weight: 500;
-            font-size: 16pt;
-            margin: 5px 0 5px 0;
-        }
-
-        input#nova_senha {
-            width: 100%;
-            height: auto;
-            margin: 10px 0 0px 0;
-            border: none;
-            font-size: large;
-        }
-
-        input:focus {
-            outline: none;
-            background-color: transparent;
-        }
-
-        .box {
+        form {
             display: flex;
-        }
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
 
-        hr {
-            background: black;
-            width: 100%;
-            margin: 1px 0 0 0;
-        }
+            label {
+                font-family: "Jacques Francois";
+                text-transform: capitalize;
+                color: #0B3222;
+                font-weight: 500;
+                font-size: 16pt;
+                margin: 5px 0 5px 0;
+            }
 
-        input.btn-link {
-            width: 150px;
-            height: 40px;
-            margin-top: 10px;
-            border-radius: 20px;
-            font-family: "Poly";
-            font-weight: 599;
-            font-size: 12pt;
-            border-color: #985C41;
-            box-shadow: rgba(136, 165, 191, 0.48) 6px 2px 16px 0px, rgba(255, 255, 255, 0.8) -6px -2px 16px 0px;
-        }
+            input#nova_senha {
+                width: 100%;
+                height: auto;
+                margin: 10px 0 0px 0;
+                border: none;
+                font-size: large;
+            }
 
-        button {
-            border: none;
-            background-color: transparent;
-            font-size: large;
+            input:focus {
+                outline: none;
+                background-color: transparent;
+            }
 
-            i {
-                color: #985C41;
+            .box {
+                display: flex;
+            }
+
+            hr {
+                background: black;
+                width: 100%;
+                margin: 1px 0 0 0;
+            }
+
+            input.btn-link {
+                width: 150px;
+                height: 40px;
+                margin-top: 10px;
+                border-radius: 20px;
+                font-family: "Poly";
+                font-weight: 599;
+                font-size: 12pt;
+                border-color: #985C41;
+                box-shadow: rgba(136, 165, 191, 0.48) 6px 2px 16px 0px, rgba(255, 255, 255, 0.8) -6px -2px 16px 0px;
+            }
+
+            button {
+                border: none;
+                background-color: transparent;
+                font-size: large;
+
+                i {
+                    color: #985C41;
+                }
             }
         }
 
