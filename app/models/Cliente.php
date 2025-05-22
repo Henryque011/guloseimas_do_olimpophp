@@ -133,6 +133,19 @@ class Cliente extends Model
         return false;
     }
 
+    public function upadateSenha($idCliente, $novaSenha)
+    {
+        $sql = "UPDATE tbl_cliente SET senha_cliente = :senha WHERE id_cliente = :id";
+
+        $stmt = $this->db->prepare($sql);
+        $stmt->bindValue(':senha', $novaSenha, PDO::PARAM_STR); 
+        $stmt->bindValue(':id', $idCliente, PDO::PARAM_INT);
+
+        return $stmt->execute();
+    }
+
+
+
     public function limparTokenRecuperacao($idCliente)
     {
         $sql = "UPDATE tbl_cliente 
