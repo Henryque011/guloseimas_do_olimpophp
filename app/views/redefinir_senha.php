@@ -169,7 +169,7 @@ require_once('template/head.php')
                         <button type="button" id="toggleSenha"><i class="fa-solid fa-eye-slash fa-rotate-by"></i></button>
                     </div>
                     <hr>
-                    <input type="submit" value="Enviar Link" class="btn-link">
+                    <input type="submit" value="Salvar Nova Senha" class="btn-link">
                 </form>
             </div>
         </article>
