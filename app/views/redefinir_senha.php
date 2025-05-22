@@ -16,6 +16,9 @@ require_once('template/head.php')
     }
 
     site {
+        margin: 0 auto;
+        max-width: 400px;
+        width: 100%;
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -102,6 +105,30 @@ require_once('template/head.php')
 
             i {
                 color: #985C41;
+            }
+        }
+
+        .button_voltar {
+            width: 250px;
+            height: 50px;
+            background-color: var(--red_back);
+            border-radius: 5px;
+            align-items: center;
+            text-align: center;
+            display: flex;
+            justify-content: center;
+
+            a {
+                font-weight: bolder;
+                letter-spacing: 2px;
+                border: none;
+                color: white;
+                text-transform: uppercase;
+                font-family: var(--font_links);
+
+                i {
+                    margin: 0 5px 0 0;
+                }
             }
         }
     }
