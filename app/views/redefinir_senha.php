@@ -111,7 +111,7 @@ require_once('template/head.php')
         .button_voltar {
             width: 250px;
             height: 50px;
-            background-color: var(--red_back);
+            background-color: #c4001af5;
             border-radius: 5px;
             align-items: center;
             text-align: center;
@@ -124,7 +124,7 @@ require_once('template/head.php')
                 border: none;
                 color: white;
                 text-transform: uppercase;
-                font-family: var(--font_links);
+                font-family: Poly;
 
                 i {
                     margin: 0 5px 0 0;
