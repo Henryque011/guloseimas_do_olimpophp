@@ -161,7 +161,7 @@ require_once('template/head.php')
                 <?php endif; ?>
 
                 <form action="<?= BASE_URL ?>index.php?url=api/resetarSenha" method="POST">
-                <input type="hidden" name="token" value="<?= htmlspecialchars($_GET['token'] ?? '') ?>">
+                    <input type="hidden" name="token" value="<?= htmlspecialchars($_GET['token'] ?? '') ?>">
 
                     <label for="nova_senha">Nova Senha:</label>
                     <div class="box">
