@@ -122,7 +122,7 @@ require_once('template/head.php')
                 font-weight: bolder;
                 letter-spacing: 2px;
                 border: none;
-                color: white;
+                color: red;
                 text-transform: uppercase;
                 font-family: Poly;
 
