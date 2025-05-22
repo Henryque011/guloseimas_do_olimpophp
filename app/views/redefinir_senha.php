@@ -15,7 +15,13 @@ require_once('template/head.php')
         margin-top: 20px;
     }
 
-    site {
+    /* .esqueci_senha{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    } */
+
+    .site {
         margin: 0 auto;
         max-width: 400px;
         width: 100%;
