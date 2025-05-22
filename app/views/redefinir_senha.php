@@ -15,11 +15,13 @@ require_once('template/head.php')
         margin-top: 20px;
     }
 
-    /* .esqueci_senha{
+    .esqueci_senha {
         display: flex;
         flex-direction: column;
         align-items: center;
-    } */
+        text-align: center;
+        justify-content: center;
+    }
 
     .site {
         margin: 0 auto;
@@ -50,7 +52,7 @@ require_once('template/head.php')
         background-color: #ffffff;
         border-radius: 20px;
         margin: 20px 0 20px;
-        border: var(--red_back);
+        border: c4001af5;
         box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 
         form {
@@ -129,7 +131,8 @@ require_once('template/head.php')
             font-weight: bolder;
             letter-spacing: 2px;
             border: none;
-            color: red;
+            color: white;
+            text-decoration: none;
             text-transform: uppercase;
             font-family: Poly;
 
