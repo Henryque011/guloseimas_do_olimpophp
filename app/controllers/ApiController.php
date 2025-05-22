@@ -377,7 +377,7 @@ class ApiController extends Controller
             return;
         }
 
-        $atualizado = $this->clienteModel->atualizarSenha($cliente['id_cliente'], $novaSenha);
+        $atualizado = $this->clienteModel->upadateSenha($cliente['id_cliente'], $novaSenha);
 
         // if ($atualizado) {
         //     $this->clienteModel->limparTokenRecuperacao($cliente['id_cliente']);
