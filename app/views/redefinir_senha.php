@@ -42,6 +42,7 @@ require_once('template/head.php')
     }
 
     .container {
+        width: 100%;
         height: 190px;
         display: flex;
         justify-content: center;
@@ -96,7 +97,7 @@ require_once('template/head.php')
             input.btn-link {
                 width: 150px;
                 height: 40px;
-                margin-top: 10px;
+                margin-top: 20px;
                 border-radius: 20px;
                 font-family: "Poly";
                 font-weight: 599;
