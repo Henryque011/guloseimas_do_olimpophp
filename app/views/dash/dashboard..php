@@ -3,4 +3,4 @@
 <h2><?php echo $_SESSION ['userTipo']; ?></h2>
 <h1>aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</h1>
 
-<a href="http://localhost/guloseimas_do_olimpophp/public/login/sair">SAIR</a>
+<a href="<?php echo BASE_URL; ?>login/sair">SAIR</a>
