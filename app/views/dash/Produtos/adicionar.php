@@ -26,7 +26,7 @@
 </style>
 
 
-<form action="http://localhost/guloseimas_do_olimpophp/public/produtos/adicionar" method="POST" enctype="multipart/form-data">
+<form action="<?php echo BASE_URL; ?>produtos/adicionar" method="POST" enctype="multipart/form-data">
 
     <div class="lado">
         <!-- Seção de Imagem -->
