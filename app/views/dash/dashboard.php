@@ -24,7 +24,7 @@
             <div class="container-fluid"> <!--begin::Start Navbar Links-->
                 <ul class="navbar-nav">
                     <li class="nav-item"> <a class="nav-link" data-lte-toggle="sidebar" href="#" role="button"> <i  style="color: #0B3222 !important;"class="bi bi-list"></i> </a> </li>
-                    <li class="nav-item d-none d-md-block"> <a href="http://localhost/guloseimas_do_olimpophp/public/dashboard" class="nav-link">SITE GULOSEIMAS DO OLIMPO</a> </li>
+                    <li class="nav-item d-none d-md-block"> <a href="<?php echo BASE_URL; ?>/dashboard" class="nav-link">SITE GULOSEIMAS DO OLIMPO</a> </li>
 
                 </ul> <!--end::Start Navbar Links--> <!--begin::End Navbar Links-->
                 <?php if (!empty($_SESSION['mensagem'])): ?>
