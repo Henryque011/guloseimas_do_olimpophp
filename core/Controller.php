@@ -3,21 +3,12 @@
 class Controller
 {
 
-public function carregarViews($view, $dados = array()){
+    public function carregarViews($view, $dados = array())
+    {
 
-  
+        // Codigo do metodo
 
-// Codigo do metodo
-
-extract($dados);
-
-
-
-
-
-require '../app/views/' . $view . '.php';
-
-
-}
-
+        extract($dados);
+        require(__DIR__ .  '../app/views/' . $view . '.php');
+    }
 }
