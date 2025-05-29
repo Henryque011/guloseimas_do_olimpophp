@@ -417,9 +417,9 @@
                         <?php
 
                         if (isset($conteudo)) {
-                            require __DIR__ . '/' . $conteudo . '.php';
+                            $this->carregarViews($conteudo, $dados);
                         } else {
-                            echo '<h2> Bem-vindo ao Dashboard</h2>';
+                            echo '<h2> Bem  vindo ao Dashboard</h2>';
                         }
 
 
