@@ -195,11 +195,11 @@
                                         <p>Fotos ( minha historia )</p>
                                     </a> </li>
 
-                                <li class="nav-item"> <a href="<?php echo BASE_URL; ?>/sobre/carrosel_sobre" class="nav-link"> <i class="nav-icon bi bi-circle"></i>
+                                <li class="nav-item"> <a href="<?php echo BASE_URL; ?>sobre/carrosel_sobre" class="nav-link"> <i class="nav-icon bi bi-circle"></i>
                                         <p>Fotos ( carrosel sobre )</p>
                                     </a> </li>
 
-                                <li class="nav-item"> <a href="<?php echo BASE_URL; ?>/sobre/servicos" class="nav-link"> <i class="nav-icon bi bi-circle"></i>
+                                <li class="nav-item"> <a href="<?php echo BASE_URL; ?>sobre/servicos" class="nav-link"> <i class="nav-icon bi bi-circle"></i>
                                         <p>Fotos (especialidades )</p>
                                     </a> </li>
 
@@ -246,7 +246,7 @@
 
                         <li class="nav-header">SITE (FOTOS)</li>
 
-                        <li class="nav-item"> <a href="<?php echo BASE_URL; ?>produtos/listar" class="nav-link"> <i class="bi bi-cart-dash"></i>
+                        <li class="nav-item"> <a href="<?php echo BASE_URL; ?>dash/produtos/listar" class="nav-link"> <i class="bi bi-cart-dash"></i>
 
 
                                 <p>Produtos</p>
