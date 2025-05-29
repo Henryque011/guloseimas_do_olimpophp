@@ -655,14 +655,14 @@
         sparkline3.render();
     </script> <!--end::Script-->
 
-    <div class="container mt-4">
+    <!-- <div class="container mt-4">
         <?php
         // Aqui é onde vai o conteúdo dinâmico
-        if (!empty($conteudo)) {
-            require __DIR__ . '/' . $conteudo . '.php';
-        }
+        // if (!empty($conteudo)) {
+        //     require __DIR__ . '/' . $conteudo . '.php';
+        // }
         ?>
-    </div>
+    </div> -->
 </body><!--end::Body-->
 
 
