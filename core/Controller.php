@@ -9,8 +9,6 @@ class Controller
         // Codigo do metodo
 
         extract($dados);
-        echo "Tentando carregar: " . __DIR__ . '/../app/views/' . $view . '.php';
-        exit;
 
         require __DIR__ . '/../app/views/' . $view . '.php';
     }
