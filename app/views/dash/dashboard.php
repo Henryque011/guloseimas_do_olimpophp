@@ -414,16 +414,16 @@
                     <div class="row">
 
                         <!-- CONTEUDO -->
-                        <!-- <?php
+                        <?php
 
-                        // if (isset($conteudo)) {
-                        //     $this->carregarViews($conteudo, $dados);
-                        // } else {
-                        //     echo '<h2> Bem  vindo ao Dashboard</h2>';
-                        // }
+                        if (isset($conteudo)) {
+                            $this->carregarViews($conteudo, $dados);
+                        } else {
+                            echo '<h2> Bem  vindo ao Dashboard</h2>';
+                        }
 
 
-                        ?> -->
+                        ?>
                     </div>
 
                 </div> <!-- /.row (main row) -->
