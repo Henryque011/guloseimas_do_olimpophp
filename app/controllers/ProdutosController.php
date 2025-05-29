@@ -20,8 +20,6 @@ class ProdutosController extends Controller
         $this->categoria_produto = new Categoria();
     }
 
-
-
     public function index()
     {
         $dados = array();
@@ -44,7 +42,6 @@ class ProdutosController extends Controller
         // Carregar a view com os dados
         $this->carregarViews('produtos', $dados);
     }
-
 
     public function detalhe($link = null)
     {
@@ -73,7 +70,6 @@ class ProdutosController extends Controller
 
     //###################################################
 
-
     public function listar()
     {
         // Garante que o usuário é um Funcionário
@@ -92,8 +88,6 @@ class ProdutosController extends Controller
         // Carrega a view do dashboard (que internamente usará o $conteudo)
         $this->carregarViews('dash/dashboard', $dados);
     }
-
-
 
     public function adicionar()
     {
@@ -161,7 +155,7 @@ class ProdutosController extends Controller
                     // Mensagem de erro caso o upload da foto falhe
                     $_SESSION['mensagem'] = "Erro ao fazer o upload da imagem.";
                     $_SESSION['tipo-msg'] = 'erro';
-                    header('Location: <?php echo BASE_URL; ?>produtos/adicionar/');
+                    header("Location: " . BASE_URL . "produtos/adicionar/");
                     exit;
                 }
             } else {
@@ -173,7 +167,7 @@ class ProdutosController extends Controller
                 // Mensagem de sucesso
                 $_SESSION['mensagem'] = "Produto e suas informações adicionados com sucesso!";
                 $_SESSION['tipo-msg'] = 'sucesso';
-                header('Location: <?php echo BASE_URL; ?>produtos/adicionar/');
+                header("Location: " . BASE_URL . "produtos/adicionar/");
                 exit;
             } else {
                 // Mensagem de erro caso não consiga adicionar o produto
