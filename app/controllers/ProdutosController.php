@@ -161,7 +161,7 @@ class ProdutosController extends Controller
                     // Mensagem de erro caso o upload da foto falhe
                     $_SESSION['mensagem'] = "Erro ao fazer o upload da imagem.";
                     $_SESSION['tipo-msg'] = 'erro';
-                    header('Location: http://localhost/guloseimas_do_olimpophp/public/produtos/adicionar/');
+                    header('Location: <?php echo BASE_URL; ?>produtos/adicionar/');
                     exit;
                 }
             } else {
@@ -173,7 +173,7 @@ class ProdutosController extends Controller
                 // Mensagem de sucesso
                 $_SESSION['mensagem'] = "Produto e suas informações adicionados com sucesso!";
                 $_SESSION['tipo-msg'] = 'sucesso';
-                header('Location: http://localhost/guloseimas_do_olimpophp/public/produtos/adicionar/');
+                header('Location: <?php echo BASE_URL; ?>produtos/adicionar/');
                 exit;
             } else {
                 // Mensagem de erro caso não consiga adicionar o produto
@@ -231,11 +231,6 @@ class ProdutosController extends Controller
     public function banner_produto()
     {
 
-
-
-
-
-
         if (!isset($_SESSION['userTipo'])  || $_SESSION['userTipo'] !== 'Funcionario') {
 
             header('Location:' . BASE_URL);
@@ -246,8 +241,6 @@ class ProdutosController extends Controller
         $dados['listarServico'] = $this->banner_produto->getBanner();
 
         $dados['conteudo'] = 'dash/banners/banners';
-
-
 
         $this->carregarViews('dash/dashboard', $dados);
     }
@@ -575,7 +568,7 @@ class ProdutosController extends Controller
                                 <h3>' . htmlspecialchars($PG_produtos['nome_produto'], ENT_QUOTES, 'UTF-8') . '</h3>
                                 <p>R$ ' . number_format($PG_produtos['preco_produto'], 2, ',', '.') . '</p>
                                <button class="adicionar-favorito" data-id-produto="' . htmlspecialchars($PG_produtos['id_produto'], ENT_QUOTES, 'UTF-8') . '">
-                                <img src="http://localhost/guloseimas_do_olimpophp/public/assets/img/adicionar_favoritos.svg" alt="Adicionar aos favoritos">
+                                <img src="<?php echo BASE_URL; ?>assets/img/adicionar_favoritos.svg" alt="Adicionar aos favoritos">
                             </button>
                             </div>
                         </a>
@@ -613,7 +606,7 @@ class ProdutosController extends Controller
                             <h3>' . htmlspecialchars($PG_produtos['nome_produto'], ENT_QUOTES, 'UTF-8') . '</h3>
                             <p>R$ ' . number_format($PG_produtos['preco_produto'], 2, ',', '.') . '</p>
                              <button class="adicionar-favorito" data-id-produto="' . htmlspecialchars($PG_produtos['id_produto'], ENT_QUOTES, 'UTF-8') . '">
-                                <img src="http://localhost/guloseimas_do_olimpophp/public/assets/img/adicionar_favoritos.svg" alt="Adicionar aos favoritos">
+                                <img src="<?php echo BASE_URL; ?>assets/img/adicionar_favoritos.svg" alt="Adicionar aos favoritos">
                             </button>
                         </div>
                     </a>    
@@ -649,7 +642,7 @@ class ProdutosController extends Controller
                                 <h3>' . htmlspecialchars($PG_produtos['nome_produto'], ENT_QUOTES, 'UTF-8') . '</h3>
                                 <p>R$ ' . number_format($PG_produtos['preco_produto'], 2, ',', '.') . '</p>
                                   <button class="adicionar-favorito" data-id-produto="' . htmlspecialchars($PG_produtos['id_produto'], ENT_QUOTES, 'UTF-8') . '">
-                                <img src="http://localhost/guloseimas_do_olimpophp/public/assets/img/adicionar_favoritos.svg" alt="Adicionar aos favoritos">
+                                <img src="<?php echo BASE_URL; ?>assets/img/adicionar_favoritos.svg" alt="Adicionar aos favoritos">
                             </button>
                             </div>
                         </a>    
@@ -692,7 +685,7 @@ class ProdutosController extends Controller
                             <p>R$ ' . number_format($PG_produtos['preco_produto'], 2, ',', '.') . '</p>
                             
                             <button class="adicionar-favorito" data-id-produto="' . htmlspecialchars($PG_produtos['id_produto'], ENT_QUOTES, 'UTF-8') . '">
-                                <img src="http://localhost/guloseimas_do_olimpophp/public/assets/img/adicionar_favoritos.svg" alt="Adicionar aos favoritos">
+                                <img src="<?php echo BASE_URL; ?>assets/img/adicionar_favoritos.svg" alt="Adicionar aos favoritos">
                             </button>
         
                         </div>
