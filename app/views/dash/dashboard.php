@@ -416,11 +416,13 @@
                         <!-- CONTEUDO -->
                         <?php
                         if (isset($conteudo)) {
-                            require __DIR__ . '/' . $conteudo . '.php'; // __DIR__ já é app/views/dash
+                            require dirname(__DIR__) . '/' . $conteudo . '.php';
+                            // dirname(__DIR__) = /app/views
                         } else {
                             echo '<h2>Bem-vindo ao Dashboard</h2>';
                         }
                         ?>
+
 
 
                     </div>
