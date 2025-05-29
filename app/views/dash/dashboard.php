@@ -416,7 +416,8 @@
                         <!-- CONTEUDO -->
                         <?php
                         if (isset($conteudo)) {
-                            require dirname(__DIR__) . '/' . $conteudo . '.php';
+                            echo 'Tentando carregar: ' . __DIR__ . '/' . $conteudo . '.php<br>';
+
                             // dirname(__DIR__) = /app/views
                         } else {
                             echo '<h2>Bem-vindo ao Dashboard</h2>';
