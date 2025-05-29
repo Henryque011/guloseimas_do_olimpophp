@@ -414,14 +414,21 @@
                     <div class="row">
 
                         <!-- CONTEUDO -->
-                        <?php
-                        $caminho = __DIR__ . '/../' . $conteudo . '.php';
-                        if (isset($conteudo) && file_exists($caminho)) {
-                            require $caminho;
-                        } else {
-                            echo '<h2>Bem-vindo ao Dashboard</h2>';
-                        }
-                        ?>
+                        <div class="row">
+                            <?php
+                            if (isset($conteudo)) {
+                                $caminho = __DIR__ . '/../' . $conteudo . '.php';
+                                if (file_exists($caminho)) {
+                                    require $caminho;
+                                } else {
+                                    echo "<p>Arquivo de conteúdo '$conteudo' não encontrado.</p>";
+                                }
+                            } else {
+                                echo '<h2>Bem-vindo ao Dashboard</h2>';
+                            }
+                            ?>
+                        </div>
+
 
                     </div>
 
