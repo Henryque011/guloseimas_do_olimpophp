@@ -87,7 +87,7 @@ class ProdutosController extends Controller
         $dados['listarServico'] = $this->produtoModel->getPg_produtos();
 
         // Caminho correto da view que será incluída dentro de dashboard
-        $dados['conteudo'] = 'dash/produtos/listar';
+        $dados['conteudo'] = 'dash/Produtos/listar';
 
         // Carrega a view do dashboard (que internamente usará o $conteudo)
         $this->carregarViews('dash/dashboard', $dados);
