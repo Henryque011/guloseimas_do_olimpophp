@@ -415,15 +415,14 @@
 
                         <!-- CONTEUDO -->
                         <?php
-
-                        if (isset($conteudo)) {
-                            $this->carregarViews($conteudo, $dados);
+                        $caminho = __DIR__ . '/../' . $conteudo . '.php';
+                        if (isset($conteudo) && file_exists($caminho)) {
+                            require $caminho;
                         } else {
-                            echo '<h2> Bem  vindo ao Dashboard</h2>';
+                            echo '<h2>Bem-vindo ao Dashboard</h2>';
                         }
-
-
                         ?>
+
                     </div>
 
                 </div> <!-- /.row (main row) -->
