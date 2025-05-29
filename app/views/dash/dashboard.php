@@ -155,7 +155,7 @@
                                 </p>
                             </a>
                             <ul class="nav nav-treeview">
-                                <li class="nav-item"> <a href="<?php echo BASE_URL; ?>/home/ben_vindo" class="nav-link"> <i class="nav-icon bi bi-circle"></i>
+                                <li class="nav-item"> <a href="<?php echo BASE_URL; ?>home/ben_vindo" class="nav-link"> <i class="nav-icon bi bi-circle"></i>
                                         <p>Fotos (Ben vindo HOME)</p>
                                     </a> </li>
 
@@ -164,7 +164,7 @@
                                     </a> </li>
 
 
-                                <li class="nav-item"> <a href="<?php echo BASE_URL; ?>/home/qualidade" class="nav-link"> <i class="nav-icon bi bi-circle"></i>
+                                <li class="nav-item"> <a href="<?php echo BASE_URL; ?>home/qualidade" class="nav-link"> <i class="nav-icon bi bi-circle"></i>
                                         <p>Fotos (qualidade HOME)</p>
                                     </a> </li>
 
@@ -187,7 +187,7 @@
                                 </p>
                             </a>
                             <ul class="nav nav-treeview">
-                                <li class="nav-item"> <a href="http://localhost/guloseimas_do_olimpophp/public/sobre/quem_sou_eu" class="nav-link"> <i class="nav-icon bi bi-circle"></i>
+                                <li class="nav-item"> <a href="<?php echo BASE_URL; ?>sobre/quem_sou_eu" class="nav-link"> <i class="nav-icon bi bi-circle"></i>
                                         <p>Fotos ( quem sou eu )</p>
                                     </a> </li>
 
