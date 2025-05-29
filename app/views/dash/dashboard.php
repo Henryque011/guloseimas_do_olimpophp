@@ -246,7 +246,7 @@
 
                         <li class="nav-header">SITE (FOTOS)</li>
 
-                        <li class="nav-item"> <a href="<?php echo BASE_URL; ?>dash/produtos/listar" class="nav-link"> <i class="bi bi-cart-dash"></i>
+                        <li class="nav-item"> <a href="<?php echo BASE_URL; ?>produtos/listar" class="nav-link"> <i class="bi bi-cart-dash"></i>
 
 
                                 <p>Produtos</p>
