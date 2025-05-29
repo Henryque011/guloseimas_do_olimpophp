@@ -155,7 +155,7 @@ class ProdutosController extends Controller
                     // Mensagem de erro caso o upload da foto falhe
                     $_SESSION['mensagem'] = "Erro ao fazer o upload da imagem.";
                     $_SESSION['tipo-msg'] = 'erro';
-                    header("Location: " . BASE_URL . "produtos/adicionar/");
+                    header("Location: " . BASE_URL . "Produtos/adicionar/");
                     exit;
                 }
             } else {
@@ -167,7 +167,7 @@ class ProdutosController extends Controller
                 // Mensagem de sucesso
                 $_SESSION['mensagem'] = "Produto e suas informações adicionados com sucesso!";
                 $_SESSION['tipo-msg'] = 'sucesso';
-                header("Location: " . BASE_URL . "produtos/adicionar/");
+                header("Location: " . BASE_URL . "Produtos/adicionar/");
                 exit;
             } else {
                 // Mensagem de erro caso não consiga adicionar o produto
