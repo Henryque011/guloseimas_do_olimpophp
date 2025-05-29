@@ -91,7 +91,7 @@ class ProdutosController extends Controller
         $dados = array();
         $dados['listarServico'] = $this->produtoModel->getPg_produtos();
 
-        $dados['conteudo'] = 'dash/produtos/listar';
+        $dados['conteudo'] = 'produtos/listar';
 
 
 
