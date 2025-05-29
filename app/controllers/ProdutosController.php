@@ -87,7 +87,7 @@ class ProdutosController extends Controller
         $dados['listarServico'] = $this->produtoModel->getPg_produtos();
 
         // Caminho correto da view que será incluída dentro de dashboard
-        $dados['conteudo'] = 'dash/produtos/listar';
+        $dados['conteudo'] = 'dash/Produtos/listar';
 
         // Carrega a view do dashboard (que internamente usará o $conteudo)
         $this->carregarViews('dash/dashboard', $dados);
@@ -104,7 +104,7 @@ class ProdutosController extends Controller
 
         $categoria = new Categoria();
         $dados['Todascategorias'] = $categoria->getCategoria();
-        $dados['conteudo'] = 'dash/produtos/adicionar';
+        $dados['conteudo'] = 'dash/Produtos/adicionar';
 
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             // Filtra os inputs corretamente
@@ -302,7 +302,7 @@ class ProdutosController extends Controller
         ];
 
         // Carrega a view do formulário
-        $this->carregarViews('dash/produtos/status', $dados);
+        $this->carregarViews('dash/Produtos/status', $dados);
     }
 
     public function statusB($id)
