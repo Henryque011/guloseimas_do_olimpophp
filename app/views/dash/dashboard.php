@@ -660,7 +660,7 @@
         <?php
         // Aqui é onde vai o conteúdo dinâmico
         if (!empty($conteudo)) {
-            require __DIR__ . '/../' . $conteudo . '.php';
+            require __DIR__ . '/' . $conteudo . '.php';
         }
         ?>
     </div>
