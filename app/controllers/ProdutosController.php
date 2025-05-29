@@ -48,7 +48,7 @@ class ProdutosController extends Controller
 
     public function detalhe($link = null)
     {
-  
+
         if ($link === null) {
             header("Location: /guloseimas_do_olimpophp/public");
             exit;
@@ -76,27 +76,23 @@ class ProdutosController extends Controller
 
     public function listar()
     {
-
-
-
-
-
-
-        if (!isset($_SESSION['userTipo'])  || $_SESSION['userTipo'] !== 'Funcionario') {
-
+        // Garante que o usuário é um Funcionário
+        if (!isset($_SESSION['userTipo']) || $_SESSION['userTipo'] !== 'Funcionario') {
             header('Location:' . BASE_URL);
             exit;
         }
 
+        // Carrega os dados dos produtos
         $dados = array();
         $dados['listarServico'] = $this->produtoModel->getPg_produtos();
 
+        // Caminho correto da view que será incluída dentro de dashboard
         $dados['conteudo'] = 'dash/produtos/listar';
 
-
-
+        // Carrega a view do dashboard (que internamente usará o $conteudo)
         $this->carregarViews('dash/dashboard', $dados);
     }
+
 
 
     public function adicionar()
@@ -213,7 +209,7 @@ class ProdutosController extends Controller
         $semAcento = iconv('UTF-8', 'ASCII//TRANSLIT', $nome_produto);
 
         $link = strtolower(trim(preg_replace('/[^a-zA-Z0-9]/', '-',  $semAcento)));
-       
+
 
 
         $contador = 1;
@@ -228,7 +224,7 @@ class ProdutosController extends Controller
         }
 
 
-     
+
         return $link;
     }
 
@@ -561,11 +557,11 @@ class ProdutosController extends Controller
     {
         $limite = isset($_GET['limite']) ? intval($_GET['limite']) : 2; // Garantindo que o limite seja definido
         $offset = isset($_GET['offset']) ? intval($_GET['offset']) : 0;
-    
+
         $produtos = $this->produtoModel->getVerMaisProdutos($limite, $offset);
-    
+
         ob_start(); // Inicia o buffer de saída
-    
+
         if (!empty($produtos)) {
             foreach ($produtos as $PG_produtos) {
                 echo '<div class="tamanho_link">
@@ -588,10 +584,10 @@ class ProdutosController extends Controller
         } else {
             echo ""; // Se não houver mais produtos, retorna uma string vazia
         }
-    
+
         ob_end_flush(); // Envia o buffer de saída
     }
-    
+
 
     // Função para mostrar todos os produtos (sem filtro de categoria)
     public function mostrarTodosProdutos()
@@ -628,18 +624,17 @@ class ProdutosController extends Controller
         } else {
             echo '<p class="sem-produtos">Nenhum produto encontrado.</p>';
         }
-        
     }
 
 
     public function filtrarPorPreco()
     {
-        $precoMax = isset($_GET['preco']) ? floatval($_GET['preco']) : 100 ;
+        $precoMax = isset($_GET['preco']) ? floatval($_GET['preco']) : 100;
 
         // Buscar produtos até o preço máximo no banco de dados
         $produtos = $this->produtoModel->getProdutosPorPreco($precoMax);
 
-       
+
 
         if (!empty($produtos)) {
             foreach ($produtos as $PG_produtos) {
@@ -665,8 +660,6 @@ class ProdutosController extends Controller
         } else {
             echo '<p class="sem-produtos">Nenhum produto encontrado dentro desse preço.</p>';
         }
-
-       
     }
 
     public function filtrarPorCategoria()
@@ -683,7 +676,7 @@ class ProdutosController extends Controller
         // Recupera os produtos da categoria no Model
         $produtos = $this->produtoModel->getProdutosPorCategoria($categoriaId, $limite, $offset);
 
-      
+
 
         if (!empty($produtos)) {
             foreach ($produtos as $PG_produtos) {
@@ -709,12 +702,6 @@ class ProdutosController extends Controller
         } else {
             echo '<p class="sem-produtos">Nenhum produto encontrado para esta categoria.</p>';
         }
-        
-
-
-        
-
-       
     }
 
 
@@ -772,74 +759,67 @@ class ProdutosController extends Controller
     }
 
 
-   public function atualizarC()
-{
-    // Verifica se o usuário tem permissão
-    if (!isset($_SESSION['userTipo']) || $_SESSION['userTipo'] !== 'Funcionario') {
-        header('Location: ' . BASE_URL);
-        exit();
-    }
-
-    if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-        $id = $_POST['id_categoria'];
-
-        // Captura os dados enviados pelo formulário
-        $dados = [
-            'nome_categoria' => $_POST['nome_categoria'], // Ajustado para o nome correto
-            'descricao_categoria' => $_POST['descricao_categoria'] // Ajustado para a descrição correta
-        ];
-
-        // Chama o método de atualização no model
-        if ($this->categoria_produto->atualizarCategoria($id, $dados)) {
-            $_SESSION['mensagem'] = "Categoria atualizada com sucesso!";
-            header('Location: ' . BASE_URL . 'dashboard');
-        } else {
-            $_SESSION['erro'] = "Erro ao atualizar a categoria.";
-            header('Location: ' . BASE_URL . 'categorias/editarC/' . $id);
-        }
-        exit();
-    }
-}
-
-
-public function atualizarStatusC()
-{
-    // Verifica permissão
-    if (!isset($_SESSION['userTipo']) || $_SESSION['userTipo'] !== 'Funcionario') {
-        header('Location: ' . BASE_URL);
-        exit();
-    }
-
-    if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-        $id = $_POST['id_categoria'] ?? null;
-        $status = $_POST['status_categoria'] ?? null;
-
-        // Verifica se os valores foram preenchidos
-        if (empty($id) || empty($status)) {
-            $_SESSION['erro'] = "ID ou Status inválido.";
-            header('Location: ' . BASE_URL . 'categorias/listar');
+    public function atualizarC()
+    {
+        // Verifica se o usuário tem permissão
+        if (!isset($_SESSION['userTipo']) || $_SESSION['userTipo'] !== 'Funcionario') {
+            header('Location: ' . BASE_URL);
             exit();
         }
 
-        // Atualiza no banco
-        if ($this->categoria_produto->atualizarStatusCategoria($id, $status)) {
-            $_SESSION['mensagem'] = "Status atualizado com sucesso!";
-        } else {
-            $_SESSION['erro'] = "Erro ao atualizar o status da categoria.";
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            $id = $_POST['id_categoria'];
+
+            // Captura os dados enviados pelo formulário
+            $dados = [
+                'nome_categoria' => $_POST['nome_categoria'], // Ajustado para o nome correto
+                'descricao_categoria' => $_POST['descricao_categoria'] // Ajustado para a descrição correta
+            ];
+
+            // Chama o método de atualização no model
+            if ($this->categoria_produto->atualizarCategoria($id, $dados)) {
+                $_SESSION['mensagem'] = "Categoria atualizada com sucesso!";
+                header('Location: ' . BASE_URL . 'dashboard');
+            } else {
+                $_SESSION['erro'] = "Erro ao atualizar a categoria.";
+                header('Location: ' . BASE_URL . 'categorias/editarC/' . $id);
+            }
+            exit();
         }
-        
-        header('Location: ' . BASE_URL . 'produtos/listar_categoria');
-        exit();
     }
 
-    header('Location: ' . BASE_URL);
-    exit();
-}
 
+    public function atualizarStatusC()
+    {
+        // Verifica permissão
+        if (!isset($_SESSION['userTipo']) || $_SESSION['userTipo'] !== 'Funcionario') {
+            header('Location: ' . BASE_URL);
+            exit();
+        }
 
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            $id = $_POST['id_categoria'] ?? null;
+            $status = $_POST['status_categoria'] ?? null;
 
+            // Verifica se os valores foram preenchidos
+            if (empty($id) || empty($status)) {
+                $_SESSION['erro'] = "ID ou Status inválido.";
+                header('Location: ' . BASE_URL . 'categorias/listar');
+                exit();
+            }
 
+            // Atualiza no banco
+            if ($this->categoria_produto->atualizarStatusCategoria($id, $status)) {
+                $_SESSION['mensagem'] = "Status atualizado com sucesso!";
+            } else {
+                $_SESSION['erro'] = "Erro ao atualizar o status da categoria.";
+            }
 
+            header('Location: ' . BASE_URL . 'produtos/listar_categoria');
+            exit();
+        }
 
-
+        header('Location: ' . BASE_URL);
+        exit();
+    }
 }
