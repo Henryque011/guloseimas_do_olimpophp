@@ -415,17 +415,15 @@
 
                         <!-- CONTEUDO -->
                         <?php
+
                         if (isset($conteudo)) {
-                            echo 'Tentando carregar: ' . __DIR__ . '/' . $conteudo . '.php<br>';
-
-                            // dirname(__DIR__) = /app/views
+                            $this->carregarViews($conteudo, $dados);
                         } else {
-                            echo '<h2>Bem-vindo ao Dashboard</h2>';
+                            echo '<h2> Bem  vindo ao Dashboard</h2>';
                         }
+
+
                         ?>
-
-
-
                     </div>
 
                 </div> <!-- /.row (main row) -->
