@@ -3,13 +3,12 @@
 
 <head>
     <?php
-    // Inclui o head
     require(__DIR__ . '/../../head_geral/head.php');
-
     ?>
 </head>
 <style>
-    body , html{
+    body,
+    html {
         height: 100%;
         margin: 0;
         display: flex;
@@ -17,44 +16,39 @@
         align-items: center;
     }
 
-    h1{
+    h1 {
         font-size: 30pt;
         font-weight: bold;
         text-align: center;
         margin-bottom: 20px;
-      
     }
 
-
-    main{
-      width: 100vh;
-    
+    main {
+        width: 100vh;
     }
 
-    label{
+    label {
         margin: 10px 0;
         font-size: 15pt;
         font-weight: bold;
     }
 
-    
-input{
-    margin: 10px 0;
-}
+    input {
+        margin: 10px 0;
+    }
 
-button{
-    margin-right: 20px;
-    margin-top: 10px;
-}
+    button {
+        margin-right: 20px;
+        margin-top: 10px;
+    }
 
-a{
-margin-top: 10px;
-}
-
+    a {
+        margin-top: 10px;
+    }
 </style>
 
 <body>
-    
+
     <main>
         <?php
         // Verifica se o produto foi carregado corretamente
@@ -65,8 +59,6 @@ margin-top: 10px;
 
                 <!-- Formulário de edição do produto -->
                 <form action="<?php echo BASE_URL . 'produtos/atualizar/' . $produto['id_produto']; ?>" method="POST" enctype="multipart/form-data">
-
-
 
                     <div class="form-group">
                         <label for="nome_produto">Nome do Produto</label>
@@ -97,20 +89,10 @@ margin-top: 10px;
         <?php else: ?>
             <p>Produto não encontrado.</p>
         <?php endif; ?>
-
-
     </main>
-
-    
-
-
-    </main>
-
 
     <?php
-    // Inclui o script
     require(__DIR__ . '/../../script_geral/script.php');
-
     ?>
 
 </body>
