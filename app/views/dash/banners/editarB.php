@@ -3,13 +3,12 @@
 
 <head>
     <?php
-    // Inclui o head
     require(__DIR__ . '/../../head_geral/head.php');
-
     ?>
 </head>
 <style>
-    body , html{
+    body,
+    html {
         height: 100%;
         margin: 0;
         display: flex;
@@ -17,44 +16,38 @@
         align-items: center;
     }
 
-    h1{
+    h1 {
         font-size: 30pt;
         font-weight: bold;
         text-align: center;
         margin-bottom: 20px;
-      
     }
 
-
-    main{
-      width: 100vh;
-    
+    main {
+        width: 100vh;
     }
 
-    label{
+    label {
         margin: 10px 0;
         font-size: 15pt;
         font-weight: bold;
     }
 
-    
-input{
-    margin: 10px 0;
-}
+    input {
+        margin: 10px 0;
+    }
 
-button{
-    margin-right: 20px;
-    margin-top: 10px;
-}
+    button {
+        margin-right: 20px;
+        margin-top: 10px;
+    }
 
-a{
-margin-top: 10px;
-}
-
+    a {
+        margin-top: 10px;
+    }
 </style>
 
 <body>
-   
     <main>
         <?php
         // Verifica se o produto foi carregado corretamente
@@ -66,8 +59,6 @@ margin-top: 10px;
                 <!-- Formulário de edição do produto -->
                 <form action="<?php echo BASE_URL . 'produtos/atualizarBanner_produto/' . $banner_produto['id_banner']; ?>" method="POST" enctype="multipart/form-data">
 
-
-
                     <div class="form-group">
                         <label for="nome_banner">Nome do banner</label>
                         <input type="text" id="nome_banner" name="nome_banner" value="<?php echo htmlspecialchars($banner_produto['nome_banner']); ?>" required class="form-control">
@@ -77,9 +68,6 @@ margin-top: 10px;
                         <label for="alt_foto_banner">Texto Alternativo</label>
                         <input type="text" id="alt_foto_banner" name="alt_foto_banner" placeholder="Digite o texto alternativo" value="<?php echo htmlspecialchars($banner_produto['alt_foto_banner']); ?>" required class="form-control">
                     </div>
-
-
-
 
                     <div class="form-group">
                         <label for="foto_banner">Foto do Banner</label>
@@ -95,19 +83,10 @@ margin-top: 10px;
         <?php else: ?>
             <p>Produto não encontrado.</p>
         <?php endif; ?>
-
-
     </main>
-
-    
-
-    </main>
-
 
     <?php
-    // Inclui o script
     require(__DIR__ . '/../../script_geral/script.php');
-
     ?>
 
 </body>
