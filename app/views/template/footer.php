@@ -4,32 +4,32 @@
 
         </div>
         <div class="logo_footer">
-            <a href="index.php"><img src="http://localhost/guloseimas_do_olimpophp/public/assets/img/logo_header.svg"
+            <a href="index.php"><img src="<?php echo BASE_URL; ?>assets/img/logo_header.svg"
                     alt="logo Guloseimas do Olimpo"></a>
         </div>
         <div class="contato">
             <h2>CONTATO</h2>
 
-            <h3>Localização: Itaim Paulista – SP <img src="http://localhost/guloseimas_do_olimpophp/public/assets/img/localizacao.svg"
+            <h3>Localização: Itaim Paulista – SP <img src="<?php echo BASE_URL; ?>assets/img/localizacao.svg"
                     alt="localizacao">
             </h3>
 
             <h3>Email: guloseimasolimpo@gmail.com
-                <img src="http://localhost/guloseimas_do_olimpophp/public/assets/img/email.svg" alt="email">
+                <img src="<?php echo BASE_URL; ?>assets/img/email.svg" alt="email">
             </h3>
 
-            <h3>WhatsApp: (11)98056-3192 <img src="http://localhost/guloseimas_do_olimpophp/public/assets/img/telefone.svg" alt="telefone">
+            <h3>WhatsApp: (11)98056-3192 <img src="<?php echo BASE_URL; ?>assets/img/telefone.svg" alt="telefone">
             </h3>
         </div>
         <nav class="nav_footer">
             <h2>MENU</h2>
             <ul>
-                <li><a href="http://localhost/guloseimas_do_olimpophp/public/home">HOME</a></li>
-                <li><a href="http://localhost/guloseimas_do_olimpophp/public/sobre">SOBRE</a></li>
-                <li><a href="http://localhost/guloseimas_do_olimpophp/public/produtos">PRODUTOS</a></li>
-                <li><a href="http://localhost/guloseimas_do_olimpophp/public/compras">RESERVA</a></li>
-                <li><a href="http://localhost/guloseimas_do_olimpophp/public/galeria">GALERIA</a></li>
-                <li><a href="http://localhost/guloseimas_do_olimpophp/public/contato">CONTATO</a></li>
+                <li><a href="<?php echo BASE_URL; ?>home">HOME</a></li>
+                <li><a href="<?php echo BASE_URL; ?>sobre">SOBRE</a></li>
+                <li><a href="<?php echo BASE_URL; ?>produtos">PRODUTOS</a></li>
+                <li><a href="<?php echo BASE_URL; ?>compras">RESERVA</a></li>
+                <li><a href="<?php echo BASE_URL; ?>galeria">GALERIA</a></li>
+                <li><a href="<?php echo BASE_URL; ?>contato">CONTATO</a></li>
             </ul>
         </nav>
 
@@ -52,36 +52,32 @@
                                     <button style="background-color: transparent;" type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                 </div>
                                 <div class="modal-body">
-                                    
+
                                     🎉 O Email foi enviado com sucesso! <br> Obrigado por se inscrever! Em breve, você receberá nossas novidades. 😉
                                 </div>
                                 <div class="modal-footer">
-                                <button style="display: flex; align-items: center; justify-content: center;" type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
-
+                                    <button style="display: flex; align-items: center; justify-content: center;" type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </form>
-
             </div>
-
         </div>
-
     </div>
     <div class="redes_footer">
         <div>
-            <a href="https://www.instagram.com/guloseimas_olimpo?igsh=MTZsZjV1aXU0MWQxNQ==" target="_blank"><img src="http://localhost/guloseimas_do_olimpophp/public/assets/img/instagram_footer.svg" alt="instagram"></a>
+            <a href="https://www.instagram.com/guloseimas_olimpo?igsh=MTZsZjV1aXU0MWQxNQ==" target="_blank"><img src="<?php echo BASE_URL; ?>assets/img/instagram_footer.svg" alt="instagram"></a>
         </div>
         <div>
-            <a href="https://www.ifood.com.br/delivery/sao-paulo-sp/guloseimas-do-olimpo---trufas-brownies-e-bolos-jardim-camargo-novo/a2723d73-19f8-4a51-baec-cf38223b122f?utm_medium=share" target="_blank"><img src="http://localhost/guloseimas_do_olimpophp/public/assets/img/ifood_footer.svg" alt="ifood"></a>
+            <a href="https://www.ifood.com.br/delivery/sao-paulo-sp/guloseimas-do-olimpo---trufas-brownies-e-bolos-jardim-camargo-novo/a2723d73-19f8-4a51-baec-cf38223b122f?utm_medium=share" target="_blank"><img src="<?php echo BASE_URL; ?>assets/img/ifood_footer.svg" alt="ifood"></a>
         </div>
         <div>
-            <!-- <a href="#"><img src="http://localhost/guloseimas_do_olimpophp/public/assets/img/youtube_footer.svg" alt="youtube"></a> -->
+            <!-- <a href="#"><img src="<?php echo BASE_URL; ?>assets/img/youtube_footer.svg" alt="youtube"></a> -->
         </div>
 
         <div>
-            <a href="https://w.app/ladvkq" target="_blank"><img src="http://localhost/guloseimas_do_olimpophp/public/assets/img/wpp_footer.svg" alt="whatsapp"></a>
+            <a href="https://w.app/ladvkq" target="_blank"><img src="<?php echo BASE_URL; ?>assets/img/wpp_footer.svg" alt="whatsapp"></a>
         </div>
     </div>
 
