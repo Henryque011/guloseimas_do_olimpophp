@@ -11,19 +11,15 @@
   }
 </style>
 
-
-
 <table class="table table-hover">
   <thead>
     <tr>
       <th scope="col">ID</th>
-
       <th scope="col">Nome da categoria</th>
       <th scope="col">Descrição categoria</th>
       <th scope="col">Status</th>
       <th scope="col">Editar</th>
       <th scope="col">Desativar/Ativar</th>
-
     </tr>
   </thead>
   <tbody>
@@ -40,7 +36,6 @@
         <td>
           <a href="<?php echo BASE_URL . 'produtos/editarC/' . $linha['id_categoria']; ?>">
             <button><i class="bi bi-pencil-fill"></i></button>
-
         </td>
 
         <td>
@@ -52,6 +47,6 @@
     <?php endforeach; ?>
   </tbody>
 </table>
-<script src="http://localhost/guloseimas_do_olimpophp/public/vendors/dash/js/adminlte.js"></script>
+<script src="<?php echo BASE_URL; ?>vendors/dash/js/adminlte.js"></script>
 
 </html>
