@@ -1,5 +1,3 @@
-
-
 <style>
   button {
     border: none;
@@ -13,13 +11,7 @@
   }
 </style>
 
-
-
-
-
-
-<a href="<?php echo BASE_URL . 'produtos/adicionar/'  ?>" class="btn btn-primary mb-3" >ADICIONAR</a>
-
+<a href="<?php echo BASE_URL . 'produtos/adicionar/'  ?>" class="btn btn-primary mb-3">ADICIONAR</a>
 
 <table class="table table-hover">
   <thead>
@@ -33,7 +25,6 @@
       <!-- <th scope="col">Especialidade</th> -->
       <th scope="col">Editar</th>
       <th scope="col">Desativar/Ativar</th>
-     
 
     </tr>
   </thead>
@@ -50,8 +41,6 @@
 
         <td><?php echo $linha['status_pedido'] ?></td>
 
-
-
         <td>
           <a href="<?php echo BASE_URL . 'produtos/editar/' . $linha['id_produto']; ?>">
             <button><i class="bi bi-pencil-fill"></i></button>
@@ -60,25 +49,14 @@
           <a href="<?php echo BASE_URL . 'produtos/status/' . $linha['id_produto']; ?>">
             <button><i class=""></i></button>
           </a>
-       
         <td>
-
-
-
-      
           <a href="<?php echo BASE_URL . 'produtos/status/' . $linha['id_produto']; ?>">
             <button><i class="bi bi-trash-fill"></i></button>
           </a>
-       
-        
       </tr>
-
-
     <?php endforeach; ?>
-
-
-
   </tbody>
 </table>
-<script src="http://localhost/guloseimas_do_olimpophp/public/vendors/dash/js/adminlte.js"></script>
+<script src="<?php echo BASE_URL; ?>vendors/dash/js/adminlte.js"></script>
+
 </html>
