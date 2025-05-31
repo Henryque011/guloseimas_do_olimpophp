@@ -79,7 +79,7 @@
                                             <h3><?php echo htmlspecialchars($PG_produtos['nome_produto'], ENT_QUOTES, 'UTF-8'); ?></h3>
                                             <p>R$ <?php echo number_format($PG_produtos['preco_produto'], 2, ',', '.'); ?></p>
                                             <button class="adicionar-favorito" data-id-produto="<?php echo $PG_produtos['id_produto']; ?>">
-                                                <img src="http://localhost/guloseimas_do_olimpophp/public/assets/img/adicionar_favoritos.svg" alt="adicionar_favoritos">
+                                                <img src="<?php echo BASE_URL; ?>assets/img/adicionar_favoritos.svg" alt="adicionar_favoritos">
                                             </button>
                                         </div>
                                     </a>
@@ -134,8 +134,6 @@
         </div>
     </div>
 
-
-
     <!-- Modal de "Produto Adicionado aos Favoritos" -->
     <!-- Modal de "Produto Adicionado aos Favoritos" -->
     <div class="modal fade" id="modal_adicionado_favorito" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -155,26 +153,25 @@
         </div>
     </div>
 
+    <!-- Modal de Login Necessário -->
+    <!-- Modal de Login -->
+    <div class="modal fade" id="modal_fazer_login" tabindex="-1" aria-labelledby="modal_fazer_loginLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="modal_fazer_loginLabel">Login Necessário</h5>
 
-<!-- Modal de Login Necessário -->
-<!-- Modal de Login -->
-<div class="modal fade" id="modal_fazer_login" tabindex="-1" aria-labelledby="modal_fazer_loginLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="modal_fazer_loginLabel">Login Necessário</h5>
-               
-            </div>
-            <div class="modal-body">
-                <p>Você precisa estar logado para adicionar produtos aos favoritos. Clique no botão abaixo para fazer login.</p>
-            </div>
-            <div class="modal-footer">
-                <a href="<?php echo BASE_URL; ?>login" class="btn btn-primary">Fazer Login</a>
-               
+                </div>
+                <div class="modal-body">
+                    <p>Você precisa estar logado para adicionar produtos aos favoritos. Clique no botão abaixo para fazer login.</p>
+                </div>
+                <div class="modal-footer">
+                    <a href="<?php echo BASE_URL; ?>login" class="btn btn-primary">Fazer Login</a>
+
+                </div>
             </div>
         </div>
     </div>
-</div>
 
 </body>
 
@@ -191,7 +188,6 @@
         /**
          * Função para carregar mais produtos ao clicar no botão "Ver mais"
          */
-
 
         // Função para carregar mais produtos
         let produtosIniciais = 0; // Agora o offset começa com 16
@@ -256,44 +252,42 @@
         }
 
         function adicionarAosFavoritos(event) {
-    event.preventDefault();
-    const idProduto = event.target.closest(".adicionar-favorito").getAttribute("data-id-produto");
+            event.preventDefault();
+            const idProduto = event.target.closest(".adicionar-favorito").getAttribute("data-id-produto");
 
-    fetch('<?php echo BASE_URL; ?>favoritos/adicionarFavorito', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ id_produto: idProduto })
-    })
-    .then(response => response.json())
-    .then(data => {
-        if (data.sucesso) {
-            // Exibe o modal de sucesso ao adicionar o produto aos favoritos
-            const modalFavorito = new bootstrap.Modal(document.getElementById('modal_adicionado_favorito'));
-            modalFavorito.show();
-        } else if (data.redirect) {
-            // Exibe o modal de login caso o usuário não esteja autenticado
-            const modalLogin = new bootstrap.Modal(document.getElementById('modal_fazer_login'));
-            modalLogin.show();
-        } else {
-            // Não exibe nenhum alerta aqui
-            // Caso não tenha ocorrido erro, mas o favorito não foi adicionado, não é necessário fazer nada
+            fetch('<?php echo BASE_URL; ?>favoritos/adicionarFavorito', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        id_produto: idProduto
+                    })
+                })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.sucesso) {
+                        // Exibe o modal de sucesso ao adicionar o produto aos favoritos
+                        const modalFavorito = new bootstrap.Modal(document.getElementById('modal_adicionado_favorito'));
+                        modalFavorito.show();
+                    } else if (data.redirect) {
+                        // Exibe o modal de login caso o usuário não esteja autenticado
+                        const modalLogin = new bootstrap.Modal(document.getElementById('modal_fazer_login'));
+                        modalLogin.show();
+                    } else {
+                        // Não exibe nenhum alerta aqui
+                        // Caso não tenha ocorrido erro, mas o favorito não foi adicionado, não é necessário fazer nada
+                    }
+                })
         }
-    })
-   
-}
 
-// Event Listener para os botões
-document.addEventListener("click", function(event) {
-    if (event.target.closest(".adicionar-favorito")) {
-        event.preventDefault();
-        adicionarAosFavoritos(event);
-    }
-});
-
-
-
+        // Event Listener para os botões
+        document.addEventListener("click", function(event) {
+            if (event.target.closest(".adicionar-favorito")) {
+                event.preventDefault();
+                adicionarAosFavoritos(event);
+            }
+        });
 
         /**
          * Função para filtrar produtos por preço
@@ -336,7 +330,6 @@ document.addEventListener("click", function(event) {
                 .catch(error => console.error("Erro ao carregar todos os produtos:", error));
         }
 
-
         // Eventos
         if (btnVerMais) {
             btnVerMais.addEventListener("click", carregarMaisProdutos);
@@ -358,8 +351,6 @@ document.addEventListener("click", function(event) {
         if (btnVerTodosProdutos) {
             btnVerTodosProdutos.addEventListener("click", mostrarTodosProdutos);
         }
-
-
 
         document.querySelectorAll('.adicionar-favorito').forEach(button => {
             button.addEventListener('click', function(event) {
@@ -384,36 +375,28 @@ document.addEventListener("click", function(event) {
                             const modal = new bootstrap.Modal(document.getElementById('modal_adicionado_favorito'));
                             modal.show();
                         } else {
-                          
                         }
                     })
                     .catch(error => {
                         console.error("Erro ao adicionar o produto aos favoritos:", error);
-                       
                     });
             });
         });
-
-
-
-
     });
 </script>
-
 
 <script>
-document.addEventListener("DOMContentLoaded", function () {
-    let links = document.querySelectorAll(".nav-link");
-    let currentUrl = window.location.href;
+    document.addEventListener("DOMContentLoaded", function() {
+        let links = document.querySelectorAll(".nav-link");
+        let currentUrl = window.location.href;
 
-    links.forEach(link => {
-        if (link.href === currentUrl) {
-            link.classList.add("ativo");
-        }
+        links.forEach(link => {
+            if (link.href === currentUrl) {
+                link.classList.add("ativo");
+            }
+        });
     });
-});
 </script>
 </body>
-
 
 </html>
