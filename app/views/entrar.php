@@ -34,7 +34,7 @@ unset($_SESSION['login-erro']); // Limpa a sessão para não mostrar sempre
         <?php
         // loader
         require('template/loader.php');
-        
+
         // Inclui o cabeçalho
         require('template/header.php');
         ?>
@@ -58,8 +58,8 @@ unset($_SESSION['login-erro']); // Limpa a sessão para não mostrar sempre
                 </div>
 
                 <div>
-                    <img src="http://localhost/guloseimas_do_olimpophp/public/assets/img/BRIGADEIRO 2.svg" alt="brigadeiros">
-                    <img src="http://localhost/guloseimas_do_olimpophp/public/assets/img/BRIGADEIRO 3.svg" alt="brigadeiros">
+                    <img src="<?php echo BASE_URL; ?>assets/img/BRIGADEIRO 2.svg" alt="brigadeiros">
+                    <img src="<?php echo BASE_URL; ?>assets/img/BRIGADEIRO 3.svg" alt="brigadeiros">
                 </div>
             </article>
         </section>
@@ -85,7 +85,7 @@ unset($_SESSION['login-erro']); // Limpa a sessão para não mostrar sempre
                                             🙈
                                         </button>
                                     </div>
-                                    
+
                                 </div>
 
                                 <div class="lembrar">
@@ -116,8 +116,8 @@ unset($_SESSION['login-erro']); // Limpa a sessão para não mostrar sempre
             <article class="site">
                 <div></div>
                 <div>
-                    <img src="http://localhost/guloseimas_do_olimpophp/public/assets/img/BRIGADEIRO 4.svg" alt="brigadeiros">
-                    <img src="http://localhost/guloseimas_do_olimpophp/public/assets/img/BRIGADEIRO 5.svg" alt="brigadeiros">
+                    <img src="<?php echo BASE_URL; ?>assets/img/BRIGADEIRO 4.svg" alt="brigadeiros">
+                    <img src="<?php echo BASE_URL; ?>assets/img/BRIGADEIRO 5.svg" alt="brigadeiros">
                 </div>
             </article>
         </section>
@@ -135,7 +135,6 @@ unset($_SESSION['login-erro']); // Limpa a sessão para não mostrar sempre
     // Inclui o script
     require('script_geral/script.php');
     ?>
-
 
     <!-- Modal de Erro -->
     <div class="modal fade" id="modalErro" tabindex="-1" aria-labelledby="modalErroLabel" aria-hidden="true">
@@ -155,8 +154,6 @@ unset($_SESSION['login-erro']); // Limpa a sessão para não mostrar sempre
         </div>
     </div>
 
-
-
 </body>
 
 <script>
@@ -172,7 +169,6 @@ unset($_SESSION['login-erro']); // Limpa a sessão para não mostrar sempre
     });
 </script>
 
-
 <script>
     document.addEventListener('DOMContentLoaded', function() {
         let erroLogin = "<?php echo $erroLogin; ?>";
@@ -183,20 +179,18 @@ unset($_SESSION['login-erro']); // Limpa a sessão para não mostrar sempre
     });
 </script>
 
-
 <script>
-document.addEventListener("DOMContentLoaded", function () {
-    let links = document.querySelectorAll(".nav-link");
-    let currentUrl = window.location.href;
+    document.addEventListener("DOMContentLoaded", function() {
+        let links = document.querySelectorAll(".nav-link");
+        let currentUrl = window.location.href;
 
-    links.forEach(link => {
-        if (link.href === currentUrl) {
-            link.classList.add("ativo");
-        }
+        links.forEach(link => {
+            if (link.href === currentUrl) {
+                link.classList.add("ativo");
+            }
+        });
     });
-});
 </script>
 </body>
-
 
 </html>
