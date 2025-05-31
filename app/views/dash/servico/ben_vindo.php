@@ -1,5 +1,3 @@
-
-
 <style>
   button {
     border: none;
@@ -13,8 +11,6 @@
   }
 </style>
 
-
-
 <table class="table table-hover">
   <thead>
     <tr>
@@ -24,7 +20,6 @@
       <th scope="col">Texto Alternativo</th>
       <th scope="col">Status</th>
       <th scope="col">Editar</th>
-     
     </tr>
   </thead>
   <tbody>
@@ -35,18 +30,19 @@
         <td><?php echo htmlspecialchars($linha['nome_galeria']); ?></td>
         <td><?php echo htmlspecialchars($linha['alt_foto_galeria']); ?></td>
         <td>
-    <?php echo ($linha['status_galeria'] == 'Ativo') ? 'Ativo' : 'Inativo'; ?>
-</td>
-        
+          <?php echo ($linha['status_galeria'] == 'Ativo') ? 'Ativo' : 'Inativo'; ?>
+        </td>
+
         <td>
           <a href="<?php echo BASE_URL . 'galeria/editarG/' . $linha['id_galeira']; ?>">
             <button><i class="bi bi-pencil-fill"></i></button>
           </a>
-         
+
         </td>
       </tr>
     <?php endforeach; ?>
   </tbody>
 </table>
-<script src="http://localhost/guloseimas_do_olimpophp/public/vendors/dash/js/adminlte.js"></script>
+<script src="<?php echo BASE_URL; ?>vendors/dash/js/adminlte.js"></script>
+
 </html>
