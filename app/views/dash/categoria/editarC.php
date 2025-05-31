@@ -3,7 +3,6 @@
 
 <head>
     <?php
-    // Inclui o head
     require(__DIR__ . '/../../head_geral/head.php');
     ?>
 </head>
@@ -22,13 +21,10 @@
         font-weight: bold;
         text-align: center;
         margin-bottom: 20px;
-
     }
-
 
     main {
         width: 100vh;
-
     }
 
     label {
@@ -36,7 +32,6 @@
         font-size: 15pt;
         font-weight: bold;
     }
-
 
     input {
         margin: 10px 0;
@@ -54,10 +49,7 @@
 
 <body>
 
-
     <main>
-
-
         <div class="container">
             <?php if (isset($_SESSION['mensagem'])): ?>
                 <div class="alert alert-success">
@@ -101,11 +93,6 @@
             <?php endif; ?>
 
         </div>
-
-
-
-
-
 
         <?php
         // Inclui o script
