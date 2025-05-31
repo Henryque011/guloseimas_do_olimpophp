@@ -19,11 +19,9 @@ if (isset($_SESSION['mensagem'])) {
         gap: 10px;
     }
 
-
     .lado_cliente {
         display: flex;
         align-items: center;
-
     }
 
     .cliente_logado .foto_cliente {
@@ -65,7 +63,6 @@ if (isset($_SESSION['mensagem'])) {
     .fa-regular {
         font-size: 20pt;
         color: #985C41;
-
     }
 
     .nome_cliente {
@@ -104,7 +101,6 @@ if (isset($_SESSION['mensagem'])) {
                             </div>
                         </a>
 
-
                         <!-- Nome do cliente -->
 
                         <!-- Botão de logout -->
@@ -113,10 +109,9 @@ if (isset($_SESSION['mensagem'])) {
                 <?php else: ?>
                     <!-- Link para login se não estiver logado -->
                     <a href="<?php echo BASE_URL; ?>login">
-                        <img src="http://localhost/guloseimas_do_olimpophp/public/assets/img/login.svg" alt="Login">
+                        <img src="<?php echo BASE_URL; ?>assets/img/login.svg" alt="Login">
                     </a>
                 <?php endif; ?> <!-- Aqui termina PHP, sem espaços -->
-
             </div>
 
             <li><a href="<?php echo BASE_URL; ?>home" class="nav-link">HOME</a></li>
@@ -125,8 +120,7 @@ if (isset($_SESSION['mensagem'])) {
             <li><a href="<?php echo BASE_URL; ?>compras" class="nav-link">RESERVA</a></li>
             <li><a href="<?php echo BASE_URL; ?>galeria" class="nav-link">GALERIA</a></li>
             <li><a href="<?php echo BASE_URL; ?>contato" class="nav-link">CONTATO</a></li>
-            <li class="close-btn"><a href="#"><img class="x_mobile" src="http://localhost/guloseimas_do_olimpophp/public/assets/img/fechar.svg" alt="fechar"></a></li>
-
+            <li class="close-btn"><a href="#"><img class="x_mobile" src="<?php echo BASE_URL; ?>assets/img/fechar.svg" alt="fechar"></a></li>
         </ul>
     </nav>
 
@@ -135,14 +129,13 @@ if (isset($_SESSION['mensagem'])) {
             <div class="cliente_logado">
                 <!-- Foto do cliente -->
 
-                <a href="http://localhost/guloseimas_do_olimpophp/public/cliente">
+                <a href="<?php echo BASE_URL; ?>cliente">
                     <div class="lado_cliente">
                         <i class="fa-regular fa-user"></i>
                         <img src="<?php echo BASE_URL . 'uploads/' . $_SESSION['userFoto']; ?>" alt="Foto de <?php echo $_SESSION['userNome']; ?>" class="foto_cliente">
                         <p class="nome_cliente"><?php echo explode(' ', $_SESSION['userNome'])[0]; ?></p>
                     </div>
                 </a>
-
 
                 <!-- Nome do cliente -->
 
@@ -152,7 +145,7 @@ if (isset($_SESSION['mensagem'])) {
         <?php else: ?>
             <!-- Link para login se não estiver logado -->
             <a href="<?php echo BASE_URL; ?>login">
-                <img src="http://localhost/guloseimas_do_olimpophp/public/assets/img/login.svg" alt="Login">
+                <img src="<?php echo BASE_URL; ?>assets/img/login.svg" alt="Login">
             </a>
         <?php endif; ?> <!-- Aqui termina PHP, sem espaços -->
 
