@@ -37,8 +37,8 @@
                 </div>
 
                 <div>
-                    <img src="http://localhost/guloseimas_do_olimpophp/public/assets/img/BRIGADEIRO 2.svg" alt="brigadeiros">
-                    <img src="http://localhost/guloseimas_do_olimpophp/public/assets/img/BRIGADEIRO 3.svg" alt="brigadeiros">
+                    <img src="<?php echo BASE_URL; ?>assets/img/BRIGADEIRO 2.svg" alt="brigadeiros">
+                    <img src="<?php echo BASE_URL; ?>assets/img/BRIGADEIRO 3.svg" alt="brigadeiros">
                 </div>
             </article>
         </section>
@@ -138,8 +138,8 @@
                 <div></div>
 
                 <div>
-                    <img src="http://localhost/guloseimas_do_olimpophp/public/assets/img/BRIGADEIRO 4.svg" alt="brigadeiros">
-                    <img src="http://localhost/guloseimas_do_olimpophp/public/assets/img/BRIGADEIRO 5.svg" alt="brigadeiros">
+                    <img src="<?php echo BASE_URL; ?>assets/img/BRIGADEIRO 4.svg" alt="brigadeiros">
+                    <img src="<?php echo BASE_URL; ?>assets/img/BRIGADEIRO 5.svg" alt="brigadeiros">
                 </div>
             </article>
         </section>
@@ -167,7 +167,6 @@
             </div>
         </div>
 
-
     </main>
 
     <footer>
@@ -181,7 +180,6 @@
     // Inclui o script
     require('script_geral/script.php');
     ?>
-
 
     <div class="modal fade" id="modalSucesso" tabindex="-1" aria-labelledby="modalSucessoLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
@@ -200,7 +198,6 @@
         </div>
     </div>
 
-
     <div class="modal fade" id="modalerro" tabindex="-1" aria-labelledby="modalerroLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
@@ -218,10 +215,6 @@
         </div>
     </div>
 
-
-
-
-
     <script>
         document.addEventListener("DOMContentLoaded", function() {
             <?php if (!empty($_SESSION['sucesso'])): ?>
@@ -237,7 +230,6 @@
         });
     </script>
 
-
     <script>
         document.addEventListener("DOMContentLoaded", function() {
             <?php if (!empty($_SESSION['erro_senha'])): ?>
@@ -252,7 +244,6 @@
             <?php endif; ?>
         });
     </script>
-
 
     <script>
         document.addEventListener("DOMContentLoaded", function() {
@@ -288,9 +279,6 @@
                 .catch(() => alert("Erro ao buscar o CEP."));
         });
     </script>
-
-</body>
-
 
 </body>
 
