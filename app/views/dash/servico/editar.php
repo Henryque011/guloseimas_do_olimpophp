@@ -3,13 +3,12 @@
 
 <head>
     <?php
-    // Inclui o head
     require(__DIR__ . '/../../head_geral/head.php');
-
     ?>
 </head>
 <style>
-    body , html{
+    body,
+    html {
         height: 100%;
         margin: 0;
         display: flex;
@@ -17,44 +16,40 @@
         align-items: center;
     }
 
-    h1{
+    h1 {
         font-size: 30pt;
         font-weight: bold;
         text-align: center;
         margin-bottom: 20px;
-      
     }
 
 
-    main{
-      width: 100vh;
-    
+    main {
+        width: 100vh;
     }
 
-    label{
+    label {
         margin: 10px 0;
         font-size: 15pt;
         font-weight: bold;
     }
 
-    
-input{
-    margin: 10px 0;
-}
+    input {
+        margin: 10px 0;
+    }
 
-button{
-    margin-right: 20px;
-    margin-top: 10px;
-}
+    button {
+        margin-right: 20px;
+        margin-top: 10px;
+    }
 
-a{
-margin-top: 10px;
-}
-
+    a {
+        margin-top: 10px;
+    }
 </style>
 
 <body>
-   
+
     <main>
         <?php
         // Verifica se o produto foi carregado corretamente
@@ -66,14 +61,12 @@ margin-top: 10px;
                 <!-- Formulário de edição do produto -->
                 <form action="<?php echo BASE_URL . 'produtos/atualizar/' . $produto['id_produto']; ?>" method="POST" enctype="multipart/form-data">
 
-
-                
                     <div class="form-group">
                         <label for="nome_produto">Nome do Produto</label>
                         <input type="text" id="nome_produto" name="nome_produto" value="<?php echo htmlspecialchars($produto['nome_produto']); ?>" required class="form-control">
                     </div>
 
-                     <div class="form-group">
+                    <div class="form-group">
                         <label for="descricao_produto">Descrição</label>
                         <textarea id="descricao_produto" name="descricao_produto" required class="form-control"><?php echo htmlspecialchars($produto['descricao_produto']); ?></textarea>
                     </div>
@@ -87,7 +80,7 @@ margin-top: 10px;
                         <label for="foto_produto">Foto do Produto</label>
                         <input type="file" id="foto_produto" name="foto_produto" class="form-control">
                         <small>Deixe em branco para não alterar a imagem.</small>
-                    </div> 
+                    </div>
                     <input type="hidden" name="foto_produto_antiga" value="<?php echo htmlspecialchars($produto['foto_produto']); ?>">
                     <button type="submit" class="btn btn-primary">Salvar alterações</button>
                     <input type="hidden" name="id_produto" value="<?php echo $produto['id_produto']; ?>">
@@ -97,20 +90,10 @@ margin-top: 10px;
         <?php else: ?>
             <p>Produto não encontrado.</p>
         <?php endif; ?>
-
-
     </main>
-
-            
-
-
-    </main>
-
 
     <?php
-    // Inclui o script
-    require(__DIR__.'/../../script_geral/script.php');
-   
+    require(__DIR__ . '/../../script_geral/script.php');
     ?>
 
 </body>
