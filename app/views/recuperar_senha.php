@@ -1,8 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 
-
-
 <style>
     .container {
         display: flex;
@@ -59,8 +57,6 @@
         font-size: 20pt;
     }
 
-
-
     input:focus {
         outline: none;
         /* Remove a borda de foco padrão */
@@ -94,7 +90,6 @@
 
     <main>
 
-
         <section class="banner_contato" style="background-image: url('<?php echo BASE_URL . 'uploads/' . $banner[0]['foto_banner']; ?>');">
             <article class="site">
                 <div>
@@ -103,7 +98,6 @@
             </article>
         </section>
 
-
         <section class="brigadeiros">
             <article class="site">
                 <div>
@@ -111,19 +105,15 @@
                 </div>
 
                 <div>
-                    <img src="http://localhost/guloseimas_do_olimpophp/public/assets/img/BRIGADEIRO 2.svg" alt="brigadeiros">
-                    <img src="http://localhost/guloseimas_do_olimpophp/public/assets/img/BRIGADEIRO 3.svg" alt="brigadeiros">
+                    <img src="<?php echo BASE_URL; ?>assets/img/BRIGADEIRO 2.svg" alt="brigadeiros">
+                    <img src="<?php echo BASE_URL; ?>assets/img/BRIGADEIRO 3.svg" alt="brigadeiros">
                 </div>
             </article>
         </section>
 
-
-
         <section class="login_contato">
             <article class="site">
                 <div class=" lado_a_lado">
-
-
 
                     <div class="container">
 
@@ -148,7 +138,6 @@
             </article>
         </section>
 
-
         <section class="brigadeiros">
             <article class="site">
                 <div>
@@ -156,12 +145,11 @@
                 </div>
 
                 <div>
-                    <img src="http://localhost/guloseimas_do_olimpophp/public/assets/img/BRIGADEIRO 4.svg" alt="brigadeiros">
-                    <img src="http://localhost/guloseimas_do_olimpophp/public/assets/img/BRIGADEIRO 5.svg" alt="brigadeiros">
+                    <img src="<?php echo BASE_URL; ?>assets/img/BRIGADEIRO 4.svg" alt="brigadeiros">
+                    <img src="<?php echo BASE_URL; ?>assets/img/BRIGADEIRO 5.svg" alt="brigadeiros">
                 </div>
             </article>
         </section>
-
 
         <!-- Modal do Bootstrap -->
         <!-- Modal do Bootstrap -->
@@ -174,7 +162,7 @@
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
                     </div>
                     <div class="modal-body">
-                    🎉 Tudo certo! Acabamos de enviar um e-mail com sua nova senha. Se não encontrar na caixa de entrada, dá uma olhadinha no spam! 📩
+                        🎉 Tudo certo! Acabamos de enviar um e-mail com sua nova senha. Se não encontrar na caixa de entrada, dá uma olhadinha no spam! 📩
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
@@ -182,10 +170,6 @@
                 </div>
             </div>
         </div>
-
-
-
-
 
     </main>
 
@@ -204,18 +188,18 @@
 </body>
 
 <script>
-    document.addEventListener("DOMContentLoaded", function () {
+    document.addEventListener("DOMContentLoaded", function() {
         var form = document.querySelector(".nova_senha_forms"); // Seleciona o formulário
         var botaoEnviar = document.querySelector(".enviar_senha"); // Botão de envio
         var modal = new bootstrap.Modal(document.getElementById("mensagemModal")); // Referência ao modal
 
         if (form && botaoEnviar) {
-            form.addEventListener("submit", function (event) {
+            form.addEventListener("submit", function(event) {
                 event.preventDefault(); // Impede o envio imediato do formulário
-                
+
                 modal.show(); // Exibe o modal imediatamente
 
-                setTimeout(function () {
+                setTimeout(function() {
                     form.submit(); // Envia o formulário após 3 segundos
                 }, 3000);
             });
@@ -225,22 +209,17 @@
 
 
 <script>
-document.addEventListener("DOMContentLoaded", function () {
-    let links = document.querySelectorAll(".nav-link");
-    let currentUrl = window.location.href;
+    document.addEventListener("DOMContentLoaded", function() {
+        let links = document.querySelectorAll(".nav-link");
+        let currentUrl = window.location.href;
 
-    links.forEach(link => {
-        if (link.href === currentUrl) {
-            link.classList.add("ativo");
-        }
+        links.forEach(link => {
+            if (link.href === currentUrl) {
+                link.classList.add("ativo");
+            }
+        });
     });
-});
 </script>
 </body>
-
-
-
-
-
 
 </html>
