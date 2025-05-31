@@ -21,8 +21,8 @@
                     <h2>Alterar senha</h2>
                 </div>
                 <div>
-                    <img src="http://localhost/guloseimas_do_olimpophp/public/assets/img/BRIGADEIRO 2.svg" alt="brigadeiros">
-                    <img src="http://localhost/guloseimas_do_olimpophp/public/assets/img/BRIGADEIRO 3.svg" alt="brigadeiros">
+                    <img src="<?php echo BASE_URL; ?>assets/img/BRIGADEIRO 2.svg" alt="brigadeiros">
+                    <img src="<?php echo BASE_URL; ?>assets/img/BRIGADEIRO 3.svg" alt="brigadeiros">
                 </div>
             </article>
         </section>
@@ -53,7 +53,7 @@
                                 </div>
 
                             </div>
-                            <div class="voltar_salvar" >
+                            <div class="voltar_salvar">
                                 <div class="button_forms">
                                     <button type="submit" id="btnSalvarSenha" class="btn btn-primary">Alterar Senha</button>
 
@@ -62,9 +62,7 @@
                                     <a href="<?php echo BASE_URL; ?>cliente">Voltar</a>
                                 </div>
                             </div>
-
                         </form>
-
                     </div>
                 </div>
             </article>
@@ -74,8 +72,8 @@
             <article class="site">
                 <div></div>
                 <div>
-                    <img src="http://localhost/guloseimas_do_olimpophp/public/assets/img/BRIGADEIRO 4.svg" alt="brigadeiros">
-                    <img src="http://localhost/guloseimas_do_olimpophp/public/assets/img/BRIGADEIRO 5.svg" alt="brigadeiros">
+                    <img src="<?php echo BASE_URL; ?>assets/img/BRIGADEIRO 4.svg" alt="brigadeiros">
+                    <img src="<?php echo BASE_URL; ?>assets/img/BRIGADEIRO 5.svg" alt="brigadeiros">
                 </div>
             </article>
         </section>
@@ -121,7 +119,6 @@
         </div>
     </div>
 
-
     <!-- Script para exibir o modal -->
     <script>
         document.getElementById('formEditarSenha').addEventListener('submit', function(event) {
@@ -155,7 +152,6 @@
                 .catch(error => console.error('Erro:', error));
         });
     </script>
-
 
 </body>
 
