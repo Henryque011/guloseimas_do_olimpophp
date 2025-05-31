@@ -1,5 +1,3 @@
-
-
 <style>
   button {
     border: none;
@@ -13,8 +11,6 @@
   }
 </style>
 
-
-
 <table class="table table-hover">
   <thead>
     <tr>
@@ -25,8 +21,6 @@
       <th scope="col">Email contato</th>
       <th scope="col">Mensagem contato</th>
       <th scope="col">Data de envio</th>
-
-
     </tr>
   </thead>
   <tbody>
@@ -48,21 +42,14 @@
           ?>
         </td>
 
-
-
         <!-- <td>
      //     <?php echo ($linha['status_galeria'] == 'Ativo') ? 'Ativo' : 'Inativo'; ?>//
         </td> -->
-
-
-
         </td>
-
-
       </tr>
     <?php endforeach; ?>
   </tbody>
 </table>
-<script src="http://localhost/guloseimas_do_olimpophp/public/vendors/dash/js/adminlte.js"></script>
+<script src="<?php echo BASE_URL; ?>vendors/dash/js/adminlte.js"></script>
 
 </html>
