@@ -53,10 +53,7 @@
             <button><i class="bi bi-pencil-fill"></i></button>
           </a>
         </td>
-
       </tr>
-
-
     <?php endforeach; ?>
 
   </tbody>
