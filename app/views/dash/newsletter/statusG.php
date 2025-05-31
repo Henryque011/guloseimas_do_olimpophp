@@ -3,21 +3,15 @@
 
 </html>
 
-
 <head>
     <?php
-    // Inclui o head
     require(__DIR__ . '/../../head_geral/head.php');
-
     ?>
 </head>
 
 <body>
     <header>
-
-
         <?php
-        // Inclui o cabeçalho
         require(__DIR__ . '/../../template/header.php');
         ?>
     </header>
@@ -43,20 +37,12 @@
 
     <footer>
         <?php
-        // Inclui o cabeçalho
         require(__DIR__ . '/../../template/footer.php');
-
         ?>
     </footer>
 
-
-    </main>
-
-
     <?php
-    // Inclui o script
     require(__DIR__ . '/../../script_geral/script.php');
-
     ?>
 
 </body>
