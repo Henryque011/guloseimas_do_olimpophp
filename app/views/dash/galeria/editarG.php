@@ -104,6 +104,7 @@
         </div>
 
         <?php
+
         require(__DIR__ . '/../../script_geral/script.php');
         ?>
 </body>
