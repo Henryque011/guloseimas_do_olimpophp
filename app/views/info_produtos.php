@@ -29,7 +29,7 @@
             <article class="site">
                 <div class="lado_a_lado">
                     <div>
-                        <a href="http://localhost/guloseimas_do_olimpophp/public/produtos"><img src="<?php echo BASE_URL . 'uploads/' . $detalheServico['foto_produto']; ?>" alt="<?php echo htmlspecialchars($detalheServico['info_alt_foto_produto']); ?>" class="img_info"></a>
+                        <a href="<?php echo BASE_URL; ?>produtos"><img src="<?php echo BASE_URL . 'uploads/' . $detalheServico['foto_produto']; ?>" alt="<?php echo htmlspecialchars($detalheServico['info_alt_foto_produto']); ?>" class="img_info"></a>
                     </div>
                     <div class="inf_produto">
                         <div class="reserva_title">
@@ -139,7 +139,6 @@
             </article>
         </section>
 
-
         <div class="modal fade" id="modal_adicionado_favorito" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
@@ -156,7 +155,6 @@
                 </div>
             </div>
         </div>
-
 
         <div class="modal fade" id="modal_fazer_login" tabindex="-1" aria-labelledby="modal_fazer_loginLabel" aria-hidden="true">
             <div class="modal-dialog">
@@ -175,10 +173,7 @@
                 </div>
             </div>
         </div>
-
-
     </main>
-
 
     <footer>
         <?php
@@ -187,14 +182,12 @@
         ?>
     </footer>
 
-
     <?php
     // Inclui o script
     require('script_geral/script.php');
     ?>
 
 </body>
-
 
 <script>
     document.addEventListener("DOMContentLoaded", function() {
@@ -237,7 +230,6 @@
     });
 </script>
 
-
 <script>
     document.addEventListener("DOMContentLoaded", function() {
         let links = document.querySelectorAll(".nav-link");
@@ -251,6 +243,5 @@
     });
 </script>
 </body>
-
 
 </html>
