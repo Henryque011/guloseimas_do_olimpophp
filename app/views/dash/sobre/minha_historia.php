@@ -1,5 +1,3 @@
-
-
 <style>
   button {
     border: none;
@@ -12,8 +10,6 @@
     border-radius: 5px;
   }
 </style>
-
-
 
 <table class="table table-hover">
   <thead>
@@ -40,7 +36,6 @@
           <a href="<?php echo BASE_URL . 'galeria/editarG/' . $minha_historia['id_galeira']; ?>">
             <button><i class="bi bi-pencil-fill"></i></button>
           </a>
-      
         </td>
       </tr>
     <?php else: ?>
@@ -50,5 +45,6 @@
     <?php endif; ?>
   </tbody>
 </table>
-<script src="http://localhost/guloseimas_do_olimpophp/public/vendors/dash/js/adminlte.js"></script>
+<script src="<?php echo BASE_URL; ?>vendors/dash/js/adminlte.js"></script>
+
 </html>
