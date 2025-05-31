@@ -38,7 +38,6 @@
             margin-right: 50px;
         }
 
-
         .pedido-confirmado {
             text-align: center;
             background-color: #d4edda;
@@ -143,12 +142,7 @@
                                 <div class="compras_box">
                                     <div>
                                         <a href="#">
-
                                             <img src="<?php echo BASE_URL . 'uploads/' . $produto['foto']; ?>" alt="<?php echo $produto['nome']; ?>">
-
-
-
-
                                         </a>
                                     </div>
                                     <div class="desc_compras">
@@ -207,8 +201,6 @@
                                 <div class="finalizar">
                                     <a href="javascript:void(0);" onclick="abrirWhatsApp(event)">Reservar Pedido</a>
                                 </div>
-
-
                             </div>
                         </div>
 
@@ -217,12 +209,11 @@
                                 <button type="submit" name="esvaziar_carrinho" class="esvaziar-btn">Esvaziar Carrinho</button>
                             </form>
                             <div>
-                                <a href="http://localhost/guloseimas_do_olimpophp/public/produtos">Continuar Comprando</a>
+                                <a href="<?php echo BASE_URL; ?>produtos">Continuar Comprando</a>
                             </div>
                         </div>
                     </article>
                 </section>
-
             </main>
 
         <?php
@@ -241,7 +232,6 @@
         <?php
         endif;
         ?>
-
 
         <footer>
             <?php
@@ -275,7 +265,6 @@
             }
         }
     </script>
-
 
     <script>
         function abrirWhatsApp(event) {
@@ -345,7 +334,7 @@
             window.open(linkWhatsApp, '_blank');
 
 
-            fetch('http://localhost/guloseimas_do_olimpophp/public/cliente/limpar_carrinho', {
+            fetch('<?php echo BASE_URL; ?>cliente/limpar_carrinho', {
                     method: 'POST',
                 })
                 .then(response => response.json())
@@ -353,9 +342,6 @@
                     console.log("Resposta do servidor:", data.message); // Verifica se a resposta foi recebida corretamente
                 })
                 .catch(error => console.error('Erro ao limpar carrinho:', error));
-
-
-
 
             // Remove os itens do carrinho após um pequeno tempo
             setTimeout(() => {
@@ -371,10 +357,9 @@
         `;
             }, 500);
 
-
             // Aguarda um tempo e redireciona para a página de histórico
             setTimeout(() => {
-                window.location.href = "http://localhost/guloseimas_do_olimpophp/public/Cliente/historico_reserva?pedido=sucesso";
+                window.location.href = "<?php echo BASE_URL; ?>Cliente/historico_reserva?pedido=sucesso";
             }, 2000); // Redireciona após 2 segundos
 
             // Exibe a mensagem de pedido confirmado
@@ -383,7 +368,6 @@
             mensagemConfirmacao.textContent = 'Pedido feito com sucesso! Obrigado por comprar conosco.';
             document.body.insertBefore(mensagemConfirmacao, document.body.firstChild);
         }
-
 
         document.querySelectorAll('.qtd_box').forEach(function(qtdBox) {
             const decrementButton = qtdBox.querySelector('.decrement-button');
@@ -396,10 +380,6 @@
             const resumoPedido = document.querySelector('.resumo_pedido h6');
             const numProdutosDisplay = document.querySelector('.resumo_pedido p');
             const linkWhatsAppButton = document.querySelector('.finalizar a'); // Link do botão de WhatsApp
-
-
-
-
 
             // Função para atualizar o resumo e a URL do WhatsApp
             const atualizarResumoEUrlWhatsApp = () => {
@@ -480,8 +460,6 @@
         });
     </script>
 
-
-
     <script>
         document.addEventListener("DOMContentLoaded", function() {
             let links = document.querySelectorAll(".nav-link");
@@ -495,8 +473,5 @@
         });
     </script>
     </body>
-
-
-
 
     </html>
