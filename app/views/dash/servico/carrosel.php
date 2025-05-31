@@ -1,5 +1,3 @@
-
-
 <style>
   button {
     border: none;
@@ -12,14 +10,6 @@
     border-radius: 5px;
   }
 </style>
-
-
-
-
-
-
-
-
 
 <table class="table table-hover">
   <thead>
@@ -34,8 +24,6 @@
       <th scope="col">Status</th>
       <th scope="col">Editar</th>
       <th scope="col">Desativar</th>
-     
-
 
     </tr>
   </thead>
@@ -52,36 +40,20 @@
 
         <td><?php echo $linha['status_pedido'] ?></td>
 
-
         <td>
           <a href="<?php echo BASE_URL . 'produtos/editar/' . $linha['id_produto']; ?>">
             <button><i class="bi bi-pencil-fill"></i></button>
           </a>
-
-
-         
         </td>
 
         <td>
-        <a href="<?php echo BASE_URL . 'home/statusC/' . $linha['id_produto']; ?>">
-        <button><i class="bi bi-trash-fill"></i></button>
+          <a href="<?php echo BASE_URL . 'home/statusC/' . $linha['id_produto']; ?>">
+            <button><i class="bi bi-trash-fill"></i></button>
         </td>
-
-      
-
-        
-
-
-
       </tr>
-
-
     <?php endforeach; ?>
-
-
-
   </tbody>
 </table>
-<script src="http://localhost/guloseimas_do_olimpophp/public/vendors/dash/js/adminlte.js"></script>
+<script src="<?php echo BASE_URL; ?>vendors/dash/js/adminlte.js"></script>
 
 </html>
