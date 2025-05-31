@@ -41,19 +41,15 @@
                 </div>
 
                 <div>
-                    <img src="http://localhost/guloseimas_do_olimpophp/public/assets/img/BRIGADEIRO 2.svg" alt="brigadeiros">
-                    <img src="http://localhost/guloseimas_do_olimpophp/public/assets/img/BRIGADEIRO 3.svg" alt="brigadeiros">
+                    <img src="<?php echo BASE_URL; ?>assets/img/BRIGADEIRO 2.svg" alt="brigadeiros">
+                    <img src="<?php echo BASE_URL; ?>assets/img/BRIGADEIRO 3.svg" alt="brigadeiros">
                 </div>
             </article>
         </section>
 
-
-
         <section class="login_contato">
             <article class="site">
                 <div class=" lado_a_lado">
-
-
 
                     <div class="forms_contato">
                         <form method="POST" action="<?php echo BASE_URL; ?>login/login">
@@ -66,7 +62,7 @@
 
                             <!--   <div class="tipo_usuario">
                                 <label for="tipo_usuario">Tipo de Usuário:</label>
-                               <select name="tipo_usuario" id="tipo_usuario" required>
+                                <select name="tipo_usuario" id="tipo_usuario" required>
                                 <option value="Selecione" disabled selected>Selecione</option>
 
                                     <option value="Funcionario">Funcionário</option>
@@ -79,13 +75,10 @@
                             </div>
                         </form>
 
-
-
                     </div>
                 </div>
             </article>
         </section>
-
 
         <section class="brigadeiros">
             <article class="site">
@@ -94,14 +87,11 @@
                 </div>
 
                 <div>
-                    <img src="http://localhost/guloseimas_do_olimpophp/public/assets/img/BRIGADEIRO 4.svg" alt="brigadeiros">
-                    <img src="http://localhost/guloseimas_do_olimpophp/public/assets/img/BRIGADEIRO 5.svg" alt="brigadeiros">
+                    <img src="<?php echo BASE_URL; ?>assets/img/BRIGADEIRO 4.svg" alt="brigadeiros">
+                    <img src="<?php echo BASE_URL; ?>assets/img/BRIGADEIRO 5.svg" alt="brigadeiros">
                 </div>
             </article>
         </section>
-
-
-
     </main>
 
     <footer>
@@ -115,7 +105,6 @@
     // Inclui o script
     require('script_geral/script.php');
     ?>
-
 
     <script>
         document.addEventListener("DOMContentLoaded", function() {
