@@ -42,23 +42,19 @@
 
         ?>
 
-
         <footer>
             <?php
             // Inclui o cabeçalho
             require('template/footer.php');
             ?>
-
         </footer>
 
     </main>
-
 
     <?php
     // Inclui o script
     require('script_geral/script.php');
     ?>
-
 
 </body>
 <script>
@@ -72,8 +68,6 @@
             }
         });
     });
-
-
 
     document.addEventListener("DOMContentLoaded", function() {
         // Textos dinâmicos para o título principal (h2)
@@ -114,6 +108,5 @@
     });
 </script>
 </body>
-
 
 </html>
