@@ -11,7 +11,6 @@
         <div class="highlights">
             <?php foreach ($destaque as $item) { ?>
                 <div>
-
                     <div class="box">
                         <div class="img_01">
                             <a href="<?php echo BASE_URL . 'produtos/detalhe/' . $item['link_produto']; ?>"><img
