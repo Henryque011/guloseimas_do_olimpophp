@@ -5,12 +5,9 @@
     }
 
     #cancelar {
-
         background-color: red;
         border: black;
     }
-
-
 
     .lado {
         display: flex;
@@ -115,8 +112,7 @@
 
 </form>
 
-
-<script src="http://localhost/guloseimas_do_olimpophp/public/vendors/dash/js/adminlte.js"></script>
+<script src="<?php echo BASE_URL; ?>vendors/dash/js/adminlte.js"></script>
 
 
 <script>
