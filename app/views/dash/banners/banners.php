@@ -1,5 +1,3 @@
-
-
 <style>
   button {
     border: none;
@@ -13,8 +11,6 @@
   }
 </style>
 
-
-
 <table class="table table-hover">
   <thead>
     <tr>
@@ -25,7 +21,6 @@
       <th scope="col">Status</th>
       <th scope="col">Editar</th>
       <th scope="col">Desativar/Ativar</th>
-
     </tr>
   </thead>
   <tbody>
@@ -36,19 +31,16 @@
         <td><?php echo htmlspecialchars($linha['nome_banner']); ?></td>
         <td><?php echo htmlspecialchars($linha['alt_foto_banner']); ?></td>
         <td><?php echo htmlspecialchars($linha['status_banner']); ?></td>
-
-
         </td>
 
         <td>
           <a href="<?php echo BASE_URL . 'produtos/editarB/' . $linha['id_banner']; ?>">
             <button><i class="bi bi-pencil-fill"></i></button>
           </a>
-          
         </td>
 
         <td>
-        <a href="<?php echo BASE_URL . 'produtos/statusB/' . $linha['id_banner']; ?>">
+          <a href="<?php echo BASE_URL . 'produtos/statusB/' . $linha['id_banner']; ?>">
             <button><i class="bi bi-trash-fill"></i></button>
           </a>
         </td>
@@ -56,5 +48,6 @@
     <?php endforeach; ?>
   </tbody>
 </table>
-<script src="http://localhost/guloseimas_do_olimpophp/public/vendors/dash/js/adminlte.js"></script>
+<script src="<?php echo BASE_URL; ?>vendors/dash/js/adminlte.js"></script>
+
 </html>
