@@ -2,53 +2,34 @@
 <html lang="pt-br">
 
 <head>
-
     <?php
-    // Inclui o head
-
     require(__DIR__ . '/../head_geral/head.php');
     ?>
-
 </head>
 
 <body>
-
-
-
     <header>
-
-
         <?php
-   // Inclui o cabeçalho
         require(__DIR__ . '/../template/header.php')
         ?>
     </header>
 
-
     <main>
-
-
         <section>
             <article class="site">
                 <div class="perfils_lado_a_lado">
-
-
                     <div class="perfil_cliente">
                         <div class="perfil_editar">
                             <h2>Perfil</h2>
-                            <a href="http://localhost/guloseimas_do_olimpophp/public/Cliente/editar_cliente/">Editar</a>
+                            <a href="<?php echo BASE_URL; ?>Cliente/editar_cliente/">Editar</a>
                         </div>
 
                         <div class="perfil_informaçoes">
-
                             <div class="informacoes">
                                 <h3>Nome</h3>
                                 <p><?php echo htmlspecialchars($dados['nome']); ?></p>
                             </div>
-
-
-
-
+                            
                             <div class="informacoes">
                                 <h3>CPF</h3>
                                 <p><?php echo htmlspecialchars($dados['cpf']); ?></p>
@@ -66,7 +47,7 @@
 
                             <div class="informacoes_sair">
 
-                                <a href="http://localhost/guloseimas_do_olimpophp/public/login/sair">Sair</a>
+                                <a href="<?php echo BASE_URL; ?>login/sair">Sair</a>
                             </div>
                             <div class="informacoes">
                                 <h4>-------------------------------------------------------------------</h4>
@@ -74,7 +55,7 @@
 
                             <div class="perfil_editar">
                                 <h2>Senha</h2>
-                                <a href="http://localhost/guloseimas_do_olimpophp/public/Cliente/editar_senha_cliente/">Editar</a>
+                                <a href="<?php echo BASE_URL; ?>Cliente/editar_senha_cliente/">Editar</a>
                             </div>
 
                             <div class="informacoes">
@@ -82,20 +63,10 @@
                                 <h3>Senha</h3>
                                 <p><?php echo str_repeat('*', strlen($dados['senha'])); ?></p>
                             </div>
-
-
-
                         </div>
-
-
-
-
-
                     </div>
 
                     <div class="perfil_favoritos_reservas">
-
-
                         <div class="perfil_favoritos">
                             <div class="perfil_produtos_favortios">
                                 <h2>Favoritos</h2>
@@ -107,7 +78,7 @@
                                     <?php foreach ($favoritos as $favorito): ?>
                                         <div class="favorito-item">
                                             <!-- Envolvendo todo o item com o link para a página de detalhes -->
-                                            <a  class="link_favorito" href="<?php echo BASE_URL . 'produtos/detalhe/' . $favorito['link_produto']; ?>">
+                                            <a class="link_favorito" href="<?php echo BASE_URL . 'produtos/detalhe/' . $favorito['link_produto']; ?>">
                                                 <img src="<?php echo BASE_URL . 'uploads/' . $favorito['foto_produto']; ?>" alt="<?php echo htmlspecialchars($favorito['alt_foto_produto'], ENT_QUOTES, 'UTF-8'); ?>" class="pg_produto">
                                                 <h3><?php echo htmlspecialchars($favorito['nome_produto'], ENT_QUOTES, 'UTF-8'); ?></h3>
                                                 <p>Preço: R$ <?php echo number_format($favorito['preco_produto'], 2, ',', '.'); ?></p>
@@ -119,34 +90,17 @@
                             <?php else: ?>
                                 <p>Você ainda não tem produtos favoritos.</p>
                             <?php endif; ?>
-
-
-
-
-
                         </div>
-
-
-
-
                         <div class="perfil_favoritos">
                             <div class="perfil_produtos_favortios">
                                 <h2>Historico de reserva</h2>
-                                <a href="http://localhost/guloseimas_do_olimpophp/public/Cliente/historico_reserva/">Visualizar</a>
+                                <a href="<?php echo BASE_URL; ?>Cliente/historico_reserva/">Visualizar</a>
                             </div>
-
-                          
-
                         </div>
-
-
                     </div>
                 </div>
             </article>
         </section>
-
-
-
         <div class="modal fade" id="modalRemoverFavorito" tabindex="-1" aria-labelledby="modalRemoverFavoritoLabel" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
@@ -164,22 +118,17 @@
                 </div>
             </div>
         </div>
-
-
     </main>
 
     <footer>
         <?php
-        // Inclui o cabeçalho
         require(__DIR__ . '/../template/footer.php');
         ?>
     </footer>
 
     <?php
-    // Inclui o script
     require(__DIR__ . '/../script_geral/script.php');
     ?>
-
 </body>
 
 <script>
@@ -207,13 +156,13 @@
                     },
                     body: JSON.stringify({
                         id_produto: produtoId
-                    }) // Passando o ID do produto
+                    }) 
                 })
                 .then(response => response.json())
                 .then(data => {
                     if (data.sucesso) {
 
-                        location.reload(); // Recarrega a página para atualizar a lista
+                        location.reload(); 
                     } else {
 
                     }
