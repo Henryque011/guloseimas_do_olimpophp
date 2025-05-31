@@ -8,7 +8,6 @@
     ?>
 </head>
 
-
 <body>
     <header>
         <?php
@@ -24,8 +23,6 @@
         <?php
         // Inclui  a pagina  sobre banner
         require('pagina_sobre/banner_sobre.php');
-
-
 
         // Inclui  a pagina  sobre mim
         require('pagina_sobre/sobre_mim.php');
@@ -52,8 +49,6 @@
 
         ?>
 
-
-
     </main>
 
     <footer>
@@ -62,10 +57,6 @@
         require('template/footer.php');
         ?>
     </footer>
-
-
-    </main>
-
 
     <?php
     // Inclui o script
@@ -84,9 +75,6 @@
             });
         });
     </script>
-</body>
-
-
 </body>
 
 </html>
