@@ -1,5 +1,3 @@
-
-
 <style>
   button {
     border: none;
@@ -12,8 +10,6 @@
     border-radius: 5px;
   }
 </style>
-
-
 
 <table class="table table-hover">
   <thead>
@@ -47,7 +43,6 @@
               <button><i class="bi bi-trash-fill"></i></button>
             </a>
           </td>
-
           </td>
         </tr>
       <?php endforeach; ?>
@@ -58,5 +53,6 @@
     <?php endif; ?>
   </tbody>
 </table>
-<script src="http://localhost/guloseimas_do_olimpophp/public/vendors/dash/js/adminlte.js"></script>
+<script src="<?php echo BASE_URL; ?>vendors/dash/js/adminlte.js"></script>
+
 </html>
