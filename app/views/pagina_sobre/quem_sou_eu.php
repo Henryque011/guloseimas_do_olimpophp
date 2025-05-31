@@ -5,9 +5,7 @@
         </div>
         <div class="lado_a_lado">
             <div class="foto_quem" style="background-image: url('<?php echo BASE_URL . 'uploads/' . htmlspecialchars($quem_sou_eu['foto_galeria'], ENT_QUOTES, 'UTF-8'); ?>');">
-
             </div>
-
             <div>
                 <p>Meu nome é Ana Caroline, tenho 24 anos e nunca imaginei que a confeitaria faria parte da minha vida. Meu sonho inicial era ser arquiteta, mas ao fazer trufas para uma renda extra, descobri minha paixão pelos doces.
 
