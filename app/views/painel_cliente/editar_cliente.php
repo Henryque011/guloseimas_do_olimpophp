@@ -2,11 +2,7 @@
 <html lang="pt-br">
 
 <head>
-
     <?php require(__DIR__ . '/../head_geral/head.php'); ?>
-
-    <!-- Bootstrap CSS -->
-   
 </head>
 
 <body>
@@ -21,8 +17,8 @@
                     <h2>Editar conta</h2>
                 </div>
                 <div>
-                    <img src="http://localhost/guloseimas_do_olimpophp/public/assets/img/BRIGADEIRO 2.svg" alt="brigadeiros">
-                    <img src="http://localhost/guloseimas_do_olimpophp/public/assets/img/BRIGADEIRO 3.svg" alt="brigadeiros">
+                    <img src="<?php echo BASE_URL; ?>assets/img/BRIGADEIRO 2.svg" alt="brigadeiros">
+                    <img src="<?php echo BASE_URL; ?>assets/img/BRIGADEIRO 3.svg" alt="brigadeiros">
                 </div>
             </article>
         </section>
@@ -68,10 +64,9 @@
                                         value="<?php echo htmlspecialchars($dados['nascimento']); ?>"
                                         required>
                                 </div>
-
                             </div>
 
-                            <div class="voltar_salvar" >
+                            <div class="voltar_salvar">
                                 <div class="button_forms">
                                     <button type="submit" id="btnSalvarSenha" class="btn btn-primary">Editar</button>
 
@@ -80,10 +75,7 @@
                                     <a href="<?php echo BASE_URL; ?>cliente">Voltar</a>
                                 </div>
                             </div>
-
-                            
                         </form>
-
                     </div>
                 </div>
             </article>
@@ -93,8 +85,8 @@
             <article class="site">
                 <div></div>
                 <div>
-                    <img src="http://localhost/guloseimas_do_olimpophp/public/assets/img/BRIGADEIRO 4.svg" alt="brigadeiros">
-                    <img src="http://localhost/guloseimas_do_olimpophp/public/assets/img/BRIGADEIRO 5.svg" alt="brigadeiros">
+                    <img src="<?php echo BASE_URL; ?>assets/img/BRIGADEIRO 4.svg" alt="brigadeiros">
+                    <img src="<?php echo BASE_URL; ?>assets/img/BRIGADEIRO 5.svg" alt="brigadeiros">
                 </div>
             </article>
         </section>
@@ -121,10 +113,6 @@
             </div>
         </div>
     </div>
-
-    <!-- Bootstrap JS -->
-  
-
     <!-- Script para exibir o modal após salvar -->
     <script>
         document.getElementById('formEditar').addEventListener('submit', function(event) {
@@ -137,7 +125,7 @@
             }, 500);
 
             // Após fechar o modal, pode redirecionar ou submeter o formulário real
-            document.getElementById('modalSucesso').addEventListener('hidden.bs.modal', function () {
+            document.getElementById('modalSucesso').addEventListener('hidden.bs.modal', function() {
                 document.getElementById('formEditar').submit();
             });
         });
