@@ -1,5 +1,3 @@
-
-
 <style>
   button {
     border: none;
@@ -12,8 +10,6 @@
     border-radius: 5px;
   }
 </style>
-
-
 
 <table class="table table-hover">
   <thead>
@@ -46,7 +42,6 @@
               <button><i class="bi bi-pencil-fill"></i></button>
             </a>
 
-
           </td>
           <td>
             <a href="<?php echo BASE_URL . 'sobre/status_S_S/' . $linha['id_servico']; ?>">
@@ -62,5 +57,6 @@
     <?php endif; ?>
   </tbody>
 </table>
-<script src="http://localhost/guloseimas_do_olimpophp/public/vendors/dash/js/adminlte.js"></script>
+<script src="<?php echo BASE_URL; ?>vendors/dash/js/adminlte.js"></script>
+
 </html>
