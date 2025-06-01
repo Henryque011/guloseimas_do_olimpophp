@@ -55,23 +55,17 @@ class Produto extends Model
     {
         $sql = "
         SELECT 
-            ip.nome_info_produtos,
-            ip.descricao_info_produto,
-            ip.personalizacao_info_produtos,
-            ip.forma_pagamento_info_produto,
-            ip.entrega_info_produtos,
-            ip.reserva_info_produtos,
-            ip.info_alt_foto_produto,
-            ip.foto_info_produto,
-            p.preco_produto,
-            p.foto_produto,
-            p.link_produto,
-            p.status_pedido
+        ip.*, 
+        p.id_produto AS id_produto,
+        p.nome_produto,
+        p.preco_produto,
+        p.link_produto,
+        p.status_pedido
         FROM tbl_info_produtos AS ip
-        INNER JOIN tbl_produtos AS p ON ip.id_produto = p.id_produto
-        WHERE p.status_pedido = 'Ativo' 
-            AND p.link_produto = :link  
-            AND ip.status_info_produtos = 'Ativo'
+        INNER JOIN tbl_produtos AS p ON ip.id_produto = p.id_produto 
+        WHERE status_pedido = 'Ativo' 
+        AND link_produto = :link  
+        AND status_info_produtos = 'Ativo'
     ";
 
         $stmt = $this->db->prepare($sql);
