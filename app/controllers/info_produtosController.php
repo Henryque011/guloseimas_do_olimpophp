@@ -3,15 +3,10 @@
 class info_produtosController extends Controller
 {
 
-
     private $info_produtos;
 
-
-
-
-    public function __construct(){
-
-
+    public function __construct()
+    {
 
         // Inicializa a sessão se ainda não estiver iniciada
         if (session_status() == PHP_SESSION_NONE) {
@@ -22,27 +17,18 @@ class info_produtosController extends Controller
         $this->info_produtos = new Produto();
     }
 
-
-
-
-
-    public function index(){
-
-
-
+    public function index()
+    {
 
         $dados = array();
 
-
         $dados['nome'] = 'cheguei aqui ';
-
-
 
         $this->carregarViews('info_produtos', $dados);
     }
 
-
-    public function info_produtos($id = null){
+    public function info_produtos($id = null)
+    {
         if (!isset($_SESSION['userTipo']) || $_SESSION['userTipo'] !== 'Funcionario') {
             header('Location: ' . BASE_URL);
             exit;
@@ -63,8 +49,8 @@ class info_produtosController extends Controller
         $this->carregarViews('dash/dashboard', $dados);
     }
 
-
-    public function editarI($id){
+    public function editarI($id)
+    {
         // Verifica se o usuário está logado e tem permissão para editar
         if (!isset($_SESSION['userTipo']) || $_SESSION['userTipo'] !== 'Funcionario') {
             header('Location: ' . BASE_URL);
@@ -89,9 +75,8 @@ class info_produtosController extends Controller
         $this->carregarViews('dash/info_produtos/editarI', $dados);
     }
 
-
-
-    public function atualizar_info(){
+    public function atualizar_info()
+    {
         // Verifica se o usuário tem permissão
         if (!isset($_SESSION['userTipo']) || $_SESSION['userTipo'] !== 'Funcionario') {
             header('Location: ' . BASE_URL);
@@ -151,31 +136,29 @@ class info_produtosController extends Controller
         }
     }
 
-
-    public function adicionarReserva($idProduto) {
+    public function adicionarReserva($idProduto)
+    {
         // Verifica se o cliente está logado
         if (!isset($_SESSION['userId'])) {
             $_SESSION['erro'] = 'Faça login para reservar.';
             header('Location: ' . BASE_URL . 'login');
             exit();
         }
-    
+
         // Obtém o id do cliente a partir da sessão
         $id_cliente = $_SESSION['userId'];
-    
+
         // **Zera o carrinho completamente**
         $_SESSION['carrinho'] = [];  // Garante que o carrinho esteja vazio
-    
+
         // Cria uma instância do modelo Produto
         $produtoModel = new Produto();
-    
+
         // Chama o método adicionar do modelo Produto para fazer a reserva
         $produtoModel->adicionar($idProduto, $id_cliente);
-    
+
         // Redireciona o usuário para a página de reservas
         header('Location: ' . BASE_URL . 'reservas');
         exit();
     }
-    
-    
 }
