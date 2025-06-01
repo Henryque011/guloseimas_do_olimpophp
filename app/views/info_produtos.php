@@ -33,7 +33,8 @@
                     </div>
                     <div class="inf_produto">
                         <div class="reserva_title">
-                            <h3><?php echo htmlspecialchars($detalheServico['nome_info_produtos'], ENT_QUOTES, 'UTF-8'); ?></h3>
+                            <h3><?php echo htmlspecialchars($detalheServico['nome_produto'], ENT_QUOTES, 'UTF-8'); ?></h3>
+
 
                             <div class="reserva_preco">
                                 <p>R$ <?php echo number_format($detalheServico['preco_produto'], 2, ',', '.'); ?></p>
