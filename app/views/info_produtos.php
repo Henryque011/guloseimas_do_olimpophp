@@ -1,4 +1,3 @@
-<pre><?php print_r($detalheServico); ?></pre>
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -68,16 +67,21 @@
                                     <button id="decrement-button"><i class="fa-solid fa-arrow-down"></i></button>
                                 </div>
                             </div> -->
-                                <div class="carrinho_produto">
-                                    <div class="car">
-                                        <i class="fa-solid fa-cart-shopping"></i>
+                                <?php if (isset($detalheServico['id_produto'])): ?>
+                                    <div class="carrinho_produto">
+                                        <div class="car">
+                                            <i class="fa-solid fa-cart-shopping"></i>
+                                        </div>
+                                        <div>
+                                            <a href="<?php echo BASE_URL . 'info_produtos/adicionarReserva/' . $detalheServico['id_produto']; ?>">
+                                                <p>RESERVE AGORA</p>
+                                            </a>
+                                        </div>
                                     </div>
-                                    <div>
-                                        <a href="<?php echo BASE_URL . 'info_produtos/adicionarReserva/' . $detalheServico['id_produto']; ?>">
-                                            <p>RESERVE AGORA</p>
-                                        </a>
-                                    </div>
-                                </div>
+                                <?php else: ?>
+                                    <p style="color: red;">Erro: Produto não encontrado para reserva.</p>
+                                <?php endif; ?>
+
                                 <div class="fav_produto">
                                     <div>
                                         <i id="heart-icon" class="fa-solid fa-heart"></i>
