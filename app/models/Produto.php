@@ -1,31 +1,22 @@
 <?php
 
-
-
 class Produto extends Model
 {
-
-
-
     // METODO PARA PEGAR FOTOS DA GALERIA
 
     public function getProduto()
     {
 
-
-
         $sql = " SELECT id_produto, foto_produto, alt_foto_produto, nome_produto, preco_produto, status_pedido , link_produto
-       FROM tbl_produtos
-       WHERE id_produto NOT IN (1, 2, 3 , 4 , 5)
-       LIMIT 10
-       ";
-
+        FROM tbl_produtos
+        WHERE id_produto NOT IN (1, 2, 3 , 4 , 5)
+        LIMIT 10
+        ";
 
         $stmt = $this->db->prepare($sql);
         $stmt->execute();
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
-
 
     public function getPg_produtos($categoria = null, $status = null)
     {
@@ -62,16 +53,15 @@ class Produto extends Model
 
     public function getServicoPorlink($link)
     {
-       
+
         $sql = "SELECT * 
-   FROM tbl_info_produtos AS ip
-     INNER JOIN tbl_produtos AS p ON ip.id_produto = p.id_produto WHERE status_pedido = 'Ativo' AND link_produto = :link  AND status_info_produtos = 'Ativo'";
+        FROM tbl_info_produtos AS ip
+        INNER JOIN tbl_produtos AS p ON ip.id_produto = p.id_produto WHERE status_pedido = 'Ativo' AND link_produto = :link  AND status_info_produtos = 'Ativo'";
         $stmt = $this->db->prepare($sql);
         $stmt->bindValue(':link', $link);
         $stmt->execute();
         return $stmt->fetch(PDO::FETCH_ASSOC); // Certifique-se de que isso retorna um array ou um objeto
     }
-
 
     public function getTodosServicos($id = null)
     {
@@ -96,8 +86,7 @@ class Produto extends Model
     {
         $sql = "SELECT 
                 ip.*, 
-                p.* 
-                 
+                p.*                  
             FROM tbl_info_produtos AS ip
             INNER JOIN tbl_produtos AS p ON ip.id_produto = p.id_produto
             WHERE ip.status_info_produtos = 'Ativo' AND ip.id_info_produtos = :id";
@@ -107,13 +96,11 @@ class Produto extends Model
         return $stmt->fetch(PDO::FETCH_ASSOC);
     }
 
-
     //################################################### 
 
     // BACK-END - DASHBORAD
 
     //###################################################
-
 
     public function atualizarProduto($id, $dados)
     {
@@ -128,9 +115,9 @@ class Produto extends Model
         // Depuração: Exibe a query e os dados antes da execução
         echo '<pre>';
         echo 'Query SQL antes da execução: ';
-       
+
         echo 'Dados a serem vinculados: ';
-      
+
         echo '</pre>';
 
         // Prepara a query
@@ -154,7 +141,6 @@ class Produto extends Model
         return true;
     }
 
-
     public function atualizar_info_Produto($id, $dados)
     {
         // Definindo a query SQL
@@ -168,7 +154,6 @@ class Produto extends Model
 
         ip.info_alt_foto_produto = :info_alt_foto_produto,
 
-
         p.preco_produto = :preco_produto,
 
         ip.personalizacao_info_produtos = :personalizacao_info_produtos,
@@ -179,8 +164,7 @@ class Produto extends Model
 
         ip.reserva_info_produtos = :reserva_info_produtos
 
-    WHERE ip.id_info_produtos = :id";
-
+        WHERE ip.id_info_produtos = :id";
 
         $stmt = $this->db->prepare($sql);
 
@@ -204,8 +188,6 @@ class Produto extends Model
 
         $stmt->bindValue(':reserva_info_produtos', $dados['reserva_info_produtos']);
 
-
-
         $stmt->bindValue(':id', $id);
 
         // Executa a query
@@ -228,7 +210,6 @@ class Produto extends Model
         return $stmt->fetch(PDO::FETCH_ASSOC);
     }
 
-
     public function atualizarStatusProduto($id, $status)
     {
         $sql = "UPDATE tbl_produtos 
@@ -240,7 +221,6 @@ class Produto extends Model
 
         return $stmt->execute();
     }
-
 
     public function adicionar($idProduto, $id_cliente)
     {
@@ -309,7 +289,6 @@ class Produto extends Model
         return $stmt->execute();
     }
 
-
     public function existeEsseServico($link)
     {
         $sql = "SELECT COUNT(*) AS total FROM tbl_produtos WHERE link_produto = :link";
@@ -321,10 +300,8 @@ class Produto extends Model
 
         $resultado = $stmt->fetch(PDO::FETCH_ASSOC);
 
-
         return $resultado['total'] > 0;
     }
-
 
     private function atualizarCarrinhoSessao($id_cliente)
     {
@@ -348,7 +325,6 @@ class Produto extends Model
             ];
         }
     }
-
 
     public function remover($idProduto, $id_cliente)
     {
@@ -439,7 +415,6 @@ class Produto extends Model
         return $stmt->execute(); // Retorna true se for bem-sucedido
     }
 
-
     public function obterOuCriarcategoria($nome)
     {
         $sql = "INSERT INTO tbl_categoria(nome_categoria , status_categoria) VALUES(
@@ -447,31 +422,26 @@ class Produto extends Model
         $stmt = $this->db->prepare($sql);
         $stmt->bindValue(':nome_categoria', $nome);
 
-
         if ($stmt->execute()) {
             return $this->db->lastInsertId();
         }
-
         return false;
     }
 
-
     public function getVerMaisProdutos($limite, $offset)
-{
-    $sql = "SELECT * FROM tbl_produtos 
+    {
+        $sql = "SELECT * FROM tbl_produtos 
             WHERE status_pedido = 'Ativo' 
             ORDER BY id_produto ASC 
             LIMIT :limite OFFSET :offset";
 
-    $stmt = $this->db->prepare($sql);
-    $stmt->bindValue(':limite', $limite, PDO::PARAM_INT);
-    $stmt->bindValue(':offset', $offset, PDO::PARAM_INT);
-    $stmt->execute();
+        $stmt = $this->db->prepare($sql);
+        $stmt->bindValue(':limite', $limite, PDO::PARAM_INT);
+        $stmt->bindValue(':offset', $offset, PDO::PARAM_INT);
+        $stmt->execute();
 
-    return $stmt->fetchAll(PDO::FETCH_ASSOC);
-}
-
-
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
 
     public function getProdutosPorCategoria($categoriaId, $limite = 10, $offset = 0)
     {
@@ -489,7 +459,6 @@ class Produto extends Model
 
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
-
 
     public function getTodosProdutos($limite = 2, $offset = 0)
     {
