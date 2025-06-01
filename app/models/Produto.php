@@ -55,25 +55,25 @@ class Produto extends Model
     {
         $sql = "
         SELECT 
-        ip.*, 
-        p.id_produto AS id_produto,
-        p.nome_produto,
-        p.preco_produto,
-        p.link_produto,
-        p.status_pedido
-        FROM tbl_info_produtos AS ip
-        INNER JOIN tbl_produtos AS p ON ip.id_produto = p.id_produto 
-        WHERE status_pedido = 'Ativo' 
-        AND link_produto = :link  
-        AND status_info_produtos = 'Ativo'
+            ip.*, 
+            p.id_produto AS id_produto,
+            p.foto_produto,
+            p.nome_produto,
+            p.preco_produto,
+            p.link_produto,
+            p.status_pedido
+            FROM tbl_info_produtos AS ip
+            INNER JOIN tbl_produtos AS p ON ip.id_produto = p.id_produto
+            WHERE status_pedido = 'Ativo' 
+            AND link_produto = :link  
+            AND status_info_produtos = 'Ativo'
     ";
-
         $stmt = $this->db->prepare($sql);
         $stmt->bindValue(':link', $link);
         $stmt->execute();
-
         return $stmt->fetch(PDO::FETCH_ASSOC);
     }
+
 
     public function getTodosServicos($id = null)
     {
