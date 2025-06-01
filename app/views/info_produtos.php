@@ -1,3 +1,4 @@
+<pre><?php print_r($detalheServico); ?></pre>
 <!DOCTYPE html>
 <html lang="pt-br">
 
