@@ -404,12 +404,8 @@ class ApiController extends Controller
 
     public function listarProdutos()
     {
-        $produtos = $this->produtoModel->getTodosProdutos(10, 0);
+        $produtos = $this->produtoModel->getTodosProdutos(100);
 
-        foreach ($produtos as $p) {
-            var_dump($p['foto_produto']);
-        }
-        
         if (empty($produtos)) {
             http_response_code(404);
             echo json_encode(['mensagem' => 'Nenhum produto encontrado.']);
