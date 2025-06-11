@@ -416,13 +416,19 @@ class ApiController extends Controller
         echo json_encode($produtos, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE);
     }
 
-    public function listarImagens() {
+    public function listarImagens()
+    {
         $produtos = $this->produtoModel->getProduto();
 
         if (empty($produtos)) {
             http_response_code(404);
             echo json_encode(['mensagem' => 'Nenhum produto encontrado.']);
             return;
+        }
+
+        $baseUrlImagem = 'https://agenciatipi02.smpsistema.com.br/aluno/henryque/guloseimas_do_olimpophp/public/';
+        foreach ($produtos as &$produto) {
+            $produto['foto_produto'] = $baseUrlImagem . $produto['foto_produto'];
         }
 
         echo json_encode($produtos, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE);
