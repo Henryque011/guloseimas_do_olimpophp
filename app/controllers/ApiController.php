@@ -404,7 +404,13 @@ class ApiController extends Controller
 
     public function listarProdutos()
     {
-        $produtos = $this->produtoModel->getTodosProdutos();
+        $produtos = $this->produtoModel->getTodosProdutos(10, 0); // pega 10 produtos a partir do offset 0
+
+        foreach ($produtos as $p) {
+            echo $p['nome_produto'] . ' - R$ ' . $p['preco_produto'] . '<br>';
+        }
+
+        // $produtos = $this->produtoModel->getTodosProdutos();
 
         if (empty($produtos)) {
             http_response_code(404);
