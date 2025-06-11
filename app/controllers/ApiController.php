@@ -415,4 +415,16 @@ class ApiController extends Controller
         // Se chegou aqui, tem produtos. Vamos exibir JSON só (não misturar echo HTML com JSON)
         echo json_encode($produtos, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE);
     }
+
+    public function listarImagens() {
+        $produtos = $this->produtoModel->getProduto();
+
+        if (empty($produtos)) {
+            http_response_code(404);
+            echo json_encode(['mensagem' => 'Nenhum produto encontrado.']);
+            return;
+        }
+
+        echo json_encode($produtos, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE);
+    }
 }
