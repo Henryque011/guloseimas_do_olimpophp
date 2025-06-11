@@ -426,9 +426,10 @@ class ApiController extends Controller
             return;
         }
 
+        // Corrige o caminho da imagem aqui
         $baseUrlImagem = 'https://agenciatipi02.smpsistema.com.br/aluno/henryque/guloseimas_do_olimpophp/public/';
         foreach ($produtos as &$produto) {
-            $produto['foto_produto'] = $baseUrlImagem . $produto['foto_produto'];
+            $produto['foto_produto'] = $baseUrlImagem . ltrim($produto['foto_produto'], '/');
         }
 
         echo json_encode($produtos, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE);
