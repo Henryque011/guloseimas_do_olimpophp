@@ -404,13 +404,7 @@ class ApiController extends Controller
 
     public function listarProdutos()
     {
-        $produtos = $this->produtoModel->getTodosProdutos(10, 0); // pega 10 produtos a partir do offset 0
-
-        foreach ($produtos as $p) {
-            echo $p['nome_produto'] . ' - R$ ' . $p['preco_produto'] . '<br>';
-        }
-
-        // $produtos = $this->produtoModel->getTodosProdutos();
+        $produtos = $this->produtoModel->getTodosProdutos(10, 0);
 
         if (empty($produtos)) {
             http_response_code(404);
@@ -418,6 +412,7 @@ class ApiController extends Controller
             return;
         }
 
+        // Se chegou aqui, tem produtos. Vamos exibir JSON só (não misturar echo HTML com JSON)
         echo json_encode($produtos, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE);
     }
 }
