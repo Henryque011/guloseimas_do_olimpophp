@@ -420,10 +420,13 @@ class ApiController extends Controller
     {
         $produtos = $this->produtoModel->getProduto();
 
-        // Prefixar o caminho da imagem corretamente
         $baseUrlImagem = 'https://agenciatipi02.smpsistema.com.br/aluno/henryque/guloseimas_do_olimpophp/public/';
+
         foreach ($produtos as &$produto) {
-            $produto['foto_produto'] = $baseUrlImagem . $produto['foto_produto'];
+            // Só adiciona o baseUrl se foto_produto não começar com http ou https
+            if (strpos($produto['foto_produto'], 'http') !== 0) {
+                $produto['foto_produto'] = $baseUrlImagem . $produto['foto_produto'];
+            }
         }
 
         if (empty($produtos)) {
@@ -432,7 +435,6 @@ class ApiController extends Controller
             return;
         }
 
-        // Garante retorno JSON limpo
         header('Content-Type: application/json');
         echo json_encode($produtos, JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT);
     }
