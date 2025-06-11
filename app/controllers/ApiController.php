@@ -420,18 +420,20 @@ class ApiController extends Controller
     {
         $produtos = $this->produtoModel->getProduto();
 
+        // Prefixar o caminho da imagem corretamente
+        $baseUrlImagem = 'https://agenciatipi02.smpsistema.com.br/aluno/henryque/guloseimas_do_olimpophp/public/';
+        foreach ($produtos as &$produto) {
+            $produto['foto_produto'] = $baseUrlImagem . $produto['foto_produto'];
+        }
+
         if (empty($produtos)) {
             http_response_code(404);
             echo json_encode(['mensagem' => 'Nenhum produto encontrado.']);
             return;
         }
 
-        // Corrige o caminho da imagem aqui
-        $baseUrlImagem = 'https://agenciatipi02.smpsistema.com.br/aluno/henryque/guloseimas_do_olimpophp/public/';
-        foreach ($produtos as &$produto) {
-            $produto['foto_produto'] = $baseUrlImagem . ltrim($produto['foto_produto'], '/');
-        }
-
-        echo json_encode($produtos, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE);
+        // Garante retorno JSON limpo
+        header('Content-Type: application/json');
+        echo json_encode($produtos, JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT);
     }
 }
