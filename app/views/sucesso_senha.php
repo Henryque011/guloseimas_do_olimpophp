@@ -7,7 +7,6 @@ require_once('template/head.php')
     body {
         background-color: #FEFBF3;
     }
-    
 
     header {
         display: flex;
@@ -26,6 +25,7 @@ require_once('template/head.php')
     }
 
     h2 {
+        margin-top: 20px;
         font-family: "Poly";
         font-size: 16pt;
         text-transform: uppercase;
@@ -39,6 +39,9 @@ require_once('template/head.php')
     <section class="msg">
         <article class="site">
             <h2><?= isset($mensagem) ? htmlspecialchars($mensagem) : 'Mensagem não disponível.' ?></h2>
+            <a href="<?php echo BASE_URL ?>">
+                <button>Voltar</button>
+            </a>
         </article>
     </section>
 
