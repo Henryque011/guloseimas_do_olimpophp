@@ -37,11 +37,7 @@ require_once('template/head.php')
 <body>
     <section class="msg">
         <article class="site">
-            <h2>
-                <?php
-                echo isset($_GET['msg']) ? htmlspecialchars($_GET['msg']) : 'Nenhuma mensagem';
-                ?>
-            </h2>
+            <h2><?= isset($mensagem) ? htmlspecialchars($mensagem) : 'Mensagem não disponível.' ?></h2>
         </article>
     </section>
 
