@@ -33,15 +33,40 @@ require_once('template/head.php')
         text-align: center;
         font-weight: 300;
     }
+
+    .button_voltar {
+        width: 250px;
+        height: 50px;
+        background-color: #c4001af5;
+        border-radius: 5px;
+        align-items: center;
+        text-align: center;
+        display: flex;
+        justify-content: center;
+
+        a {
+            font-weight: bolder;
+            letter-spacing: 2px;
+            border: none;
+            color: white;
+            text-decoration: none;
+            text-transform: uppercase;
+            font-family: Poly;
+
+            i {
+                margin: 0 5px 0 0;
+            }
+        }
+    }
 </style>
 
 <body>
     <section class="msg">
         <article class="site">
             <h2><?= isset($mensagem) ? htmlspecialchars($mensagem) : 'Mensagem não disponível.' ?></h2>
-            <a href="<?php echo BASE_URL ?>">
-                <button>Voltar</button>
-            </a>
+            <div class="button_voltar">
+                <a href="<?php echo BASE_URL; ?>"><i class="fa-solid fa-backward"></i>Voltar</a>
+            </div>
         </article>
     </section>
 
