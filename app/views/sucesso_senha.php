@@ -35,8 +35,9 @@ require_once('template/head.php')
     }
 
     .button_voltar {
-        width: 250px;
-        height: 50px;
+        margin: 20px;
+        width: 200px;
+        height: 35px;
         background-color: #c4001af5;
         border-radius: 5px;
         align-items: center;
