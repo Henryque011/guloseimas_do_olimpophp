@@ -7,6 +7,7 @@ require_once('template/head.php')
     body {
         background-color: #FEFBF3;
     }
+    
 
     header {
         display: flex;
