@@ -397,7 +397,7 @@ class ApiController extends Controller
         } else {
             http_response_code(500);
             $dados['mensagem'] = 'Erro ao atualizar a senha.';
-            $this->carregarViews('sucesso.senha', $dados);
+            $this->carregarViews('sucesso_senha', $dados);
         }
     }
 
