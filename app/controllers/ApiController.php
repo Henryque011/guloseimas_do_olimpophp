@@ -393,7 +393,7 @@ class ApiController extends Controller
         if ($atualizado) {
             $this->clienteModel->limparTokenRecuperacao($cliente['id_cliente']);
             $dados['mensagem'] = 'Senha redefinida com sucesso.';
-            $this->carregarViews('sucesso.senha', $dados);
+            $this->carregarViews('sucesso_senha', $dados);
         } else {
             http_response_code(500);
             $dados['mensagem'] = 'Erro ao atualizar a senha.';
