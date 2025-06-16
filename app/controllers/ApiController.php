@@ -392,7 +392,6 @@ class ApiController extends Controller
         // }
         if ($atualizado) {
             $this->clienteModel->limparTokenRecuperacao($cliente['id_cliente']);
-
             echo json_encode(['mensagem' => 'Senha redefinida com sucesso'], JSON_UNESCAPED_UNICODE);
             return;
         } else {
