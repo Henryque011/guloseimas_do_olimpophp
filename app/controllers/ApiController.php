@@ -444,6 +444,20 @@ class ApiController extends Controller
         echo json_encode($produtos, JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT);
     }
 
+    public function listarCategorias()
+    {
+        $categorias = $this->produtoModel->getTodasCategorias();
+
+        if (empty($categorias)) {
+            http_response_code(404);
+            echo json_encode(['mensagem' => 'Nenhuma categoria encontrada.']);
+            return;
+        }
+
+        header('Content-Type: application/json');
+        echo json_encode($categorias, JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT);
+    }
+
     public function filtrarPorCategoria()
     {
         // Pega a categoria da URL: ?categoria=Bolos
