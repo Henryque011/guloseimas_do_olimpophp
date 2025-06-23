@@ -403,25 +403,32 @@ class ApiController extends Controller
 
     public function listarProdutos()
     {
+        // Obtém os produtos no banco
         $produtos = $this->produtoModel->getTodosProdutos(100);
 
+        // Verifica se não há produtos
         if (empty($produtos)) {
             http_response_code(404);
             echo json_encode(['mensagem' => 'Nenhum produto encontrado.']);
             return;
         }
 
+        // URL base para as imagens (sem "uploads" ou outros diretórios errados)
         $baseUrlImagem = 'https://agenciatipi02.smpsistema.com.br/aluno/henryque/guloseimas_do_olimpophp/public/';
 
+        // Ajusta o caminho da imagem para cada produto
         foreach ($produtos as &$produto) {
+            // Se não for uma URL completa, monta
             if (strpos($produto['foto_produto'], 'http') !== 0) {
                 $produto['foto_produto'] = $baseUrlImagem . ltrim($produto['foto_produto'], '/');
             }
 
-            // CORRIGIR barras invertidas
+            // CORRIGE barras invertidas (\ → /)
             $produto['foto_produto'] = str_replace('\\', '/', $produto['foto_produto']);
         }
 
+        // Retorna JSON bonito e legível
+        header('Content-Type: application/json');
         echo json_encode($produtos, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE);
     }
 
