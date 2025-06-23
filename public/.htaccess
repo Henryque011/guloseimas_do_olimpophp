@@ -4,8 +4,18 @@
 # RewriteCond %{REQUEST_FILENAME} !-d
 # RewriteRule ^(.*)$ index.php?url=$1 [QSA,L]
 
+# RewriteEngine On
+# RewriteBase /aluno/henryque/guloseimas_do_olimpophp/public/
+# RewriteCond %{REQUEST_FILENAME} !-f
+# RewriteCond %{REQUEST_FILENAME} !-d
+# RewriteRule ^(.*)$ index.php?url=$1 [QSA,L]
+
 RewriteEngine On
 RewriteBase /aluno/henryque/guloseimas_do_olimpophp/public/
-RewriteCond %{REQUEST_FILENAME} !-f
-RewriteCond %{REQUEST_FILENAME} !-d
+
+RewriteCond %{REQUEST_FILENAME} -f [OR]
+RewriteCond %{REQUEST_FILENAME} -d
+RewriteRule ^ - [L]
+
 RewriteRule ^(.*)$ index.php?url=$1 [QSA,L]
+
