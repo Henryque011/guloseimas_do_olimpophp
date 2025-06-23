@@ -414,7 +414,7 @@ class ApiController extends Controller
         }
 
         // URL base para as imagens (sem "uploads" ou outros diretórios errados)
-        $baseUrlImagem = 'https://agenciatipi02.smpsistema.com.br/aluno/henryque/guloseimas_do_olimpophp/public/';
+        $baseUrlImagem = 'https://agenciatipi02.smpsistema.com.br/aluno/henryque/guloseimas_do_olimpophp/public/uploads/produto/';
 
         // Ajusta o caminho da imagem para cada produto
         foreach ($produtos as &$produto) {
