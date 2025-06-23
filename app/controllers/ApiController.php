@@ -563,4 +563,33 @@ class ApiController extends Controller
         header('Content-Type: application/json');
         echo json_encode($produtos, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE);
     }
+
+    public function getServicoPorId()
+    {
+        $id = $_GET['id'] ?? null;
+
+        if (!$id) {
+            http_response_code(400);
+            echo json_encode(['erro' => 'ID do serviço não informado']);
+            return;
+        }
+
+        $produto = $this->produtoModel->getServicoPorId($id);
+
+        if (!$produto) {
+            http_response_code(404);
+            echo json_encode(['mensagem' => 'Serviço não encontrado']);
+            return;
+        }
+
+        // Corrige imagem
+        if (strpos($produto['foto_produto'], 'http') !== 0) {
+            $foto = preg_replace('#^produto[/\\\\]#', '', $produto['foto_produto']);
+            $foto = rawurlencode(str_replace('\\', '/', ltrim($foto, '/')));
+            $produto['foto_produto'] = 'https://agenciatipi02.smpsistema.com.br/aluno/henryque/guloseimas_do_olimpophp/public/uploads/produto/' . $foto;
+        }
+
+        header('Content-Type: application/json');
+        echo json_encode($produto, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE);
+    }
 }
