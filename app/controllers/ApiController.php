@@ -416,15 +416,13 @@ class ApiController extends Controller
         // URL base para as imagens (sem "uploads" ou outros diretórios errados)
         $baseUrlImagem = 'https://agenciatipi02.smpsistema.com.br/aluno/henryque/guloseimas_do_olimpophp/public/uploads/produto/';
 
-        // Ajusta o caminho da imagem para cada produto
         foreach ($produtos as &$produto) {
-            // Se não for uma URL completa, monta
             if (strpos($produto['foto_produto'], 'http') !== 0) {
-                $produto['foto_produto'] = $baseUrlImagem . ltrim($produto['foto_produto'], '/');
+                $nomeArquivo = ltrim($produto['foto_produto'], '/');
+                $nomeArquivo = str_replace('\\', '/', $nomeArquivo);
+                $nomeArquivo = rawurlencode($nomeArquivo); // para escapar espaços
+                $produto['foto_produto'] = $baseUrlImagem . $nomeArquivo;
             }
-
-            // CORRIGE barras invertidas (\ → /)
-            $produto['foto_produto'] = str_replace('\\', '/', $produto['foto_produto']);
         }
 
         // Retorna JSON bonito e legível
