@@ -418,10 +418,10 @@ class ApiController extends Controller
 
         foreach ($produtos as &$produto) {
             if (strpos($produto['foto_produto'], 'http') !== 0) {
-                $nomeArquivo = ltrim($produto['foto_produto'], '/');
-                $nomeArquivo = str_replace('\\', '/', $nomeArquivo);
-                $nomeArquivo = rawurlencode($nomeArquivo); // para escapar espaços
-                $produto['foto_produto'] = $baseUrlImagem . $nomeArquivo;
+                // Corrige e monta a URL diretamente no campo
+                $produto['foto_produto'] = $baseUrlImagem . rawurlencode(
+                    str_replace('\\', '/', ltrim($produto['foto_produto'], '/'))
+                );
             }
         }
 
