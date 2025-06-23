@@ -436,7 +436,7 @@ class ApiController extends Controller
     {
         $produtos = $this->produtoModel->getProduto();
 
-        $baseUrlImagem = 'https://agenciatipi02.smpsistema.com.br/aluno/henryque/guloseimas_do_olimpophp/public/produtos/';
+        $baseUrlImagem = 'https://agenciatipi02.smpsistema.com.br/aluno/henryque/guloseimas_do_olimpophp/public/uploads/produto/';
 
         foreach ($produtos as &$produto) {
             if (strpos($produto['foto_produto'], 'http') !== 0) {
