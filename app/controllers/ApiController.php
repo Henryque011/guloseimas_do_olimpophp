@@ -415,10 +415,11 @@ class ApiController extends Controller
 
         foreach ($produtos as &$produto) {
             if (strpos($produto['foto_produto'], 'http') !== 0) {
-                // Remove "produto/" se já existir no começo
-                $foto = ltrim($produto['foto_produto'], '/');
-                $produto['foto_produto'] = $baseUrlImagem . $foto;
+                $produto['foto_produto'] = $baseUrlImagem . ltrim($produto['foto_produto'], '/');
             }
+
+            // CORRIGIR barras invertidas
+            $produto['foto_produto'] = str_replace('\\', '/', $produto['foto_produto']);
         }
 
         echo json_encode($produtos, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE);
