@@ -479,7 +479,7 @@ class ApiController extends Controller
         // Requisição segura com ID
         $produtos = $this->produtoModel->getProdutosPorCategoria($categoriaId);
 
-        $baseUrlImagem = 'https://agenciatipi02.smpsistema.com.br/aluno/henryque/guloseimas_do_olimpophp/public/produtos/';
+        $baseUrlImagem = 'https://agenciatipi02.smpsistema.com.br/aluno/henryque/guloseimas_do_olimpophp/public/uploads/produto/';
 
         foreach ($produtos as &$produto) {
             if (strpos($produto['foto_produto'], 'http') !== 0) {
@@ -509,7 +509,7 @@ class ApiController extends Controller
 
         $produtos = $this->produtoModel->getProdutosPorPreco($preco);
 
-        $baseUrlImagem = 'https://agenciatipi02.smpsistema.com.br/aluno/henryque/guloseimas_do_olimpophp/public/produtos/';
+        $baseUrlImagem = 'https://agenciatipi02.smpsistema.com.br/aluno/henryque/guloseimas_do_olimpophp/public/uploads/produto/';
         foreach ($produtos as &$produto) {
             if (strpos($produto['foto_produto'], 'http') !== 0) {
                 $produto['foto_produto'] = $baseUrlImagem . ltrim($produto['foto_produto'], '/');
