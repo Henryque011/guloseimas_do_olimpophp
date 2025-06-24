@@ -552,15 +552,6 @@ class Produto extends Model
         $stmt->bindValue(':id', $id, PDO::PARAM_INT);
         $stmt->execute();
 
-        $produto = $stmt->fetch(PDO::FETCH_ASSOC);
-
-        if (!$produto) {
-            http_response_code(404);
-            echo json_encode(['mensagem' => 'Produto não encontrado']);
-            return;
-        }
-
-        header('Content-Type: application/json');
-        echo json_encode($produto, JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT);
+        return $stmt->fetch(PDO::FETCH_ASSOC); 
     }
 }
