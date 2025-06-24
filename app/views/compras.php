@@ -59,7 +59,7 @@
     }
 
     if (isset($_POST['reservar_pedido']) && isset($_SESSION['carrinho']) && !empty($_SESSION['carrinho'])) {
-        $numeroWhatsApp = '5511968812993'; // Número do WhatsApp no formato internacional
+        $numeroWhatsApp = '5511960655234'; // Número do WhatsApp no formato internacional
         $mensagem = "Olá, gostaria de reservar os seguintes produtos:\n\n";
 
         foreach ($_SESSION['carrinho'] as $produto) {
