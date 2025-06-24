@@ -670,4 +670,19 @@ class ApiController extends Controller
             echo json_encode(['erro' => 'Erro ao finalizar reserva: ' . $e->getMessage()]);
         }
     }
+
+    // ReservaController.php
+
+    public function getReservasPorCliente()
+    {
+        if (!isset($_GET['id_cliente'])) {
+            echo json_encode(['erro' => 'ID do cliente não informado']);
+            return;
+        }
+
+        $id_cliente = intval($_GET['id_cliente']);
+        $reservas = $this->reservaModel->listarReservasPorCliente($id_cliente);
+
+        echo json_encode($reservas, JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT);
+    }
 }
