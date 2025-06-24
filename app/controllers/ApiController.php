@@ -611,7 +611,9 @@ class ApiController extends Controller
             return;
         }
 
+
         header('Content-Type: application/json');
         echo json_encode($produto, JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT);
+        return;
     }
 }
