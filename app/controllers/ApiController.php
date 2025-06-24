@@ -591,4 +591,27 @@ class ApiController extends Controller
         header('Content-Type: application/json');
         echo json_encode($produto, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE);
     }
+
+    public function getProdutoCompleto()
+    {
+        $id = $_GET['id'] ?? null;
+
+        if (!$id) {
+            http_response_code(400);
+            echo json_encode(['erro' => 'ID não informado']);
+            return;
+        }
+
+        $produtoModel = new Produto();
+        $produto = $produtoModel->getProdutoCompletoPorId($id);
+
+        if (!$produto) {
+            http_response_code(404);
+            echo json_encode(['mensagem' => 'Produto não encontrado']);
+            return;
+        }
+
+        header('Content-Type: application/json');
+        echo json_encode($produto, JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT);
+    }
 }
