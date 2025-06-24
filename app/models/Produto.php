@@ -523,4 +523,44 @@ class Produto extends Model
         $stmt->execute();
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
+
+    public function getProdutoCompletoPorId($id)
+    {
+        $sql = "
+        SELECT 
+            p.id_produto,
+            p.nome_produto,
+            p.descricao_produto,
+            p.preco_produto,
+            p.foto_produto,
+            p.alt_foto_produto,
+            p.status_pedido,
+            p.link_produto,
+
+            ip.personalizacao_info_produtos,
+            ip.forma_pagamento_info_produto,
+            ip.entrega_info_produtos,
+            ip.reserva_info_produtos
+        FROM tbl_produtos AS p
+        LEFT JOIN tbl_info_produtos AS ip ON p.id_produto = ip.id_produto
+        WHERE p.id_produto = :id
+        AND p.status_pedido = 'Ativo'
+        LIMIT 1
+    ";
+
+        $stmt = $this->db->prepare($sql);
+        $stmt->bindValue(':id', $id, PDO::PARAM_INT);
+        $stmt->execute();
+
+        $produto = $stmt->fetch(PDO::FETCH_ASSOC);
+
+        if (!$produto) {
+            http_response_code(404);
+            echo json_encode(['mensagem' => 'Produto não encontrado']);
+            return;
+        }
+
+        header('Content-Type: application/json');
+        echo json_encode($produto, JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT);
+    }
 }
