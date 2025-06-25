@@ -59,7 +59,7 @@
     }
 
     if (isset($_POST['reservar_pedido']) && isset($_SESSION['carrinho']) && !empty($_SESSION['carrinho'])) {
-        $numeroWhatsApp = '5511968812993'; // Número do WhatsApp no formato internacional
+        $numeroWhatsApp = '5511960655234'; // Número do WhatsApp no formato internacional
         $mensagem = "Olá, gostaria de reservar os seguintes produtos:\n\n";
 
         foreach ($_SESSION['carrinho'] as $produto) {
@@ -271,7 +271,7 @@
             // Previne o comportamento padrão do link
             event.preventDefault();
 
-            const numeroWhatsApp = '5511968812993'; // Número do WhatsApp no formato internacional
+            const numeroWhatsApp = '5511960655234'; // Número do WhatsApp no formato internacional
             let mensagem = "Olá, gostaria de reservar os seguintes produtos:\n\n";
             let total = 0;
             let numProdutos = 0;
@@ -406,7 +406,7 @@
 
                 // Codifica a mensagem para a URL do WhatsApp
                 const mensagemCodificada = encodeURIComponent(mensagem);
-                const numeroWhatsApp = '5511968812993'; // Número do WhatsApp
+                const numeroWhatsApp = '5511960655234'; // Número do WhatsApp
                 const linkWhatsApp = `https://wa.me/${numeroWhatsApp}?text=${mensagemCodificada}`;
 
                 // Atualiza o link do botão de WhatsApp
