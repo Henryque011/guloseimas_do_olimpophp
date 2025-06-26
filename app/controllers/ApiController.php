@@ -687,4 +687,24 @@ class ApiController extends Controller
 
         echo json_encode($reservas, JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT);
     }
+
+    public function getPerfilCliente()
+    {
+        if (!isset($_GET['id_cliente'])) {
+            echo json_encode(['erro' => 'ID do cliente não informado']);
+            return;
+        }
+
+        $id = intval($_GET['id_cliente']);
+
+        $this->clienteModel = new Cliente(); 
+
+        $cliente = $this->clienteModel->getClienteById($id);
+
+        if ($cliente) {
+            echo json_encode($cliente[0], JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT);
+        } else {
+            echo json_encode(['erro' => 'Cliente não encontrado']);
+        }
+    }
 }
